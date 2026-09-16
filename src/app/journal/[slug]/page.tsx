@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { journal } from "@/data";
 import { formatDate } from "@/lib/utils";
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 interface JournalSlugProps {
   params: Promise<{ slug: string }>;
@@ -51,13 +52,13 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
     <>
       <Navigation />
       <CustomCursor />
-      <article className="bg-paper text-ink pt-32 pb-36 min-h-screen">
+      <main id="main-content" className="bg-paper text-ink pt-32 pb-36 min-h-screen">
         <div className="container">
           {/* Breadcrumb / Back */}
           <div className="mb-12">
             <Link
               href="/journal"
-              className="font-mono text-xs tracking-[0.25em] uppercase text-champagne hover:underline inline-flex items-center gap-2"
+              className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold hover:underline inline-flex items-center gap-2"
             >
               <span>←</span>
               <span>BACK TO DISPATCHES</span>
@@ -120,7 +121,7 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
 
           {/* Next Article Read */}
           <div className="mt-32 pt-16 border-t border-ink/10 max-w-3xl mx-auto text-center">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne mb-4">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-4">
               NEXT ESSAY
             </p>
             <Link
@@ -128,7 +129,7 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
               className="group inline-block focus-visible:focus-visible"
               data-cursor="OPEN"
             >
-              <h3 className="font-display text-3xl sm:text-5xl text-ink group-hover:text-champagne transition-colors duration-300">
+              <h3 className="font-display text-3xl sm:text-5xl text-ink group-hover:text-champagne-deep transition-colors duration-300">
                 {nextArticle.title}
               </h3>
               <p className="font-mono text-xs text-charcoal/60 uppercase tracking-widest mt-4">
@@ -137,8 +138,9 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
             </Link>
           </div>
         </div>
-      </article>
+      </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

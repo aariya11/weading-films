@@ -28,7 +28,7 @@ export function StudioPageContent() {
 
           <div className="lg:col-span-5 border-l border-ink/10 lg:pl-12 space-y-10">
             <div>
-              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne mb-4">
+              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold mb-4">
                 FULL DISCIPLINARY CAPABILITIES
               </p>
               <ul className="space-y-3 font-ui text-sm text-charcoal/80">
@@ -41,15 +41,15 @@ export function StudioPageContent() {
             </div>
 
             <div id="location">
-              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne mb-3">
-                SOHO STUDIO LOCATION
+              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold mb-3">
+                BHUBANESWAR STUDIO LOCATION
               </p>
               <address className="not-italic text-sm text-charcoal/80 leading-relaxed font-ui">
                 {studioInfo.location.address}<br />
                 {studioInfo.location.city}, {studioInfo.location.country}
               </address>
-              <p className="text-xs font-mono text-charcoal/60 mt-3">
-                DIRECT: {studioInfo.email}
+              <p className="text-xs font-mono text-charcoal/70 mt-3">
+                WHATSAPP: +91 9124885729 · DIRECT: {studioInfo.email}
               </p>
             </div>
           </div>
@@ -60,13 +60,13 @@ export function StudioPageContent() {
       <section id="team" className="py-24 lg:py-36 bg-paper-warm border-t border-ink/10">
         <div className="container">
           <header className="mb-20 lg:mb-28">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne mb-3">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-3">
               CREATIVE DIRECTION & CRAFT
             </p>
             <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl">
               THE TEAM.
             </h2>
-            <p className="body-large text-charcoal/70 mt-4 max-w-xl">
+            <p className="body-large text-charcoal/80 mt-4 max-w-xl">
               A specialized core team of senior directors, photographers, editors, and producers who execute every commission personally.
             </p>
           </header>
@@ -86,7 +86,7 @@ export function StudioPageContent() {
                 <h3 className="font-display text-2xl text-ink">
                   {member.name}
                 </h3>
-                <p className="font-mono text-xs tracking-wider uppercase text-champagne mt-1 mb-3">
+                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep font-semibold mt-1 mb-3">
                   {member.role}
                 </p>
                 <p className="body-small text-charcoal/70 leading-relaxed">

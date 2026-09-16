@@ -35,14 +35,14 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
       <div className="container">
         {/* Header */}
         <header className="mb-20 lg:mb-28">
-          <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
+          <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
             PORTFOLIO // COMPLETE ARCHIVE
           </p>
           <h1 className="font-display text-5xl sm:text-7xl lg:text-9xl tracking-tight leading-[0.95] mb-8">
             ALL WORKS.
           </h1>
           <p className="body-large text-charcoal/80 max-w-2xl font-ui">
-            Every commission and self-directed study produced by WEDDING FILMS. Filter by discipline or explore the complete chronological sequence.
+            Every commission and wedding cinema study produced by WEDDING FILMS in Bhubaneswar, Odisha and worldwide. Filter by discipline or explore the complete archive.
           </p>
         </header>
 
@@ -53,10 +53,10 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
               className={cn(
-                "font-mono text-xs tracking-[0.2em] uppercase py-1.5 transition-colors duration-200",
+                "font-mono text-xs tracking-[0.2em] uppercase py-1.5 transition-colors duration-200 cursor-pointer",
                 selectedCategory === cat.value
                   ? "text-ink font-bold border-b border-ink"
-                  : "text-charcoal/50 hover:text-ink"
+                  : "text-charcoal/60 hover:text-ink"
               )}
             >
               {cat.label}
@@ -90,7 +90,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
                       alt={project.heroMedia.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4 z-10">
@@ -105,7 +105,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
                       <span>{project.category}</span>
                       <span>{project.year}</span>
                     </div>
-                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink group-hover:text-champagne transition-colors duration-300">
+                    <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-ink group-hover:text-champagne-deep transition-colors duration-300">
                       {project.title}
                     </h2>
                     <p className="metadata text-charcoal/70 text-xs uppercase tracking-wider">

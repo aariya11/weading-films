@@ -9,6 +9,7 @@ import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { journal } from "@/data";
 import { formatDate } from "@/lib/utils";
 import { JournalCategory } from "@/types";
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 const categories: { label: string; value: "ALL" | JournalCategory }[] = [
   { label: "ALL DISPATCHES", value: "ALL" },
@@ -31,11 +32,11 @@ export default function JournalPage() {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1 bg-paper text-ink pt-32 pb-36 min-h-screen">
+      <main id="main-content" className="flex-1 bg-paper text-ink pt-32 pb-36 min-h-screen">
         <div className="container">
           {/* Header */}
           <header className="mb-20 lg:mb-28">
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-medium">
               JOURNAL // ESSAYS & TECHNICAL NOTES
             </p>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-9xl tracking-tight leading-[0.95] mb-8">
@@ -106,7 +107,7 @@ export default function JournalPage() {
                       {article.excerpt}
                     </p>
 
-                    <p className="font-mono text-xs text-champagne pt-2">
+                    <p className="font-mono text-xs text-champagne-deep font-semibold pt-2">
                       BY {article.author.toUpperCase()} →
                     </p>
                   </div>
@@ -117,6 +118,7 @@ export default function JournalPage() {
         </div>
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

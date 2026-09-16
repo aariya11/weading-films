@@ -305,12 +305,12 @@ export function ScrollExpandMedia({
         >
           <p
             ref={metaTopRef}
-            className="label label-accent mb-4 sm:mb-6 tracking-[0.35em] text-xs sm:text-sm text-champagne uppercase font-medium"
+            className="label label-accent mb-3 sm:mb-6 tracking-[0.3em] text-[10px] sm:text-xs text-champagne uppercase font-medium"
           >
-            INDEPENDENT CREATIVE STUDIO
+            BHUBANESWAR, ODISHA — WEDDING CINEMA & PHOTOGRAPHY
           </p>
 
-          <h1 className="font-display text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.95] flex flex-col items-center">
+          <h1 className="font-display text-white text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight leading-[0.95] flex flex-col items-center">
             <span
               ref={titleLeftRef}
               className="block will-change-transform will-change-opacity gpu-accelerated drop-shadow-2xl"

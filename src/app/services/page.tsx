@@ -6,10 +6,12 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { services } from "@/data";
 
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+
 export const metadata: Metadata = {
   title: "Services & Capabilities",
   description:
-    "Comprehensive production, photography, film direction, and creative direction capabilities from WEDDING FILMS.",
+    "Comprehensive wedding cinematography, fine art editorial photography, and heirloom visual archives from WEDDING FILMS — Bhubaneswar, Odisha.",
 };
 
 export default function ServicesPage() {
@@ -17,11 +19,11 @@ export default function ServicesPage() {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1 bg-paper text-ink pt-32 pb-36 min-h-screen">
+      <main id="main-content" className="flex-1 bg-paper text-ink pt-32 pb-36 min-h-screen">
         <div className="container">
           {/* Header */}
           <header className="mb-24 lg:mb-36">
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-medium">
               SERVICES // DISCIPLINARY PRACTICE
             </p>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-9xl tracking-tight leading-[0.95] mb-8">
@@ -48,7 +50,7 @@ export default function ServicesPage() {
                     {/* Left: Typography, descriptions, scope */}
                     <div className="lg:col-span-6 space-y-8">
                       <div>
-                        <span className="font-mono text-xs tracking-[0.3em] uppercase text-champagne block mb-3">
+                        <span className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold block mb-3">
                           DISCIPLINE {num}
                         </span>
                         <h2 className="font-display text-4xl sm:text-6xl text-ink tracking-tight">
@@ -65,24 +67,24 @@ export default function ServicesPage() {
                       </p>
 
                       <div className="pt-6 border-t border-ink/10">
-                        <p className="font-mono text-xs tracking-[0.2em] uppercase text-champagne mb-4">
+                        <p className="font-mono text-xs tracking-[0.2em] uppercase text-champagne-deep font-semibold mb-4">
                           DELIVERABLE SPECIFICATIONS
                         </p>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-ui text-charcoal/70">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-ui text-charcoal/80">
                           <li className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-champagne rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-champagne-deep rounded-full" />
                             Pre-production Treatments
                           </li>
                           <li className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-champagne rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-champagne-deep rounded-full" />
                             On-Location & Studio Capture
                           </li>
                           <li className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-champagne rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-champagne-deep rounded-full" />
                             High-End Color & Retouching
                           </li>
                           <li className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-champagne rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-champagne-deep rounded-full" />
                             Master Archives & Exhibition Assets
                           </li>
                         </ul>
@@ -91,7 +93,7 @@ export default function ServicesPage() {
                       <div className="pt-4">
                         <Link
                           href="/contact"
-                          className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-ink hover:text-champagne transition-colors underline underline-offset-8"
+                          className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-ink hover:text-champagne-deep transition-colors underline underline-offset-8"
                         >
                           <span>COMMISSION THIS DISCIPLINE</span>
                           <span>→</span>
@@ -136,6 +138,7 @@ export default function ServicesPage() {
         </div>
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

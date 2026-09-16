@@ -6,6 +6,8 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -46,10 +48,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <ProjectDetailContent project={project} />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

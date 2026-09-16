@@ -60,20 +60,20 @@ export function ServicesSection() {
                       <div className="flex items-baseline gap-4 sm:gap-8">
                         <span className={cn(
                           "font-mono text-xs tracking-[0.25em] transition-colors duration-300",
-                          isActive ? "text-champagne font-semibold" : "text-charcoal/50 group-hover:text-charcoal"
+                          isActive ? "text-champagne-deep font-semibold" : "text-charcoal/60 group-hover:text-charcoal"
                         )}>
                           {num}
                         </span>
                         <span className={cn(
                           "font-display text-2xl sm:text-4xl lg:text-5xl tracking-tight transition-all duration-300",
-                          isActive ? "text-ink translate-x-2" : "text-charcoal/60 group-hover:text-ink"
+                          isActive ? "text-ink translate-x-2" : "text-charcoal/70 group-hover:text-ink"
                         )}>
                           {service.name}
                         </span>
                       </div>
                       <span className={cn(
                         "font-mono text-xs tracking-[0.2em] transition-opacity duration-300 hidden sm:inline-block",
-                        isActive ? "opacity-100 text-champagne" : "opacity-0"
+                        isActive ? "opacity-100 text-champagne-deep font-medium" : "opacity-0"
                       )}>
                         VIEW DETAILS →
                       </span>
@@ -141,7 +141,7 @@ export function ServicesSection() {
               label="WhatsApp Rate Card (+91 9124885729)"
             />
             <Link href="/services">
-              <PopButton className="font-mono text-xs tracking-widest text-[#382b22]">
+              <PopButton variant="primary">
                 SERVICES SCOPE →
               </PopButton>
             </Link>

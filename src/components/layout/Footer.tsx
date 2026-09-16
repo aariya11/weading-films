@@ -153,22 +153,22 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar: Legal & Copyright */}
-        <div className="pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-white/40">
+        <div className="pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono text-white/60 flex-wrap">
           <p>© {new Date().getFullYear()} WEDDING FILMS. ALL RIGHTS RESERVED.</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6 justify-center">
             {footerNavigation.legal.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="hover:text-white/80 transition-colors"
+                className="hover:text-white transition-colors py-1 inline-block"
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <p className="text-champagne/80 font-medium">BHUBANESWAR, ODISHA · INDIA</p>
+          <p className="text-champagne font-medium tracking-wider">BHUBANESWAR, ODISHA · INDIA</p>
         </div>
       </div>
     </footer>

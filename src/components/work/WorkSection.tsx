@@ -68,7 +68,7 @@ export function WorkSection() {
                     // 01 GIRIJA & SUMITRA: Full-width cinematic landscape with typography
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
                       <div className="lg:col-span-4 lg:mb-12">
-                        <span className="font-mono text-xs tracking-[0.3em] text-champagne block mb-4">
+                        <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-4">
                           {num} // {project.category}
                         </span>
                         <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight group-hover:translate-x-3 transition-transform duration-500 ease-out">
@@ -109,7 +109,7 @@ export function WorkSection() {
                         <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                       <div className="lg:col-span-4 lg:col-start-9 order-1 lg:order-2">
-                        <span className="font-mono text-xs tracking-[0.3em] text-champagne block mb-4">
+                        <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-4">
                           {num} // {project.category}
                         </span>
                         <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight group-hover:translate-x-3 transition-transform duration-500 ease-out">
@@ -130,21 +130,21 @@ export function WorkSection() {
                   )}
 
                   {index === 2 && (
-                    // 03 SACRED VOWS: Widescreen cinematic Mandap with layered typography
+                    // 03 SACRED VOWS: Widescreen cinematic Mandap with balanced framing
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                      <div className="lg:col-span-12 overflow-hidden relative aspect-[21/9] sm:aspect-[2.2/1] bg-ink/5">
+                      <div className="lg:col-span-12 overflow-hidden relative aspect-[16/10] sm:aspect-[16/9] bg-ink/5">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
                           fill
                           sizes="100vw"
-                          className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
+                          className="object-cover object-top sm:object-center transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
                       </div>
                       <div className="lg:col-span-8 flex flex-col justify-between">
                         <div>
-                          <span className="font-mono text-xs tracking-[0.3em] text-champagne block mb-3">
+                          <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-3">
                             {num} // {project.category}
                           </span>
                           <h3 className="font-display text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight">
@@ -171,7 +171,7 @@ export function WorkSection() {
                     // 04 EDITORIAL MONOGRAPH: Asymmetric 2-column with large text
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                       <div className="lg:col-span-5 lg:col-start-2">
-                        <span className="font-mono text-xs tracking-[0.3em] text-champagne block mb-4">
+                        <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-4">
                           {num} // {project.category}
                         </span>
                         <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight group-hover:translate-x-3 transition-transform duration-500 ease-out">
@@ -194,7 +194,7 @@ export function WorkSection() {
                           alt={project.heroMedia.alt}
                           fill
                           sizes="(max-width: 1024px) 100vw, 40vw"
-                          className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
+                          className="object-cover object-top transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
@@ -210,12 +210,12 @@ export function WorkSection() {
                           alt={project.heroMedia.alt}
                           fill
                           sizes="(max-width: 1024px) 100vw, 60vw"
-                          className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
+                          className="object-cover object-top transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                       <div className="lg:col-span-5">
-                        <span className="font-mono text-xs tracking-[0.3em] text-champagne block mb-4">
+                        <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-4">
                           {num} // {project.category}
                         </span>
                         <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight group-hover:translate-x-3 transition-transform duration-500 ease-out">

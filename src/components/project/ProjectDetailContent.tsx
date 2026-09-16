@@ -35,7 +35,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             alt={project.heroMedia.alt}
             fill
             priority
-            className="object-cover"
+            className="object-cover object-top sm:object-center"
             sizes="100vw"
           />
         )}
@@ -74,7 +74,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
         <div className="container grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Narrative description (narrow block, editorial restraint) */}
           <div className="lg:col-span-7">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne mb-6">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-6">
               CONCEPT & REASONING
             </p>
             <p className="body-large text-ink font-serif text-2xl sm:text-3xl lg:text-4xl leading-relaxed italic mb-8">
@@ -82,10 +82,10 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             </p>
             <div className="space-y-6 text-charcoal/80 body-small leading-relaxed">
               <p>
-                Every visual element in this body of work was developed through systematic reduction. By limiting the lighting package and emphasizing natural spatial acoustics, the final deliverables achieve an enduring emotional resonance.
+                Every visual element in this wedding film was developed through systematic reduction and artistic care. Preserving Vedic rituals, emotion, natural light, and ambient soundscapes creates an enduring heirloom for generations.
               </p>
               <p>
-                The resulting suite of assets spans physical publication, high-resolution campaign billboards, and moving image sequences calibrated for cultural exhibition.
+                The resulting suite of assets spans 4K cinema master films, heirloom archival photo albums, and editorial monograph prints captured across Bhubaneswar, Odisha.
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
           {/* Metadata Ledger */}
           <div className="lg:col-span-5 border-l border-ink/10 lg:pl-16 space-y-10">
             <div>
-              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne mb-2">
+              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold mb-2">
                 SERVICES DELIVERED
               </p>
               <p className="font-display text-xl text-ink">
@@ -102,7 +102,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             </div>
 
             <div>
-              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne mb-4">
+              <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold mb-4">
                 PROJECT CREDITS
               </p>
               <ul className="space-y-3 font-ui text-sm">
@@ -146,7 +146,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
                     alt={image.alt}
                     fill
                     sizes={isFullBleed ? "100vw" : "60vw"}
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <figcaption className="mt-4 text-right font-mono text-[11px] text-charcoal/50 uppercase tracking-widest">
@@ -186,7 +186,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
       {/* 5. Next Project Transition */}
       <section className="py-28 lg:py-44 border-t border-ink/10 bg-paper-warm">
         <div className="container text-center">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne mb-4">
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-4">
             NEXT PROJECT
           </p>
           <Link
@@ -194,7 +194,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             className="group inline-block focus-visible:focus-visible"
             data-cursor="OPEN"
           >
-            <h2 className="font-display text-5xl sm:text-7xl lg:text-9xl text-ink group-hover:text-champagne transition-colors duration-500 font-light tracking-tight">
+            <h2 className="font-display text-5xl sm:text-7xl lg:text-9xl text-ink group-hover:text-champagne-deep transition-colors duration-500 font-light tracking-tight">
               {nextProject.title}
             </h2>
             <p className="mt-6 metadata text-charcoal/70 uppercase tracking-[0.2em] text-xs">

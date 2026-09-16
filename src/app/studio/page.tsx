@@ -4,9 +4,12 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { StudioPageContent } from "@/components/studio/StudioPageContent";
 
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+
 export const metadata: Metadata = {
   title: "Studio",
-  description: "WEDDING FILMS philosophy, creative approach, leadership team, and Soho headquarters.",
+  description:
+    "WEDDING FILMS philosophy, cinematic approach, and production studio based in Bhubaneswar, Odisha.",
 };
 
 export default function StudioPage() {
@@ -14,10 +17,11 @@ export default function StudioPage() {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <StudioPageContent />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

@@ -4,10 +4,12 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { ContactSection } from "@/components/contact/ContactSection";
 
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+
 export const metadata: Metadata = {
   title: "Contact & Commissions",
   description:
-    "Direct contact channels, studio location, and commissioning inquiry form for WEDDING FILMS.",
+    "Direct contact channels, studio location in Bhubaneswar, Odisha, and commissioning inquiry form for WEDDING FILMS.",
 };
 
 export default function ContactPage() {
@@ -15,10 +17,11 @@ export default function ContactPage() {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1 pt-16">
+      <main id="main-content" className="flex-1 pt-16">
         <ContactSection />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

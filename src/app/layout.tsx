@@ -25,14 +25,22 @@ export const metadata: Metadata = {
   },
   description:
     "Premier wedding cinematography and fine art editorial photography studio based in Bhubaneswar, Odisha. Capturing timeless wedding moments, sacred rituals, and heartfelt family heirlooms.",
+  metadataBase: new URL("https://weddingfilms.in"),
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
-    "wedding films",
-    "wedding films bhubaneswar",
-    "wedding photography bhubaneswar",
-    "bhubaneswar wedding photographer",
-    "odisha wedding cinematography",
-    "candid wedding photography",
-    "bridal portraits",
+    "wedding films Bhubaneswar",
+    "wedding photography Bhubaneswar",
+    "wedding photographer Bhubaneswar",
+    "wedding videographer Bhubaneswar",
+    "cinematic wedding films Odisha",
+    "wedding photography Odisha",
+    "wedding cinematography Odisha",
+    "destination wedding photographer Odisha",
+    "destination wedding films Odisha",
+    "candid wedding photography Bhubaneswar",
+    "editorial bridal portraits",
     "luxury wedding cinema",
   ],
   authors: [{ name: "WEDDING FILMS" }],
@@ -43,7 +51,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://weddingfilms.in"),
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -98,6 +105,50 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://weddingfilms.in/#business",
+      name: "WEDDING FILMS",
+      description:
+        "Premier wedding cinematography and fine art editorial photography studio based in Bhubaneswar, Odisha.",
+      url: "https://weddingfilms.in",
+      telephone: "+919124885729",
+      email: "contact@weddingfilms.in",
+      priceRange: "$$$$",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bhubaneswar",
+        addressRegion: "Odisha",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 20.2961,
+        longitude: 85.8245,
+      },
+      areaServed: [
+        { "@type": "City", name: "Bhubaneswar" },
+        { "@type": "AdministrativeArea", name: "Odisha" },
+        { "@type": "Country", name: "India" },
+      ],
+      sameAs: [
+        "https://instagram.com/wedding.films",
+        "https://wa.me/919124885729",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://weddingfilms.in/#website",
+      url: "https://weddingfilms.in",
+      name: "WEDDING FILMS",
+      publisher: { "@id": "https://weddingfilms.in/#business" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -114,8 +165,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="min-h-full flex flex-col relative">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
         <FloatingWhatsApp />
       </body>

@@ -5,9 +5,12 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 
+import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected projects from WEDDING FILMS — photography, film, and creative direction.",
+  description:
+    "Complete wedding cinema and editorial photography archive from WEDDING FILMS — Bhubaneswar, Odisha.",
 };
 
 export default function WorkPage() {
@@ -15,10 +18,11 @@ export default function WorkPage() {
     <>
       <Navigation />
       <CustomCursor />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <WorkIndexContent projects={projects} />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   );
 }

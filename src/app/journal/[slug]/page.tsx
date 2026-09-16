@@ -67,7 +67,7 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
           {/* Article Header */}
           <header className="max-w-4xl mb-16 lg:mb-24">
             <div className="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.25em] text-champagne mb-6">
-              <span>{article.category.replace("_", " ")}</span>
+              <span>{article.category.replaceAll("_", " ")}</span>
               <span>·</span>
               <time dateTime={article.publishDate}>{formatDate(article.publishDate)}</time>
               <span>·</span>

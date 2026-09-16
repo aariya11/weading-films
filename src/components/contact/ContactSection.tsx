@@ -12,7 +12,9 @@ type FormFields = {
   email: string;
   phone: string;
   discipline: string;
-  details: string;
+  weddingDate: string;
+  venue: string;
+  message: string;
   consent: boolean;
 };
 
@@ -21,7 +23,9 @@ const initialForm: FormFields = {
   email: "",
   phone: "",
   discipline: "Full Wedding Coverage",
-  details: "",
+  weddingDate: "",
+  venue: "",
+  message: "",
   consent: false,
 };
 
@@ -43,8 +47,17 @@ export function ContactSection() {
     if (!formData.email.trim() || !emailRegex.test(formData.email)) {
       errs.email = "Please provide a valid email address.";
     }
-    if (!formData.details.trim() || formData.details.trim().length < 10) {
-      errs.details = "Please share your wedding dates, venue, or vision (minimum 10 characters).";
+    if (formData.phone.trim() && (formData.phone.trim().length < 7 || formData.phone.trim().length > 30)) {
+      errs.phone = "Please provide a valid phone or WhatsApp number.";
+    }
+    if (!formData.weddingDate.trim()) {
+      errs.weddingDate = "Please share your approximate wedding date or month.";
+    }
+    if (!formData.venue.trim() || formData.venue.trim().length < 3) {
+      errs.venue = "Please mention your wedding venue or city (e.g. Bhubaneswar, Puri).";
+    }
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      errs.message = "Please share a brief note about your celebration vision (minimum 10 characters).";
     }
     if (!formData.consent) {
       errs.consent = "Consent is required to submit your inquiry.";
@@ -56,14 +69,24 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, details: true, consent: true });
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      weddingDate: true,
+      venue: true,
+      message: true,
+      consent: true,
+    });
 
     if (!validateClient()) return;
 
     const data = new FormData(e.currentTarget);
-    // Explicitly ensure discipline is in formData
     data.set("discipline", formData.discipline);
-    data.set("consent", formData.consent ? "true" : "false");
+    data.set("weddingDate", formData.weddingDate);
+    data.set("venue", formData.venue);
+    data.set("message", formData.message);
+    data.set("consent", formData.consent ? "on" : "off");
 
     startTransition(async () => {
       try {
@@ -86,7 +109,10 @@ export function ContactSection() {
   };
 
   const isLabelActive = (field: keyof FormFields) => {
-    return focusedField === field || (typeof formData[field] === "string" && (formData[field] as string).length > 0);
+    return (
+      focusedField === field ||
+      (typeof formData[field] === "string" && (formData[field] as string).length > 0)
+    );
   };
 
   return (
@@ -103,9 +129,14 @@ export function ContactSection() {
             <p className="label label-accent mb-6 tracking-[0.3em] text-xs font-mono text-champagne-deep font-medium">
               06 // COMMISSIONS & DATES
             </p>
-            <h2 id="contact-heading" className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] mb-8 text-ink dark:text-white">
+            <h2
+              id="contact-heading"
+              className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] mb-8 text-ink dark:text-white"
+            >
               <span className="block">LET&apos;S CRAFT</span>
-              <span className="block italic font-serif font-light text-ink/70 dark:text-white/70">YOUR WEDDING</span>
+              <span className="block italic font-serif font-light text-ink/70 dark:text-white/70">
+                YOUR WEDDING
+              </span>
               <span className="block">CINEMA</span>
               <span className="block">LEGACY.</span>
             </h2>
@@ -173,14 +204,14 @@ export function ContactSection() {
           {/* Right Column: High-End Interactive Form */}
           <div className="lg:col-span-7" aria-live="polite">
             {serverState?.success ? (
-              <div className="bg-paper-warm border border-ink/10 p-12 lg:p-16 text-center space-y-6">
-                <span className="w-12 h-12 rounded-full bg-champagne/20 text-champagne-deep inline-flex items-center justify-center font-mono text-xl">
+              <div className="bg-paper-warm dark:bg-white/5 border border-ink/10 dark:border-white/10 p-12 lg:p-16 text-center space-y-6">
+                <span className="w-12 h-12 rounded-full bg-champagne/20 text-champagne-deep dark:text-champagne inline-flex items-center justify-center font-mono text-xl">
                   ✓
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl text-ink">
+                <h3 className="font-display text-3xl sm:text-4xl text-ink dark:text-white">
                   INQUIRY RECEIVED.
                 </h3>
-                <p className="body-small text-charcoal/80 max-w-md mx-auto leading-relaxed">
+                <p className="body-small text-charcoal/80 dark:text-white/80 max-w-md mx-auto leading-relaxed">
                   {serverState.message ||
                     "Thank you for reaching out. The WEDDING FILMS production team in Bhubaneswar will review your wedding dates and respond within 12 hours."}
                 </p>
@@ -192,7 +223,7 @@ export function ContactSection() {
                   <button
                     type="button"
                     onClick={() => setServerState(null)}
-                    className="px-6 py-3 bg-ink text-white font-mono text-xs tracking-[0.2em] uppercase hover:bg-charcoal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                    className="px-6 py-3 bg-ink text-white dark:bg-white dark:text-ink font-mono text-xs tracking-[0.2em] uppercase hover:bg-charcoal dark:hover:bg-white/90 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   >
                     SEND ANOTHER NOTE
                   </button>
@@ -214,13 +245,13 @@ export function ContactSection() {
                 {serverState?.message && !serverState.success && (
                   <div
                     role="alert"
-                    className="p-4 border border-red-300 bg-red-50 text-red-800 text-xs font-mono"
+                    className="p-4 border border-red-300 dark:border-red-900/50 bg-red-50 dark:bg-red-950/40 text-red-800 dark:text-red-200 text-xs font-mono"
                   >
                     {serverState.message}
                   </div>
                 )}
 
-                {/* Project Type Selector */}
+                {/* Coverage Discipline Selector */}
                 <fieldset>
                   <legend className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep dark:text-champagne font-bold block mb-4">
                     SELECT COVERAGE DISCIPLINE
@@ -250,135 +281,211 @@ export function ContactSection() {
                   </div>
                 </fieldset>
 
-                {/* Name */}
+                {/* Name and Email in 2 columns on desktop */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* Name */}
+                  <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
+                    <label
+                      htmlFor="form-name"
+                      className={cn(
+                        "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
+                        isLabelActive("name")
+                          ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                          : "text-charcoal/90 dark:text-white/80 font-semibold"
+                      )}
+                    >
+                      COUPLE OR CLIENT NAME *
+                    </label>
+                    <input
+                      id="form-name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="e.g. Priya & Rahul"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onFocus={() => setFocusedField("name")}
+                      onBlur={() => setFocusedField(null)}
+                      className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
+                      aria-invalid={Boolean(touched.name && errors.name)}
+                      aria-describedby={touched.name && errors.name ? "name-error" : undefined}
+                    />
+                    {touched.name && errors.name && (
+                      <p id="name-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
+                    <label
+                      htmlFor="form-email"
+                      className={cn(
+                        "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
+                        isLabelActive("email")
+                          ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                          : "text-charcoal/90 dark:text-white/80 font-semibold"
+                      )}
+                    >
+                      EMAIL ADDRESS *
+                    </label>
+                    <input
+                      id="form-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your.email@domain.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onFocus={() => setFocusedField("email")}
+                      onBlur={() => setFocusedField(null)}
+                      className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
+                      aria-invalid={Boolean(touched.email && errors.email)}
+                      aria-describedby={touched.email && errors.email ? "email-error" : undefined}
+                    />
+                    {touched.email && errors.email && (
+                      <p id="email-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Phone & Wedding Date in 2 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* Phone / WhatsApp */}
+                  <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
+                    <label
+                      htmlFor="form-phone"
+                      className={cn(
+                        "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
+                        isLabelActive("phone")
+                          ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                          : "text-charcoal/90 dark:text-white/80 font-semibold"
+                      )}
+                    >
+                      PHONE / WHATSAPP NUMBER
+                    </label>
+                    <input
+                      id="form-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+91 9124885729"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onFocus={() => setFocusedField("phone")}
+                      onBlur={() => setFocusedField(null)}
+                      className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
+                      aria-invalid={Boolean(touched.phone && errors.phone)}
+                      aria-describedby={touched.phone && errors.phone ? "phone-error" : undefined}
+                    />
+                    {touched.phone && errors.phone && (
+                      <p id="phone-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Wedding Date */}
+                  <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
+                    <label
+                      htmlFor="form-wedding-date"
+                      className={cn(
+                        "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
+                        isLabelActive("weddingDate")
+                          ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                          : "text-charcoal/90 dark:text-white/80 font-semibold"
+                      )}
+                    >
+                      WEDDING DATE OR MONTH *
+                    </label>
+                    <input
+                      id="form-wedding-date"
+                      name="weddingDate"
+                      type="text"
+                      required
+                      placeholder="e.g. December 2025 / Nov 18-20"
+                      value={formData.weddingDate}
+                      onChange={(e) => setFormData({ ...formData, weddingDate: e.target.value })}
+                      onFocus={() => setFocusedField("weddingDate")}
+                      onBlur={() => setFocusedField(null)}
+                      className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
+                      aria-invalid={Boolean(touched.weddingDate && errors.weddingDate)}
+                      aria-describedby={touched.weddingDate && errors.weddingDate ? "wedding-date-error" : undefined}
+                    />
+                    {touched.weddingDate && errors.weddingDate && (
+                      <p id="wedding-date-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                        {errors.weddingDate}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Venue & Location */}
                 <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
-                    htmlFor="form-name"
+                    htmlFor="form-venue"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
-                      isLabelActive("name")
+                      isLabelActive("venue")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
                         : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
-                    COUPLE OR CLIENT NAME *
+                    VENUE & CEREMONY LOCATION *
                   </label>
                   <input
-                    id="form-name"
-                    name="name"
+                    id="form-venue"
+                    name="venue"
                     type="text"
                     required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    onFocus={() => setFocusedField("name")}
+                    placeholder="e.g. Mayfair Lagoon, Bhubaneswar / Blue Lily Resort, Puri"
+                    value={formData.venue}
+                    onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
+                    onFocus={() => setFocusedField("venue")}
                     onBlur={() => setFocusedField(null)}
                     className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
-                    aria-invalid={Boolean(touched.name && errors.name)}
-                    aria-describedby={touched.name && errors.name ? "name-error" : undefined}
+                    aria-invalid={Boolean(touched.venue && errors.venue)}
+                    aria-describedby={touched.venue && errors.venue ? "venue-error" : undefined}
                   />
-                  {touched.name && errors.name && (
-                    <p id="name-error" role="alert" className="text-xs font-mono text-red-600 mt-1">
-                      {errors.name}
+                  {touched.venue && errors.venue && (
+                    <p id="venue-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                      {errors.venue}
                     </p>
                   )}
                 </div>
 
-                {/* Email */}
+                {/* Message / Celebration Vision */}
                 <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
-                    htmlFor="form-email"
+                    htmlFor="form-message"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
-                      isLabelActive("email")
+                      isLabelActive("message")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
                         : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
-                    EMAIL ADDRESS *
-                  </label>
-                  <input
-                    id="form-email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    onFocus={() => setFocusedField("email")}
-                    onBlur={() => setFocusedField(null)}
-                    className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
-                    aria-invalid={Boolean(touched.email && errors.email)}
-                    aria-describedby={touched.email && errors.email ? "email-error" : undefined}
-                  />
-                  {touched.email && errors.email && (
-                    <p id="email-error" role="alert" className="text-xs font-mono text-red-600 mt-1">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-
-                {/* Phone / WhatsApp */}
-                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
-                  <label
-                    htmlFor="form-phone"
-                    className={cn(
-                      "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
-                      isLabelActive("phone")
-                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/90 dark:text-white/80 font-semibold"
-                    )}
-                  >
-                    PHONE / WHATSAPP NUMBER
-                  </label>
-                  <input
-                    id="form-phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+91 9124885729"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    onFocus={() => setFocusedField("phone")}
-                    onBlur={() => setFocusedField(null)}
-                    className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
-                    aria-invalid={Boolean(touched.phone && errors.phone)}
-                    aria-describedby={touched.phone && errors.phone ? "phone-error" : undefined}
-                  />
-                  {touched.phone && errors.phone && (
-                    <p id="phone-error" role="alert" className="text-xs font-mono text-red-600 mt-1">
-                      {errors.phone}
-                    </p>
-                  )}
-                </div>
-
-                {/* Wedding Date & Venue Details */}
-                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
-                  <label
-                    htmlFor="form-details"
-                    className={cn(
-                      "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
-                      isLabelActive("details")
-                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/90 dark:text-white/80 font-semibold"
-                    )}
-                  >
-                    WEDDING DATES, VENUE & CEREMONY DETAILS *
+                    VISION, TIMELINE & NOTES *
                   </label>
                   <textarea
-                    id="form-details"
-                    name="details"
+                    id="form-message"
+                    name="message"
                     rows={4}
                     required
-                    placeholder="Tell us your wedding dates, venue in Bhubaneswar / Odisha, and what cinematic style you envision..."
-                    value={formData.details}
-                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    onFocus={() => setFocusedField("details")}
+                    placeholder="Tell us about your celebration, ceremonial events, number of guests, or specific cinema style you cherish..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onFocus={() => setFocusedField("message")}
                     onBlur={() => setFocusedField(null)}
                     className="w-full pt-3 pb-2 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none resize-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
-                    aria-invalid={Boolean(touched.details && errors.details)}
-                    aria-describedby={touched.details && errors.details ? "details-error" : undefined}
+                    aria-invalid={Boolean(touched.message && errors.message)}
+                    aria-describedby={touched.message && errors.message ? "message-error" : undefined}
                   />
-                  {touched.details && errors.details && (
-                    <p id="details-error" role="alert" className="text-xs font-mono text-red-600 mt-1">
-                      {errors.details}
+                  {touched.message && errors.message && (
+                    <p id="message-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 mt-1">
+                      {errors.message}
                     </p>
                   )}
                 </div>
@@ -391,19 +498,25 @@ export function ContactSection() {
                     type="checkbox"
                     checked={formData.consent}
                     onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                    className="mt-1 accent-ink cursor-pointer w-4 h-4"
+                    className="mt-1 accent-ink dark:accent-champagne cursor-pointer w-4 h-4"
                     aria-invalid={Boolean(touched.consent && errors.consent)}
                     aria-describedby={touched.consent && errors.consent ? "consent-error" : undefined}
                   />
-                  <label htmlFor="form-consent" className="text-xs font-ui text-charcoal/90 dark:text-white/90 leading-relaxed cursor-pointer select-none">
+                  <label
+                    htmlFor="form-consent"
+                    className="text-xs font-ui text-charcoal/90 dark:text-white/90 leading-relaxed cursor-pointer select-none"
+                  >
                     I consent to WEDDING FILMS processing my contact details for this wedding inquiry in accordance with the{" "}
-                    <a href="/privacy" className="underline hover:text-champagne-deep dark:hover:text-champagne text-ink dark:text-white font-medium focus-visible:outline-1 focus-visible:outline-ink">
+                    <a
+                      href="/privacy"
+                      className="underline hover:text-champagne-deep dark:hover:text-champagne text-ink dark:text-white font-medium focus-visible:outline-1 focus-visible:outline-ink"
+                    >
                       Privacy Policy
                     </a>.
                   </label>
                 </div>
                 {touched.consent && errors.consent && (
-                  <p id="consent-error" role="alert" className="text-xs font-mono text-red-600 -mt-6">
+                  <p id="consent-error" role="alert" className="text-xs font-mono text-red-600 dark:text-red-400 -mt-6">
                     {errors.consent}
                   </p>
                 )}
@@ -416,7 +529,7 @@ export function ContactSection() {
                     className="w-full sm:w-auto"
                     data-cursor="OPEN"
                   >
-                    {isPending ? "TRANSMITTING INQUIRY..." : "SEND INQUIRY"}
+                    {isPending ? "TRANSMITTING INQUIRY..." : "INQUIRE ABOUT YOUR DATE"}
                   </PopButton>
 
                   <WhatsAppCTA

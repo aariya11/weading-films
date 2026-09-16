@@ -15,10 +15,10 @@ export function JournalSection() {
         {/* Section Header */}
         <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
               05 // DISCOURSE & PROCESS
             </p>
-            <h2 id="journal-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95]">
+            <h2 id="journal-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink dark:text-white">
               JOURNAL.
             </h2>
           </div>
@@ -47,7 +47,7 @@ export function JournalSection() {
                 />
                 <div className="absolute top-4 left-4">
                   <span className="font-mono text-[10px] tracking-[0.25em] bg-ink/80 text-white px-3 py-1 uppercase backdrop-blur-sm">
-                    {leadArticle.category.replace("_", " ")}
+                    {leadArticle.category.replaceAll("_", " ")}
                   </span>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export function JournalSection() {
                 >
                   <div className="flex items-center gap-3 text-[11px] font-mono text-charcoal/60 mb-2">
                     <span className="text-champagne font-bold uppercase">
-                      {article.category.replace("_", " ")}
+                      {article.category.replaceAll("_", " ")}
                     </span>
                     <span>·</span>
                     <span>{article.readTime}</span>

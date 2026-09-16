@@ -19,10 +19,10 @@ export function ServicesSection() {
         {/* Section Header */}
         <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
-              04 // BHUBANESWAR, ODISHA — DISCIPLINES & COVERAGE
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
+              04 // DISCIPLINES & COVERAGE
             </p>
-            <h2 id="services-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95]">
+            <h2 id="services-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink dark:text-white">
               SERVICES.
             </h2>
           </div>
@@ -130,20 +130,20 @@ export function ServicesSection() {
         </div>
 
         {/* Explore All Services CTA */}
-        <div className="mt-28 lg:mt-36 pt-12 border-t border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm font-ui text-charcoal/70">
+        <div className="mt-28 lg:mt-36 pt-12 border-t border-ink/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-sm font-ui text-charcoal/80 dark:text-white/70">
             Custom wedding commissioning packages across Bhubaneswar, Odisha, and luxury destination celebrations worldwide.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <WhatsAppCTA
-              variant="primary"
-              label="WhatsApp Rate Card (+91 9124885729)"
-            />
-            <Link href="/services">
+            <Link href="/contact">
               <PopButton variant="primary">
-                SERVICES SCOPE →
+                INQUIRE ABOUT YOUR DATE
               </PopButton>
             </Link>
+            <WhatsAppCTA
+              variant="outline"
+              label="WhatsApp Concierge"
+            />
           </div>
         </div>
       </div>

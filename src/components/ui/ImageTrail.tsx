@@ -35,7 +35,7 @@ interface TrailItem {
 const DEFAULT_IMAGES: ImageTrailImage[] = [
   {
     src: "/images/wedding/the-bride.jpg",
-    alt: "The Bride — Grace wrapped in love",
+    alt: "The Bride — Editorial bridal portrait",
   },
   {
     src: "/images/wedding/editorial-montage.jpg",

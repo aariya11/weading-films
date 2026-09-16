@@ -12,11 +12,11 @@ export function Hero() {
       }}
       foregroundMedia={{
         src: "/images/wedding/the-bride.jpg",
-        alt: "The Bride — Grace wrapped in love, where elegance meets promise",
+        alt: "The Bride — Editorial portrait in royal crimson velvet lehenga",
         type: "image",
       }}
       title="WEDDING FILMS"
-      subtitle="BHUBANESWAR, ODISHA — CINEMATIC STORIES THAT STAY"
+      subtitle="BHUBANESWAR, ODISHA · CINEMATIC WEDDING FILMS + FINE ART PHOTOGRAPHY"
       scrollIndicator="SCROLL TO ENTER ↓"
     />
   );

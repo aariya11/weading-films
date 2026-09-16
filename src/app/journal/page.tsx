@@ -86,7 +86,7 @@ export default function JournalPage() {
                     />
                     <div className="absolute top-4 left-4">
                       <span className="font-mono text-[10px] tracking-[0.2em] bg-ink/80 text-white px-2.5 py-1 uppercase backdrop-blur-sm">
-                        {article.category.replace("_", " ")}
+                        {article.category.replaceAll("_", " ")}
                       </span>
                     </div>
                   </div>

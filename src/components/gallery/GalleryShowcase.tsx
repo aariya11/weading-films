@@ -101,12 +101,12 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g-7",
     src: "/images/wedding/the-bride.jpg",
-    alt: "The Bride — Crimson velvet backdrop, traditional gold jewellery: Grace wrapped in love",
+    alt: "The Bride — Crimson velvet backdrop and traditional gold kundan jewellery in sculpted light",
     title: "THE BRIDE // CRIMSON VELVET",
     category: "BRIDAL",
     categoryLabel: "Bridal Editorial",
     location: "Bhubaneswar, Odisha",
-    quote: "Grace wrapped in love, where elegance meets promise in sculpted chiaroscuro light.",
+    quote: "Elegance meets quiet resolve in sculpted chiaroscuro studio lighting.",
     width: 779,
     height: 1024,
   },
@@ -202,7 +202,7 @@ export const galleryItems: GalleryItem[] = [
     category: "CEREMONY",
     categoryLabel: "Sacred Rituals",
     location: "Bhubaneswar, Odisha",
-    quote: "In a world full of stories, theirs became our favorite. Timeless memories around the holy fire.",
+    quote: "Sacred promises exchanged as Vedic chants echo around the holy fire.",
     width: 768,
     height: 1024,
   },
@@ -358,15 +358,15 @@ export function GalleryShowcase() {
         {/* Section Header */}
         <div className="mb-16 lg:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
-              03 // BHUBANESWAR, ODISHA — 19 CLIENT MASTER FRAMES
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
+              03 // EDITORIAL EXHIBITION
             </p>
             <h2
               id="gallery-heading"
-              className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95]"
+              className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink dark:text-white"
             >
               EDITORIAL <br />
-              <span className="italic font-serif font-light text-ink/80">
+              <span className="italic font-serif font-light text-ink/80 dark:text-white/80">
                 EXHIBITION.
               </span>
             </h2>
@@ -378,7 +378,7 @@ export function GalleryShowcase() {
             <div className="pt-2">
               <WhatsAppCTA
                 variant="primary"
-                label="Inquire About Your Wedding Dates (+91 9124885729)"
+                label="Inquire About Your Date (+91 9124885729)"
               />
             </div>
           </div>
@@ -459,17 +459,17 @@ export function GalleryShowcase() {
                 </div>
 
                 {/* Caption Bar */}
-                <div className="p-5 border-t border-ink/10 bg-paper flex items-center justify-between">
+                <div className="p-5 border-t border-ink/10 dark:border-white/10 bg-paper dark:bg-ink flex items-center justify-between">
                   <div>
-                    <h3 className="font-display text-base text-ink group-hover:text-champagne transition-colors">
+                    <h3 className="font-display text-base text-ink dark:text-white group-hover:text-champagne-deep dark:group-hover:text-champagne transition-colors">
                       {item.title}
                     </h3>
-                    <p className="font-mono text-[10px] tracking-wider text-charcoal/60 uppercase mt-0.5">
+                    <p className="font-mono text-[10px] tracking-wider text-charcoal/60 dark:text-white/60 uppercase mt-0.5">
                       {item.location}
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-charcoal/40 group-hover:text-ink transition-colors">
-                    0{index + 1} / {filteredItems.length}
+                  <span className="text-xs font-mono text-charcoal/60 dark:text-white/60 group-hover:text-ink dark:group-hover:text-white transition-colors">
+                    FRAME {String(index + 1).padStart(2, "0")} / {String(filteredItems.length).padStart(2, "0")}
                   </span>
                 </div>
               </article>
@@ -478,17 +478,17 @@ export function GalleryShowcase() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-20 pt-10 border-t border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-charcoal/70">
+        <div className="mt-20 pt-10 border-t border-ink/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-charcoal/70 dark:text-white/70">
             ALL 19 PHOTOGRAPHS COMMISSIONED & CAPTURED IN BHUBANESWAR & PURI, ODISHA
           </p>
           <a
             href="https://wa.me/919124885729"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-ink hover:text-champagne transition-colors underline underline-offset-8"
+            className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-ink dark:text-white hover:text-champagne-deep dark:hover:text-champagne transition-colors underline underline-offset-8 font-semibold"
           >
-            <span>DISCUSS BESPOKE COVERAGE ON WHATSAPP (+91 9124885729)</span>
+            <span>INQUIRE ABOUT YOUR DATE ON WHATSAPP (+91 9124885729)</span>
             <span>→</span>
           </a>
         </div>

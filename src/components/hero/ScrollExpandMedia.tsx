@@ -319,9 +319,9 @@ export function ScrollExpandMedia({
         >
           <p
             ref={metaTopRef}
-            className="label label-accent mb-3 sm:mb-6 tracking-[0.3em] text-[10px] sm:text-xs text-champagne uppercase font-medium"
+            className="label label-accent mb-3 sm:mb-6 tracking-[0.3em] text-[10px] sm:text-xs text-champagne uppercase font-semibold"
           >
-            BHUBANESWAR, ODISHA — WEDDING CINEMA & PHOTOGRAPHY
+            01 // STUDIO FRAME — BHUBANESWAR, ODISHA
           </p>
 
           <h1 className="font-display text-white text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight leading-[0.95] flex flex-col items-center">

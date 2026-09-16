@@ -95,7 +95,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
                     <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4 z-10">
                       <span className="font-mono text-[10px] tracking-[0.25em] bg-ink/80 text-white px-2.5 py-1 backdrop-blur-sm">
-                        0{index + 1}
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
                   </div>

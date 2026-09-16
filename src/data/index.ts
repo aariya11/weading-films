@@ -11,7 +11,7 @@ export const studioInfo: StudioInfo = {
   name: "WEDDING FILMS",
   tagline: "CINEMATIC WEDDING STORIES & EDITORIAL HEIRLOOMS",
   philosophy:
-    "In a world full of stories, theirs became our favorite. Some moments are beautiful because they happen only once, and some become beautiful because they are shared with the right person. We believe true wedding cinema is born from emotional presence, sacred authenticity, and timeless artistry.",
+    "Moments of devotion happen once; their meaning deepens across a lifetime. We craft wedding cinema and fine art photography rooted in emotional presence, cultural reverence, and uncompromising visual restraint.",
   approach:
     "We approach every wedding as a sacred cinematic legacy. From quiet morning bridal preparations and temple heritage walks to the high-energy Baraat arrival, sparkling Sangeet twirls, and sacred Agni kunda vows, we preserve authentic emotions with cinematic prime lenses, natural ambient light, and heartfelt editorial reverence.",
   capabilities: [
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     heroMedia: {
       id: "bride-hero",
       src: "/images/wedding/the-bride.jpg",
-      alt: "The Bride — Grace wrapped in love, where elegance meets promise",
+      alt: "Editorial portrait of bride in crimson velvet, gold kundan jewellery, and embroidered veil",
       width: 779,
       height: 1024,
       type: "image",
@@ -262,7 +262,7 @@ export const projects: Project[] = [
     ],
     videos: [],
     description:
-      "Grace wrapped in love, where elegance meets promise. A high-fashion bridal monograph exploring sculpted directional light, deep crimson drapery, kundan necklaces, and serene anticipation before the wedding rites.",
+      "A high-fashion bridal monograph exploring sculpted directional light, deep crimson drapery, heirloom kundan ornaments, and serene anticipation before the ceremony.",
     credits: [
       { role: "Photography", name: "WEDDING FILMS" },
       { role: "Location", name: "Bhubaneswar, Odisha" },
@@ -547,7 +547,7 @@ export const projects: Project[] = [
     ],
     videos: [],
     description:
-      "In a world full of stories, theirs became our favorite. A day of love, emotions, promises, and timeless memories captured forever through every heartfelt moment and every beautiful frame.",
+      "An intimate celebration of family union and heritage vows under the floral canopy, captured with unhurried lenses and warm atmospheric illumination.",
     credits: [
       { role: "Cinematography", name: "WEDDING FILMS" },
       { role: "Location", name: "Bhubaneswar, Odisha" },
@@ -690,7 +690,7 @@ export const services: Service[] = [
     description:
       "High-fashion vanity fair aesthetics, dramatic lighting, couture jewelry, and fine art posing.",
     longDescription:
-      "Grace wrapped in love, where elegance meets promise. We dedicate focused time before the ceremonies to craft magazine-grade editorial portraits of the bride, capturing every detail of the bridal lehenga, jewellery, and serene beauty.",
+      "We dedicate focused, unhurried time before the ceremonies to craft magazine-grade editorial portraits of the bride, celebrating the intricate drape of her lehenga, heirloom jewellery, and quiet dignity.",
     image: {
       id: "s2-img",
       src: "/images/wedding/bride-grand-entry.jpg",
@@ -744,7 +744,7 @@ export const services: Service[] = [
     description:
       "Agni kunda holy fire, Mandap Pranam, Sindoor Daan, Kanyadaan, and Vedic mantras.",
     longDescription:
-      "In a world full of stories, theirs became our favorite. From the sacred fire rituals to the Mandap Pranam with traditional Odia crowns, we document every ritual with deep cultural reverence and acoustic clarity.",
+      "From the sacred fire rituals to the Mandap Pranam with traditional Odia mukut crowns, we document each rite with cultural reverence and acoustic clarity.",
     image: {
       id: "s5-img",
       src: "/images/wedding/mandap-pranam.jpg",
@@ -861,7 +861,7 @@ export const journalEntries: JournalEntry[] = [
     readTime: "5 min read",
     featured: true,
     content:
-      "In a world full of stories, theirs became our favorite. A day of love, emotions, promises, and timeless memories captured forever through every heartfelt moment and every beautiful frame.\n\nThe Mandap ceremony is the spiritual heart of the wedding. Rather than overpowering the mandap with harsh flashes, we work with wide-aperture cinema glass to let the warm glow of the sacred fire illuminate the couple's faces.",
+      "The Mandap ceremony is the spiritual heart of an Indian wedding. Rather than overpowering the pavilion with harsh artificial lighting, our cinematographers work with wide-aperture cinema primes, allowing the warm, natural radiance of the holy fire to sculpt the couple's faces.",
   },
   {
     id: "j-2",
@@ -905,7 +905,7 @@ export const journalEntries: JournalEntry[] = [
     readTime: "7 min read",
     featured: true,
     content:
-      "Grace wrapped in love, where elegance meets promise. When photographing bridal couture, we treat each piece of jewellery, veil, and hand-embroidered motif as fine art. Here is how we sculpt directional light to celebrate the bride's serenity.",
+      "When photographing bridal couture, we treat each piece of jewellery, veil, and hand-embroidered motif as fine art. Here is how our studio sculpts directional light to celebrate the bride's serenity.",
   },
   {
     id: "j-4",

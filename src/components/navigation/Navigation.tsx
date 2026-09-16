@@ -18,7 +18,6 @@ export function Navigation() {
       }
       items={{
         left: [
-          { label: "Home", href: "/", icon: Home },
           { label: "Work", href: "/work", icon: Calendar },
           { label: "Studio", href: "/studio", icon: User },
         ],
@@ -28,9 +27,9 @@ export function Navigation() {
         ],
       }}
       loginHref="/contact"
-      loginLabel="Book Date"
+      loginLabel="INQUIRE"
       signupHref="https://wa.me/919124885729"
-      signupLabel="WhatsApp ↗"
+      signupLabel="WHATSAPP ↗"
     />
   );
 }

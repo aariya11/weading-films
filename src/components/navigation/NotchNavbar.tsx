@@ -74,8 +74,8 @@ export function NotchNavbar({
   items: customItems,
   loginHref = "/contact",
   signupHref = "https://wa.me/919124885729",
-  loginLabel = "Book Date",
-  signupLabel = "WhatsApp ↗",
+  loginLabel = "INQUIRE",
+  signupLabel = "WHATSAPP ↗",
   ...props
 }: NotchNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -103,7 +103,6 @@ export function NotchNavbar({
   // Navigation items configuration
   const items = customItems || {
     left: [
-      { label: "Home", href: "/", icon: Home },
       { label: "Work", href: "/work", icon: Calendar },
       { label: "Studio", href: "/studio", icon: User },
     ],

@@ -14,10 +14,10 @@ export function ServicesSection() {
   const activeService = services.find((s) => s.id === activeServiceId) || services[0];
 
   return (
-    <section id="services" className="relative py-28 lg:py-44 bg-paper text-ink border-t border-ink/10" aria-labelledby="services-heading">
+    <section id="services" className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white border-t border-ink/10 dark:border-white/10" aria-labelledby="services-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
+        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
             <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
               04 // BHUBANESWAR, ODISHA — DISCIPLINES & COVERAGE
@@ -27,7 +27,7 @@ export function ServicesSection() {
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
               Complete wedding visual production from initial pre-wedding concept through 4K cinema teasers, master feature films, and handcrafted heirloom albums.
             </p>
           </div>

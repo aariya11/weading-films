@@ -10,10 +10,10 @@ export function WorkSection() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 5);
 
   return (
-    <section id="work" className="relative py-28 lg:py-44 bg-paper text-ink" aria-labelledby="work-heading">
+    <section id="work" className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white" aria-labelledby="work-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-24 lg:mb-36 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
+        <header className="mb-24 lg:mb-36 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
             <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
               02 // BHUBANESWAR, ODISHA — FEATURED WEDDINGS
@@ -24,12 +24,12 @@ export function WorkSection() {
             </h2>
           </div>
           <div className="max-w-sm space-y-4">
-            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
               In a world full of stories, theirs became our favorite. Timeless wedding cinema and fine art photography captured across Bhubaneswar and beyond.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <AnimatedTooltip content="Shot on large format 4K cinema cameras with Leica prime optics." variant="cora" shapeColor="#0f0f0f" textColor="#ffffff">
-                <span className="text-[10px] font-mono tracking-widest border border-ink/20 px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
+                <span className="text-[10px] font-mono tracking-widest border border-ink/20 dark:border-white/20 text-ink dark:text-white px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
                   4K CINEMA CRAFT ↗
                 </span>
               </AnimatedTooltip>

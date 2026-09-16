@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { ContactSection } from "@/components/contact/ContactSection";
 
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Contact & Commissions",
@@ -21,7 +20,6 @@ export default function ContactPage() {
         <ContactSection />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

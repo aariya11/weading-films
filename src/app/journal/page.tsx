@@ -9,7 +9,6 @@ import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { journal } from "@/data";
 import { formatDate } from "@/lib/utils";
 import { JournalCategory } from "@/types";
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 const categories: { label: string; value: "ALL" | JournalCategory }[] = [
   { label: "ALL DISPATCHES", value: "ALL" },
@@ -118,7 +117,6 @@ export default function JournalPage() {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

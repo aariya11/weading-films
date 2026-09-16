@@ -351,12 +351,12 @@ export function GalleryShowcase() {
   return (
     <section
       id="gallery"
-      className="relative py-28 lg:py-44 bg-paper text-ink border-t border-ink/10"
+      className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white border-t border-ink/10 dark:border-white/10"
       aria-labelledby="gallery-heading"
     >
       <div className="container">
         {/* Section Header */}
-        <div className="mb-16 lg:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
+        <div className="mb-16 lg:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
             <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
               03 // BHUBANESWAR, ODISHA — 19 CLIENT MASTER FRAMES
@@ -372,7 +372,7 @@ export function GalleryShowcase() {
             </h2>
           </div>
           <div className="max-w-md space-y-4">
-            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
               Every photograph is an authentic commission produced in Bhubaneswar, Puri, and sacred temple destinations across Odisha. Click any frame to inspect in full-screen cinematic resolution.
             </p>
             <div className="pt-2">
@@ -385,7 +385,7 @@ export function GalleryShowcase() {
         </div>
 
         {/* Category Filters */}
-        <div className="flex items-center gap-3 sm:gap-4 flex-wrap border-b border-ink/10 pb-6 mb-16">
+        <div className="flex items-center gap-3 sm:gap-4 flex-wrap border-b border-ink/10 dark:border-white/10 pb-6 mb-16">
           {filterCategories.map((filter) => (
             <button
               key={filter.id}
@@ -393,8 +393,8 @@ export function GalleryShowcase() {
               className={cn(
                 "font-mono text-xs tracking-[0.2em] uppercase px-4 py-2 transition-all duration-200 border",
                 activeFilter === filter.id
-                  ? "bg-ink text-white border-ink font-semibold shadow-sm"
-                  : "bg-transparent text-charcoal/70 border-ink/15 hover:border-ink hover:text-ink"
+                  ? "bg-ink text-white dark:bg-white dark:text-ink border-ink dark:border-white font-semibold shadow-sm"
+                  : "bg-transparent text-charcoal/70 dark:text-white/70 border-ink/15 dark:border-white/20 hover:border-ink dark:hover:border-white hover:text-ink dark:hover:text-white"
               )}
             >
               {filter.label}

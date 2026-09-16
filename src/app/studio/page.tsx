@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { StudioPageContent } from "@/components/studio/StudioPageContent";
 
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -21,7 +20,6 @@ export default function StudioPage() {
         <StudioPageContent />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

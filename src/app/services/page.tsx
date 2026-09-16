@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { services } from "@/data";
 
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Services & Capabilities",
@@ -138,7 +137,6 @@ export default function ServicesPage() {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

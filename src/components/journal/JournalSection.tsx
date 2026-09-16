@@ -10,10 +10,10 @@ export function JournalSection() {
   const sideArticles = journal.slice(1, 4);
 
   return (
-    <section id="journal" className="relative py-28 lg:py-44 bg-paper-warm text-ink border-t border-ink/10" aria-labelledby="journal-heading">
+    <section id="journal" className="relative py-28 lg:py-44 bg-paper-warm text-ink dark:bg-ink-soft dark:text-white border-t border-ink/10 dark:border-white/10" aria-labelledby="journal-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
+        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
           <div>
             <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">
               05 // DISCOURSE & PROCESS
@@ -23,7 +23,7 @@ export function JournalSection() {
             </h2>
           </div>
           <div className="max-w-xs">
-            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
               Critical essays on visual culture, technical field notes, and reflections on the craft of light and time.
             </p>
           </div>

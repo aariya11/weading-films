@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -99,7 +98,6 @@ export default function PrivacyPage() {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

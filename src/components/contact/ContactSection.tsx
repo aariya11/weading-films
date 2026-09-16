@@ -93,7 +93,7 @@ export function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-28 lg:py-44 bg-paper text-ink border-t border-ink/10"
+      className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white border-t border-ink/10 dark:border-white/10"
       aria-labelledby="contact-heading"
     >
       <div className="container">
@@ -103,23 +103,23 @@ export function ContactSection() {
             <p className="label label-accent mb-6 tracking-[0.3em] text-xs font-mono text-champagne-deep font-medium">
               06 // COMMISSIONS & DATES
             </p>
-            <h2 id="contact-heading" className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] mb-8">
+            <h2 id="contact-heading" className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.98] mb-8 text-ink dark:text-white">
               <span className="block">LET&apos;S CRAFT</span>
-              <span className="block italic font-serif font-light text-ink/70">YOUR WEDDING</span>
+              <span className="block italic font-serif font-light text-ink/70 dark:text-white/70">YOUR WEDDING</span>
               <span className="block">CINEMA</span>
               <span className="block">LEGACY.</span>
             </h2>
 
-            <p className="body-small text-charcoal/80 max-w-md leading-relaxed font-ui mb-10">
+            <p className="body-small text-charcoal/80 dark:text-white/80 max-w-md leading-relaxed font-ui mb-10">
               We accept a limited number of commissions each wedding season across Bhubaneswar, Odisha, and luxury destination venues worldwide to dedicate complete artistic devotion to each couple.
             </p>
 
             {/* Direct WhatsApp Action Box */}
-            <div className="p-6 bg-paper-warm border border-ink/10 mb-10 space-y-3">
-              <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep font-semibold">
+            <div className="p-6 bg-paper-warm dark:bg-white/5 border border-ink/10 dark:border-white/10 mb-10 space-y-3">
+              <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep dark:text-champagne font-semibold">
                 FASTEST RESPONSE // WHATSAPP DIRECT
               </p>
-              <p className="text-xs text-charcoal/80 leading-relaxed">
+              <p className="text-xs text-charcoal/80 dark:text-white/80 leading-relaxed">
                 Connect directly with our lead cinematography director in Bhubaneswar for instant date availability:
               </p>
               <WhatsAppCTA
@@ -129,26 +129,26 @@ export function ContactSection() {
               />
             </div>
 
-            <div className="space-y-6 pt-6 border-t border-ink/10 font-ui text-sm">
+            <div className="space-y-6 pt-6 border-t border-ink/10 dark:border-white/10 font-ui text-sm">
               <div>
-                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep font-semibold mb-1">
+                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep dark:text-champagne font-semibold mb-1">
                   STUDIO BASE & ADDRESS
                 </p>
-                <p className="text-base font-display text-ink font-light">
+                <p className="text-base font-display text-ink dark:text-white font-light">
                   Bhubaneswar, Odisha, India
                 </p>
-                <p className="text-xs font-mono text-charcoal/70 mt-1">
+                <p className="text-xs font-mono text-charcoal/70 dark:text-white/60 mt-1">
                   Available worldwide for destination weddings
                 </p>
               </div>
 
               <div>
-                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep font-semibold mb-1">
+                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep dark:text-champagne font-semibold mb-1">
                   PHONE & WHATSAPP
                 </p>
                 <a
                   href="tel:+919124885729"
-                  className="text-base text-charcoal/90 hover:text-ink transition-colors font-mono font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="text-base text-charcoal/90 dark:text-white/90 hover:text-ink dark:hover:text-champagne transition-colors font-mono font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label="Call WEDDING FILMS at +91 9124885729"
                 >
                   +91 9124885729
@@ -156,12 +156,12 @@ export function ContactSection() {
               </div>
 
               <div>
-                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep font-semibold mb-1">
+                <p className="font-mono text-xs tracking-wider uppercase text-champagne-deep dark:text-champagne font-semibold mb-1">
                   DIRECT EMAIL
                 </p>
                 <a
                   href={"mailto:" + studioInfo.email}
-                  className="font-display text-2xl text-ink hover:text-champagne-deep transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                  className="font-display text-xl sm:text-2xl text-ink dark:text-white hover:text-champagne-deep dark:hover:text-champagne transition-colors break-all sm:break-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   aria-label={`Send email to ${studioInfo.email}`}
                 >
                   {studioInfo.email}
@@ -222,7 +222,7 @@ export function ContactSection() {
 
                 {/* Project Type Selector */}
                 <fieldset>
-                  <legend className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold block mb-4">
+                  <legend className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep dark:text-champagne font-bold block mb-4">
                     SELECT COVERAGE DISCIPLINE
                   </legend>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -241,7 +241,7 @@ export function ContactSection() {
                           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white",
                           formData.discipline === type
                             ? "border-ink bg-ink text-white dark:border-white dark:bg-white dark:text-ink font-bold shadow-sm"
-                            : "border-ink/20 dark:border-white/20 text-charcoal dark:text-white/80 hover:border-ink dark:hover:border-white hover:text-ink dark:hover:text-white bg-paper dark:bg-ink-soft"
+                            : "border-ink/20 dark:border-white/20 text-charcoal dark:text-white/90 hover:border-ink dark:hover:border-white hover:text-ink dark:hover:text-white bg-paper-warm dark:bg-white/10 font-medium"
                         )}
                       >
                         {type}
@@ -258,7 +258,7 @@ export function ContactSection() {
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("name")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/80 dark:text-white/70 font-semibold"
+                        : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
                     COUPLE OR CLIENT NAME *
@@ -291,7 +291,7 @@ export function ContactSection() {
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("email")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/80 dark:text-white/70 font-semibold"
+                        : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
                     EMAIL ADDRESS *
@@ -324,7 +324,7 @@ export function ContactSection() {
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("phone")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/80 dark:text-white/70 font-semibold"
+                        : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
                     PHONE / WHATSAPP NUMBER
@@ -357,7 +357,7 @@ export function ContactSection() {
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("details")
                         ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
-                        : "text-charcoal/80 dark:text-white/70 font-semibold"
+                        : "text-charcoal/90 dark:text-white/80 font-semibold"
                     )}
                   >
                     WEDDING DATES, VENUE & CEREMONY DETAILS *
@@ -395,9 +395,9 @@ export function ContactSection() {
                     aria-invalid={Boolean(touched.consent && errors.consent)}
                     aria-describedby={touched.consent && errors.consent ? "consent-error" : undefined}
                   />
-                  <label htmlFor="form-consent" className="text-xs font-ui text-charcoal/80 leading-relaxed cursor-pointer select-none">
+                  <label htmlFor="form-consent" className="text-xs font-ui text-charcoal/90 dark:text-white/90 leading-relaxed cursor-pointer select-none">
                     I consent to WEDDING FILMS processing my contact details for this wedding inquiry in accordance with the{" "}
-                    <a href="/privacy" className="underline hover:text-champagne-deep focus-visible:outline-1 focus-visible:outline-ink">
+                    <a href="/privacy" className="underline hover:text-champagne-deep dark:hover:text-champagne text-ink dark:text-white font-medium focus-visible:outline-1 focus-visible:outline-ink">
                       Privacy Policy
                     </a>.
                   </label>

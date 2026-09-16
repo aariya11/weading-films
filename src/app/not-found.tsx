@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export default function NotFound() {
   return (
@@ -44,7 +43,6 @@ export default function NotFound() {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

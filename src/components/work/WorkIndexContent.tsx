@@ -31,7 +31,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="pt-32 pb-36 bg-paper text-ink min-h-screen">
+    <div className="pt-32 pb-36 bg-paper text-ink dark:bg-ink dark:text-white min-h-screen">
       <div className="container">
         {/* Header */}
         <header className="mb-20 lg:mb-28">

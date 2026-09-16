@@ -16,7 +16,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
   return (
-    <article className="bg-paper text-ink min-h-screen">
+    <article className="bg-paper text-ink dark:bg-ink dark:text-white min-h-screen">
       {/* 1. Full-Bleed Cinematic Hero Media */}
       <section className="relative w-full h-[85vh] lg:h-[95vh] overflow-hidden bg-ink select-none">
         {project.heroMedia.type === "video" ? (

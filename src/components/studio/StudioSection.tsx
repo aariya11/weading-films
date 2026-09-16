@@ -31,7 +31,7 @@ const studioTrailImages = [
 
 export function StudioSection() {
   return (
-    <section id="studio" className="relative py-28 lg:py-44 bg-paper-warm text-ink border-t border-ink/10" aria-labelledby="studio-heading">
+    <section id="studio" className="relative py-28 lg:py-44 bg-paper-warm text-ink dark:bg-ink-soft dark:text-white border-t border-ink/10 dark:border-white/10" aria-labelledby="studio-heading">
       <div className="container">
         {/* Section Header Label */}
         <p className="label label-accent mb-12 tracking-[0.3em] text-xs font-mono">
@@ -141,7 +141,7 @@ export function StudioSection() {
         </div>
 
         {/* Live Studio Processing Reel featuring KineticTextLoader */}
-        <div className="mt-20 p-8 sm:p-12 border border-ink/10 bg-paper flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-20 p-8 sm:p-12 border border-ink/10 dark:border-white/10 bg-paper dark:bg-ink flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-champagne block">
               BHUBANESWAR SUITE // LIVE PRODUCTION

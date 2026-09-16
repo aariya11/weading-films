@@ -5,7 +5,6 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -22,7 +21,6 @@ export default function WorkPage() {
         <WorkIndexContent projects={projects} />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

@@ -48,11 +48,11 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
         aria-label={`Chat directly on WhatsApp with WEDDING FILMS (${WHATSAPP_FORMATTED})`}
         className={cn(
           "relative flex items-center gap-2.5 px-4 py-3 rounded-full",
-          "bg-ink text-white dark:bg-white dark:text-ink border border-ink/20 dark:border-white/20 shadow-[0_8px_28px_rgba(0,0,0,0.25)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)]",
-          "hover:bg-[#156336] hover:shadow-[0_8px_24px_rgba(27,122,67,0.4)]",
+          "bg-[#1b7a43] hover:bg-[#156336] text-white",
+          "shadow-[0_8px_28px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_36px_rgba(27,122,67,0.5)]",
           "hover:-translate-y-0.5 active:translate-y-0",
           "transition-all duration-300 ease-out",
-          "border border-white/20 select-none",
+          "border border-white/25 select-none",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1b7a43]"
         )}
       >
@@ -63,7 +63,7 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
 
         {/* WhatsApp Icon */}
         <svg
-          className="w-4 h-4 fill-current shrink-0"
+          className="w-4 h-4 fill-current shrink-0 text-white"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
@@ -71,7 +71,7 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
         </svg>
 
         {/* Text */}
-        <span className="font-mono text-[11px] font-medium tracking-wider uppercase">
+        <span className="font-mono text-[11px] font-bold tracking-wider uppercase text-white">
           WhatsApp
         </span>
       </a>

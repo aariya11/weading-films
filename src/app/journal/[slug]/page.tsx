@@ -7,7 +7,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { journal } from "@/data";
 import { formatDate } from "@/lib/utils";
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
 
 interface JournalSlugProps {
   params: Promise<{ slug: string }>;
@@ -140,7 +139,6 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

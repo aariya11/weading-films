@@ -164,6 +164,7 @@ export function ScrollExpandMedia({
 
   useEffect(() => {
     let ticking = false;
+    let lastProgress = -1;
 
     const handleScroll = () => {
       if (!ticking) {
@@ -171,10 +172,29 @@ export function ScrollExpandMedia({
         rafId.current = requestAnimationFrame(() => {
           if (containerRef.current) {
             const rect = containerRef.current.getBoundingClientRect();
-            const scrollableDistance = rect.height - window.innerHeight;
-            if (scrollableDistance > 0) {
-              const rawProgress = -rect.top / scrollableDistance;
-              updateVisuals(rawProgress);
+            // 1. Offscreen culling: if fully scrolled past, lock to 1 once and stop mutating DOM
+            if (rect.bottom < -50) {
+              if (lastProgress !== 1) {
+                lastProgress = 1;
+                updateVisuals(1);
+              }
+            } else if (rect.top > window.innerHeight + 50) {
+              // If hero is below viewport, lock to 0 once and stop mutating DOM
+              if (lastProgress !== 0) {
+                lastProgress = 0;
+                updateVisuals(0);
+              }
+            } else {
+              const scrollableDistance = rect.height - window.innerHeight;
+              if (scrollableDistance > 0) {
+                const rawProgress = -rect.top / scrollableDistance;
+                const clamped = Math.max(0, Math.min(1, rawProgress));
+                // Only update DOM if progress has changed significantly or reached boundaries
+                if (Math.abs(clamped - lastProgress) > 0.002 || clamped === 0 || clamped === 1) {
+                  lastProgress = clamped;
+                  updateVisuals(clamped);
+                }
+              }
             }
           }
           ticking = false;

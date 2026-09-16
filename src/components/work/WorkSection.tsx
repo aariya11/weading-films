@@ -86,7 +86,6 @@ export function WorkSection() {
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
                           fill
-                          priority
                           sizes="(max-width: 1024px) 100vw, 66vw"
                           className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                         />

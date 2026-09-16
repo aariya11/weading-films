@@ -102,7 +102,6 @@ export function ServicesSection() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
-                    priority={service.id === services[0].id}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 

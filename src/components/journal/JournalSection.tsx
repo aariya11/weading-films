@@ -42,7 +42,6 @@ export function JournalSection() {
                   src={leadArticle.coverImage.src}
                   alt={leadArticle.coverImage.alt}
                   fill
-                  priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                 />

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-ui",
@@ -170,11 +171,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative bg-paper text-ink dark:bg-black dark:text-white transition-colors duration-300">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
         <FloatingWhatsApp />
       </body>
     </html>

@@ -43,12 +43,20 @@
   --duration-slow: 600ms;
   --duration-slower: 900ms;
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
   --spacing-unit: 4px;
 }
 
 :root {
   --background: #faf9f7;
   --foreground: #0f0f0f;
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #faf9f7;
 }
 
 * {

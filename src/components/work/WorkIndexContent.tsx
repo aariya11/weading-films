@@ -53,7 +53,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
               className={cn(
-                "font-mono text-xs tracking-[0.2em] uppercase py-1.5 transition-colors duration-200 cursor-pointer",
+                "font-mono text-xs tracking-[0.2em] uppercase py-2.5 px-1 min-h-[44px] inline-flex items-center transition-colors duration-200 cursor-pointer touch-manipulation",
                 selectedCategory === cat.value
                   ? "text-ink font-bold border-b border-ink"
                   : "text-charcoal/60 hover:text-ink"

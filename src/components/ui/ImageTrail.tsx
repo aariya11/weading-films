@@ -84,6 +84,7 @@ export function ImageTrail({
   ...props
 }: ImageTrailProps) {
   const [trail, setTrail] = React.useState<TrailItem[]>([]);
+  const [isCoarse, setIsCoarse] = React.useState(false);
   const lastPositionRef = React.useRef<{ x: number; y: number } | null>(null);
   const lastTimeRef = React.useRef(0);
   const imageIndexRef = React.useRef(0);
@@ -94,6 +95,16 @@ export function ImageTrail({
   const safeDuration = Math.max(0, duration);
   const safeMaxItems = Math.max(0, Math.floor(maxItems));
   const safeRotationRange = Math.max(0, rotationRange);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const media = window.matchMedia("(pointer: coarse)");
+      setIsCoarse(media.matches);
+      const handler = (e: MediaQueryListEvent) => setIsCoarse(e.matches);
+      media.addEventListener?.("change", handler);
+      return () => media.removeEventListener?.("change", handler);
+    }
+  }, []);
 
   React.useEffect(() => {
     const timeouts = timeoutRefs.current;
@@ -112,7 +123,8 @@ export function ImageTrail({
     (event: React.PointerEvent<HTMLDivElement>) => {
       onPointerMove?.(event);
 
-      if (disabled || !normalizedImages.length || safeMaxItems === 0) {
+      // Disable cursor trail completely on coarse/touch devices to maintain 60-120fps touch scrolling
+      if (disabled || isCoarse || event.pointerType === "touch" || !normalizedImages.length || safeMaxItems === 0) {
         return;
       }
 
@@ -164,6 +176,7 @@ export function ImageTrail({
     },
     [
       disabled,
+      isCoarse,
       normalizedImages,
       onPointerMove,
       removeItem,
@@ -192,39 +205,41 @@ export function ImageTrail({
     >
       {children}
 
-      <div className={cn("pointer-events-none absolute inset-0 z-50 overflow-hidden", overlayClassName)}>
-        <AnimatePresence>
-          {trail.map((item) => (
-            <motion.div
-              key={item.id}
-              className="absolute"
-              style={{ left: item.x, top: item.y }}
-              initial={{ x: "-50%", y: "-50%", scale: 0.82, opacity: 0, rotate: item.rotation }}
-              animate={{ x: "-50%", y: "-50%", scale: 1, opacity: 1, rotate: item.rotation }}
-              exit={{
-                x: "-50%",
-                y: "-50%",
-                scale: 0.5,
-                opacity: 0,
-                rotate: item.rotation * 0.75,
-                transition: exitTransition,
-              }}
-              transition={transition}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={item.src}
-                alt={item.alt}
-                draggable={false}
-                className={cn(
-                  "block aspect-[3/4] w-32 select-none rounded-sm object-cover shadow-2xl",
-                  imageClassName
-                )}
-              />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
+      {!isCoarse && (
+        <div className={cn("pointer-events-none absolute inset-0 z-50 overflow-hidden", overlayClassName)}>
+          <AnimatePresence>
+            {trail.map((item) => (
+              <motion.div
+                key={item.id}
+                className="absolute"
+                style={{ left: item.x, top: item.y }}
+                initial={{ x: "-50%", y: "-50%", scale: 0.82, opacity: 0, rotate: item.rotation }}
+                animate={{ x: "-50%", y: "-50%", scale: 1, opacity: 1, rotate: item.rotation }}
+                exit={{
+                  x: "-50%",
+                  y: "-50%",
+                  scale: 0.5,
+                  opacity: 0,
+                  rotate: item.rotation * 0.75,
+                  transition: exitTransition,
+                }}
+                transition={transition}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  draggable={false}
+                  className={cn(
+                    "block aspect-[3/4] w-32 select-none rounded-sm object-cover shadow-2xl",
+                    imageClassName
+                  )}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      )}
     </div>
   );
 }

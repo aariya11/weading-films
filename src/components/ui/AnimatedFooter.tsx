@@ -243,8 +243,8 @@ export function AnimatedFooter({
 
     // Mobile performance tuning: adapt columns & cellSize to viewport
     const isMobileDevice = typeof window !== "undefined" && window.innerWidth < 768;
-    const effectiveColumns = isMobileDevice ? Math.min(columns, 38) : columns;
-    const effectiveCellSize = isMobileDevice ? Math.max(cellSize, 18) : cellSize;
+    const effectiveColumns = isMobileDevice ? Math.min(columns, 28) : columns;
+    const effectiveCellSize = isMobileDevice ? Math.max(cellSize, 20) : cellSize;
 
     // ── ASCII hands ──────────────────────────────────────────────────────
     const setupHand = (
@@ -255,7 +255,7 @@ export function AnimatedFooter({
       const { rows, cells } = buildHandCells(image, effectiveColumns, asciiChars);
       if (cells.size === 0) return;
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, isMobileDevice ? 1.5 : 2);
       canvas.width = effectiveColumns * effectiveCellSize * dpr;
       canvas.height = rows * effectiveCellSize * dpr;
 
@@ -357,9 +357,9 @@ export function AnimatedFooter({
     };
 
     const onTouchMove = (event: TouchEvent) => {
-      if (!event.touches.length) return;
+      if (!isLoopRunning || !event.touches.length) return;
       const touch = event.touches[0];
-      const strength = liveRef.current.parallaxStrength * 0.5;
+      const strength = liveRef.current.parallaxStrength * 0.4;
       const rect = root.getBoundingClientRect();
       const w = rect.width || 1;
       const h = rect.height || 1;
@@ -371,9 +371,24 @@ export function AnimatedFooter({
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("touchmove", onTouchMove, { passive: true });
 
-    // ── Unified render loop ──────────────────────────────────────────────
+    // ── Unified render loop with active viewport lifecycle ──────────────
     let rafId = 0;
+    let isLoopRunning = false;
+
+    const startLoop = () => {
+      if (isLoopRunning) return;
+      isLoopRunning = true;
+      rafId = requestAnimationFrame(frame);
+    };
+
+    const stopLoop = () => {
+      if (!isLoopRunning) return;
+      isLoopRunning = false;
+      cancelAnimationFrame(rafId);
+    };
+
     const frame = () => {
+      if (!isLoopRunning) return;
       const now = Date.now();
       for (const hand of hands) renderHand(hand, now);
 
@@ -392,7 +407,6 @@ export function AnimatedFooter({
 
       rafId = requestAnimationFrame(frame);
     };
-    rafId = requestAnimationFrame(frame);
 
     // ── Reveal (chars + curtain) ─────────────────────────
     const chars = gsap.utils.toArray<HTMLElement>(root.querySelectorAll("[data-af-char]"));
@@ -433,8 +447,13 @@ export function AnimatedFooter({
 
     if (revealed !== undefined) {
       curtain.offset = revealed ? 0 : 125;
-      if (revealed) showAll();
-      else maskAll();
+      if (revealed) {
+        showAll();
+        startLoop();
+      } else {
+        maskAll();
+        stopLoop();
+      }
     } else if (revealOnScroll) {
       maskAll();
 
@@ -442,24 +461,31 @@ export function AnimatedFooter({
       observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
-            if (entry.isIntersecting && !isRevealed) {
-              isRevealed = true;
-              animateIn();
-            } else if (!entry.isIntersecting && isRevealed) {
-              isRevealed = false;
-              animateOut();
+            if (entry.isIntersecting) {
+              startLoop();
+              if (!isRevealed) {
+                isRevealed = true;
+                animateIn();
+              }
+            } else {
+              stopLoop();
+              if (isRevealed) {
+                isRevealed = false;
+                animateOut();
+              }
             }
           }
         },
-        { root: getScrollParent(root), threshold: 0.2 },
+        { root: getScrollParent(root), threshold: 0.05 },
       );
       observer.observe(root);
     } else {
       showAll();
+      startLoop();
     }
 
     return () => {
-      cancelAnimationFrame(rafId);
+      stopLoop();
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("touchmove", onTouchMove);
       observer?.disconnect();

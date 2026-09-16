@@ -11,7 +11,7 @@ export function Navigation() {
       logo={
         <Link href="/" className="flex items-center gap-2 group" aria-label="WEDDING FILMS — Home">
           <LogoIcon className="w-5 h-5 text-foreground rotate-180 group-hover:scale-105 transition-transform" />
-          <span className="font-display text-sm tracking-[0.2em] font-light text-foreground whitespace-nowrap">
+          <span className="font-display text-xs sm:text-sm tracking-[0.12em] sm:tracking-[0.2em] font-light text-foreground whitespace-nowrap">
             WEDDING FILMS
           </span>
         </Link>

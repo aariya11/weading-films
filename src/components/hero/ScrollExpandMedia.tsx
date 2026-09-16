@@ -52,7 +52,6 @@ export function ScrollExpandMedia({
   const contentTeaserRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  const [progressState, setProgressState] = useState(0);
   const progressRef = useRef(0);
   const rafId = useRef<number | null>(null);
   const hasTriggeredComplete = useRef(false);
@@ -70,25 +69,23 @@ export function ScrollExpandMedia({
       if (prefersReducedMotion) {
         if (backgroundRef.current) backgroundRef.current.style.opacity = "0";
         if (foregroundRef.current) {
-          foregroundRef.current.style.width = "94vw";
-          foregroundRef.current.style.height = "88vh";
-          foregroundRef.current.style.transform = "translate(-50%, -50%) scale(1)";
+          foregroundRef.current.style.transform = "translate3d(-50%, -50%, 0) scale(1)";
         }
         if (indicatorRef.current) indicatorRef.current.style.opacity = "0";
         if (contentTeaserRef.current) {
           contentTeaserRef.current.style.opacity = "1";
-          contentTeaserRef.current.style.transform = "translate(-50%, 0)";
+          contentTeaserRef.current.style.transform = "translate3d(-50%, 0, 0)";
         }
         return;
       }
 
       const eased = easeProgress(p);
 
-      // 1. Background fades away from 1 to 0
+      // 1. Background fades away from 1 to 0 on compositor layer
       if (backgroundRef.current) {
         const bgOpacity = Math.max(0, 1 - p * 1.3);
         backgroundRef.current.style.opacity = bgOpacity.toFixed(3);
-        backgroundRef.current.style.transform = `scale(${(1 + p * 0.08).toFixed(4)})`;
+        backgroundRef.current.style.transform = `scale(${(1 + p * 0.08).toFixed(4)}) translateZ(0)`;
       }
 
       // 2. Overlay adjusts
@@ -96,48 +93,42 @@ export function ScrollExpandMedia({
         overlayRef.current.style.opacity = (0.55 - p * 0.35).toFixed(3);
       }
 
-      // 3. Central media expansion
+      // 3. Central media expansion via pure GPU transform (Zero Layout Reflow)
       if (foregroundRef.current) {
         const isSmallScreen = window.innerWidth < 768;
-        const initialW = isSmallScreen ? 76 : 38;
-        const targetW = isSmallScreen ? 94 : 88;
-        const currentW = initialW + (targetW - initialW) * eased;
+        // On mobile base is 76vw, expands to 94vw -> target scale ~ 1.24
+        // On desktop base is 38vw, expands to 88vw -> target scale ~ 2.30
+        const maxScale = isSmallScreen ? 1.24 : 2.25;
+        const currentScale = 1 + (maxScale - 1) * eased;
 
-        const initialH = isSmallScreen ? 48 : 54;
-        const targetH = isSmallScreen ? 82 : 86;
-        const currentH = initialH + (targetH - initialH) * eased;
-
-        const scale = 0.96 + eased * 0.04;
-
-        foregroundRef.current.style.width = `${currentW.toFixed(2)}vw`;
-        foregroundRef.current.style.height = `${currentH.toFixed(2)}vh`;
-        foregroundRef.current.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(4)})`;
+        foregroundRef.current.style.transform = `translate3d(-50%, -50%, 0) scale(${currentScale.toFixed(4)})`;
       }
 
-      // 4. Typography horizontal separation
-      const moveDistance = (window.innerWidth < 768 ? 18 : 34) * eased;
+      // 4. Typography horizontal separation via translate3d
+      const isSmallScreen = window.innerWidth < 768;
+      const moveDistance = (isSmallScreen ? 16 : 32) * eased;
 
       if (titleLeftRef.current) {
-        titleLeftRef.current.style.transform = `translateX(-${moveDistance.toFixed(2)}vw)`;
-        titleLeftRef.current.style.opacity = (1 - p * 1.1).toFixed(3);
+        titleLeftRef.current.style.transform = `translate3d(-${moveDistance.toFixed(1)}vw, 0, 0)`;
+        titleLeftRef.current.style.opacity = (1 - p * 1.15).toFixed(3);
       }
       if (titleRightRef.current) {
-        titleRightRef.current.style.transform = `translateX(${moveDistance.toFixed(2)}vw)`;
-        titleRightRef.current.style.opacity = (1 - p * 1.1).toFixed(3);
+        titleRightRef.current.style.transform = `translate3d(${moveDistance.toFixed(1)}vw, 0, 0)`;
+        titleRightRef.current.style.opacity = (1 - p * 1.15).toFixed(3);
       }
       if (titleCenterRef.current) {
-        titleCenterRef.current.style.transform = `translateX(${(moveDistance * 0.4).toFixed(2)}vw)`;
-        titleCenterRef.current.style.opacity = (1 - p * 1.2).toFixed(3);
+        titleCenterRef.current.style.transform = `translate3d(${(moveDistance * 0.4).toFixed(1)}vw, 0, 0)`;
+        titleCenterRef.current.style.opacity = (1 - p * 1.25).toFixed(3);
       }
 
       // 5. Metadata subtle counter-motion
-      const metaDrift = (window.innerWidth < 768 ? 8 : 14) * eased;
+      const metaDrift = (isSmallScreen ? 8 : 14) * eased;
       if (metaTopRef.current) {
-        metaTopRef.current.style.transform = `translateY(-${metaDrift.toFixed(2)}px)`;
+        metaTopRef.current.style.transform = `translate3d(0, -${metaDrift.toFixed(1)}px, 0)`;
         metaTopRef.current.style.opacity = (1 - p * 1.4).toFixed(3);
       }
       if (metaBottomRef.current) {
-        metaBottomRef.current.style.transform = `translateY(${metaDrift.toFixed(2)}px)`;
+        metaBottomRef.current.style.transform = `translate3d(0, ${metaDrift.toFixed(1)}px, 0)`;
         metaBottomRef.current.style.opacity = (1 - p * 1.4).toFixed(3);
       }
 
@@ -145,18 +136,18 @@ export function ScrollExpandMedia({
       if (indicatorRef.current) {
         const indOpacity = Math.max(0, 1 - p * 2.8);
         indicatorRef.current.style.opacity = indOpacity.toFixed(3);
-        indicatorRef.current.style.transform = `translate(-50%, ${(p * 25).toFixed(1)}px)`;
+        indicatorRef.current.style.transform = `translate3d(-50%, ${(p * 25).toFixed(1)}px, 0)`;
       }
 
-      // 7. At ~75% progress, supporting content begins appearing
+      // 7. At ~70% progress, supporting content begins appearing
       if (contentTeaserRef.current) {
         if (p >= 0.7) {
           const contentProg = Math.min(1, (p - 0.7) / 0.3);
           contentTeaserRef.current.style.opacity = contentProg.toFixed(3);
-          contentTeaserRef.current.style.transform = `translate(-50%, ${((1 - contentProg) * 20).toFixed(1)}px)`;
+          contentTeaserRef.current.style.transform = `translate3d(-50%, ${((1 - contentProg) * 20).toFixed(1)}px, 0)`;
         } else {
           contentTeaserRef.current.style.opacity = "0";
-          contentTeaserRef.current.style.transform = "translate(-50%, 20px)";
+          contentTeaserRef.current.style.transform = "translate3d(-50%, 20px, 0)";
         }
       }
 
@@ -172,20 +163,23 @@ export function ScrollExpandMedia({
   );
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const scrollableDistance = rect.height - window.innerHeight;
-      if (scrollableDistance <= 0) return;
-
-      const rawProgress = -rect.top / scrollableDistance;
-      const clamped = Math.max(0, Math.min(1, rawProgress));
-
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-      rafId.current = requestAnimationFrame(() => {
-        updateVisuals(clamped);
-        setProgressState(clamped);
-      });
+      if (!ticking) {
+        ticking = true;
+        rafId.current = requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const scrollableDistance = rect.height - window.innerHeight;
+            if (scrollableDistance > 0) {
+              const rawProgress = -rect.top / scrollableDistance;
+              updateVisuals(rawProgress);
+            }
+          }
+          ticking = false;
+        });
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -210,7 +204,7 @@ export function ScrollExpandMedia({
       ref={containerRef}
       className={cn("relative w-full", className)}
       style={{
-        height: prefersReducedMotion ? "100vh" : "260vh",
+        height: prefersReducedMotion ? "100vh" : isMobile ? "165vh" : "240vh",
       }}
       aria-label="Hero cinematic presentation"
     >

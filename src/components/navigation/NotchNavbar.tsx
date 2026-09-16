@@ -19,21 +19,21 @@ const NavLink = ({ href, icon: Icon, label }: { href: string; icon: React.Compon
   </Link>
 )
 
-// Simple Theme Toggle for Mobile
+// Simple Theme Toggle for Mobile with >=44px tap target
 const MobileThemeToggle = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
 
-  if (!mounted) return <div className="w-9 h-9" />
+  if (!mounted) return <div className="w-11 h-11" />
 
   const isDark = (theme === 'dark' || resolvedTheme === 'dark')
 
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-foreground/5 transition-colors text-foreground/70 hover:text-foreground"
+      className="flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 rounded-full hover:bg-foreground/5 transition-colors text-foreground/70 hover:text-foreground touch-manipulation cursor-pointer"
       aria-label="Toggle theme"
     >
       {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -71,6 +71,26 @@ export function NotchNavbar({
 }: NotchNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isMobileMenuOpen]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   // Navigation items configuration
   const items = customItems || {
     left: [
@@ -100,11 +120,11 @@ export function NotchNavbar({
         <div className="flex h-16 relative z-10 shrink-0 -ml-px">
           
           {/* Left Slice (Corner) */}
-          <div className="w-[50px] h-full relative shrink-0">
+          <div className="w-[36px] sm:w-[50px] h-full relative shrink-0">
             {/* Glass Background */}
             <div className="absolute inset-0 bg-zinc-50 dark:bg-black" style={{ clipPath: "path('M0 0 H50 V64 C25 64 25 40 0 40 Z')" }} />
             {/* Outlines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 50 64">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 50 64">
               <path d="M0 39.5 C25 39.5 25 63.5 50 63.5" fill="none" stroke="currentColor" strokeOpacity={0.05} strokeWidth={0.5} className="text-foreground" />
               <path d="M0 36.5 C25 36.5 25 60.5 50 60.5" fill="none" stroke="currentColor" strokeOpacity={0.05} strokeWidth={0.5} className="text-foreground" />
             </svg>
@@ -121,7 +141,7 @@ export function NotchNavbar({
              </div>
 
              {/* Content Layer */}
-             <div className="relative w-full h-full flex items-end justify-between pb-2 px-4 md:px-8">
+             <div className="relative w-full h-full flex items-end justify-between pb-2 px-2 sm:px-4 md:px-8">
                
                {/* Desktop Left Nav */}
                <nav className="hidden md:flex gap-8 mb-1 shrink-0">
@@ -132,17 +152,18 @@ export function NotchNavbar({
 
               {/* Mobile Menu Button (Left) */}
               <button 
-                className="md:hidden mb-1 p-1 text-foreground/70 hover:text-foreground transition-colors cursor-pointer"
+                className="md:hidden mb-0.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-foreground/70 hover:text-foreground transition-colors cursor-pointer touch-manipulation"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
 
               {/* Logo (Center) */}
-              <div className="flex justify-center shrink-0 mx-2 md:mx-4 mt-1">
+              <div className="flex justify-center shrink-0 mx-1 sm:mx-2 md:mx-4 mt-1">
                 {logo || (
-                  <Link href="/" className="flex items-center justify-center relative group">
+                  <Link href="/" className="flex items-center justify-center relative group p-1" aria-label="Wedding Films Home">
                     <LogoIcon className="w-7 h-7 text-foreground rotate-180 hover:scale-105 transition-transform relative z-10" />
                   </Link>
                 )}
@@ -171,7 +192,7 @@ export function NotchNavbar({
               </nav>
 
               {/* Mobile Right Actions */}
-              <div className="md:hidden flex items-center gap-2 mb-1">
+              <div className="md:hidden flex items-center mb-0.5">
                 <MobileThemeToggle />
               </div>
 
@@ -179,11 +200,11 @@ export function NotchNavbar({
           </div>
 
           {/* Right Slice (Corner) */}
-          <div className="w-[50px] h-full relative shrink-0 -ml-px">
+          <div className="w-[36px] sm:w-[50px] h-full relative shrink-0 -ml-px">
             {/* Glass Background */}
             <div className="absolute inset-0 bg-zinc-50 dark:bg-black" style={{ clipPath: "path('M0 0 H50 V40 C25 40 25 64 0 64 Z')" }} />
             {/* Outlines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 50 64">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 50 64">
               <path d="M0 63.5 C25 63.5 25 39.5 50 39.5" fill="none" stroke="currentColor" strokeOpacity={0.05} strokeWidth={0.5} className="text-foreground" />
               <path d="M0 60.5 C25 60.5 25 36.5 50 36.5" fill="none" stroke="currentColor" strokeOpacity={0.05} strokeWidth={0.5} className="text-foreground" />
             </svg>
@@ -204,48 +225,61 @@ export function NotchNavbar({
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 bg-zinc-50 dark:bg-black border-b border-foreground/5 p-4 md:hidden shadow-lg"
-          >
-             <nav className="flex flex-col gap-2">
-               {/* Combine all items */}
-               {[...items.left, ...items.right].map(item => (
-                 <Link 
-                   key={item.label} 
-                   href={item.href}
-                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-foreground/5 transition-colors"
-                   onClick={() => setIsMobileMenuOpen(false)}
-                 >
-                   <item.icon className="w-5 h-5 opacity-70" />
-                   <span className="font-medium text-foreground/90">{item.label}</span>
-                 </Link>
-               ))}
-               <div className="h-px bg-foreground/10 my-2" />
-               <div className="flex flex-col gap-2">
-                 <Link 
-                    href={loginHref} 
-                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-foreground/5 transition-colors font-medium text-foreground/90"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                 >
-                   {loginLabel}
-                 </Link>
-                 <Link 
-                    href={signupHref} 
-                    target={signupHref.startsWith("http") ? "_blank" : undefined}
-                    rel={signupHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-center gap-2 p-3 rounded-lg bg-foreground text-background font-medium mt-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                 >
-                   {signupLabel}
-                 </Link>
-               </div>
-             </nav>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              aria-hidden="true"
+            />
+            {/* Drawer */}
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="fixed inset-x-0 top-16 z-50 bg-zinc-50 dark:bg-black border-b border-foreground/10 p-5 md:hidden shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto"
+            >
+               <nav className="flex flex-col gap-2">
+                 {/* Combine all items */}
+                 {[...items.left, ...items.right].map(item => (
+                   <Link 
+                     key={item.label} 
+                     href={item.href}
+                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-foreground/5 transition-colors touch-manipulation min-h-[44px]"
+                     onClick={() => setIsMobileMenuOpen(false)}
+                   >
+                     <item.icon className="w-5 h-5 opacity-70" />
+                     <span className="font-medium text-foreground/90">{item.label}</span>
+                   </Link>
+                 ))}
+                 <div className="h-px bg-foreground/10 my-2" />
+                 <div className="flex flex-col gap-2">
+                   <Link 
+                      href={loginHref} 
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-foreground/5 transition-colors font-medium text-foreground/90 touch-manipulation min-h-[44px]"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                   >
+                     {loginLabel}
+                   </Link>
+                   <Link 
+                      href={signupHref} 
+                      target={signupHref.startsWith("http") ? "_blank" : undefined}
+                      rel={signupHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="flex items-center justify-center gap-2 p-3 rounded-lg bg-foreground text-background font-medium mt-2 touch-manipulation min-h-[44px]"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                   >
+                     {signupLabel}
+                   </Link>
+                 </div>
+               </nav>
 
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

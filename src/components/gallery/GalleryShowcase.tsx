@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { WhatsAppCTA } from "@/components/ui/WhatsAppButton";
@@ -273,19 +273,49 @@ export function GalleryShowcase() {
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeFilter);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = "hidden";
-    }
   };
 
   const closeLightbox = useCallback(() => {
     setLightboxIndex(null);
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = "auto";
-    }
   }, []);
+
+  // Lock scroll safely during lightbox
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [lightboxIndex]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Detect horizontal swipe (at least 45px, predominantly horizontal)
+    if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25) {
+      if (deltaX < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
 
   const nextImage = useCallback(() => {
     if (lightboxIndex !== null) {
@@ -464,13 +494,15 @@ export function GalleryShowcase() {
         </div>
       </div>
 
-      {/* Fullscreen Lightbox Modal */}
+      {/* Fullscreen Lightbox Modal with Mobile Touch Swipe Navigation */}
       {lightboxIndex !== null && activeItem && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8 animate-in fade-in duration-300"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8 animate-in fade-in duration-300 touch-manipulation select-none"
           role="dialog"
           aria-modal="true"
           aria-label={activeItem.title}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between text-white border-b border-white/10 pb-4 z-20">
@@ -490,7 +522,7 @@ export function GalleryShowcase() {
               <button
                 type="button"
                 onClick={closeLightbox}
-                className="font-mono text-xs tracking-widest border border-white/30 text-white hover:bg-white hover:text-black px-3.5 py-1.5 transition-colors uppercase cursor-pointer"
+                className="font-mono text-xs tracking-widest border border-white/30 text-white hover:bg-white hover:text-black px-3.5 py-2 transition-colors uppercase cursor-pointer min-h-[44px] flex items-center justify-center"
                 aria-label="Close lightbox"
               >
                 CLOSE [×]
@@ -511,7 +543,7 @@ export function GalleryShowcase() {
             </button>
 
             {/* Main Image */}
-            <div className="relative h-full w-full max-w-4xl max-h-[75vh] flex items-center justify-center">
+            <div className="relative h-full w-full max-w-4xl max-h-[62vh] sm:max-h-[75vh] flex items-center justify-center">
               <Image
                 src={activeItem.src}
                 alt={activeItem.alt}
@@ -551,7 +583,7 @@ export function GalleryShowcase() {
                 href={"https://wa.me/919124885729?text=Hello%20Wedding%20Films,%20I%20am%20interested%20in%20commissioning%20a%20wedding%20look%20like:%20" + encodeURIComponent(activeItem.title)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs tracking-widest uppercase px-5 py-2.5 rounded-none font-semibold transition-all inline-flex items-center gap-2 shadow-lg"
+                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-mono text-xs tracking-widest uppercase px-5 py-3 rounded-none font-semibold transition-all inline-flex items-center justify-center gap-2 shadow-lg min-h-[44px] w-full sm:w-auto"
               >
                 <span>BOOK THIS STYLE ON WHATSAPP</span>
                 <span>↗</span>

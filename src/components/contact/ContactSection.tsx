@@ -237,11 +237,11 @@ export function ContactSection() {
                         type="button"
                         onClick={() => setFormData({ ...formData, discipline: type })}
                         className={cn(
-                          "py-3 px-3 border text-left font-mono text-[11px] tracking-wider transition-all duration-200 cursor-pointer",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
+                          "py-3.5 px-3 border text-left font-mono text-xs tracking-wider transition-all duration-200 cursor-pointer touch-manipulation",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white",
                           formData.discipline === type
-                            ? "border-ink bg-ink text-white"
-                            : "border-ink/15 text-charcoal/80 hover:border-ink/40 bg-white/50"
+                            ? "border-ink bg-ink text-white dark:border-white dark:bg-white dark:text-ink font-bold shadow-sm"
+                            : "border-ink/20 dark:border-white/20 text-charcoal dark:text-white/80 hover:border-ink dark:hover:border-white hover:text-ink dark:hover:text-white bg-paper dark:bg-ink-soft"
                         )}
                       >
                         {type}
@@ -251,14 +251,14 @@ export function ContactSection() {
                 </fieldset>
 
                 {/* Name */}
-                <div className="relative border-b border-ink/20 focus-within:border-ink transition-colors pb-2">
+                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
                     htmlFor="form-name"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("name")
-                        ? "text-champagne-deep font-medium -translate-y-1 text-[10px]"
-                        : "text-charcoal/60"
+                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                        : "text-charcoal/80 dark:text-white/70 font-semibold"
                     )}
                   >
                     COUPLE OR CLIENT NAME *
@@ -272,7 +272,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pt-1 bg-transparent text-ink font-ui text-lg focus:outline-none"
+                    className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
                     aria-invalid={Boolean(touched.name && errors.name)}
                     aria-describedby={touched.name && errors.name ? "name-error" : undefined}
                   />
@@ -284,14 +284,14 @@ export function ContactSection() {
                 </div>
 
                 {/* Email */}
-                <div className="relative border-b border-ink/20 focus-within:border-ink transition-colors pb-2">
+                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
                     htmlFor="form-email"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("email")
-                        ? "text-champagne-deep font-medium -translate-y-1 text-[10px]"
-                        : "text-charcoal/60"
+                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                        : "text-charcoal/80 dark:text-white/70 font-semibold"
                     )}
                   >
                     EMAIL ADDRESS *
@@ -305,7 +305,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pt-1 bg-transparent text-ink font-ui text-lg focus:outline-none"
+                    className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
                     aria-invalid={Boolean(touched.email && errors.email)}
                     aria-describedby={touched.email && errors.email ? "email-error" : undefined}
                   />
@@ -317,14 +317,14 @@ export function ContactSection() {
                 </div>
 
                 {/* Phone / WhatsApp */}
-                <div className="relative border-b border-ink/20 focus-within:border-ink transition-colors pb-2">
+                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
                     htmlFor="form-phone"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("phone")
-                        ? "text-champagne-deep font-medium -translate-y-1 text-[10px]"
-                        : "text-charcoal/60"
+                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                        : "text-charcoal/80 dark:text-white/70 font-semibold"
                     )}
                   >
                     PHONE / WHATSAPP NUMBER
@@ -338,7 +338,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     onFocus={() => setFocusedField("phone")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pt-1 bg-transparent text-ink font-ui text-lg focus:outline-none"
+                    className="w-full pt-1 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
                     aria-invalid={Boolean(touched.phone && errors.phone)}
                     aria-describedby={touched.phone && errors.phone ? "phone-error" : undefined}
                   />
@@ -350,14 +350,14 @@ export function ContactSection() {
                 </div>
 
                 {/* Wedding Date & Venue Details */}
-                <div className="relative border-b border-ink/20 focus-within:border-ink transition-colors pb-2">
+                <div className="relative border-b border-ink/25 dark:border-white/25 focus-within:border-ink dark:focus-within:border-white transition-colors pb-2">
                   <label
                     htmlFor="form-details"
                     className={cn(
                       "font-mono text-xs tracking-[0.2em] uppercase transition-all duration-200 block pointer-events-none",
                       isLabelActive("details")
-                        ? "text-champagne-deep font-medium -translate-y-1 text-[10px]"
-                        : "text-charcoal/60"
+                        ? "text-champagne-deep dark:text-champagne font-bold -translate-y-1 text-[11px]"
+                        : "text-charcoal/80 dark:text-white/70 font-semibold"
                     )}
                   >
                     WEDDING DATES, VENUE & CEREMONY DETAILS *
@@ -372,7 +372,7 @@ export function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                     onFocus={() => setFocusedField("details")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pt-3 pb-2 bg-transparent text-ink font-ui text-base focus:outline-none resize-none"
+                    className="w-full pt-3 pb-2 bg-transparent text-ink dark:text-white font-ui text-base focus:outline-none resize-none placeholder:text-charcoal/40 dark:placeholder:text-white/40"
                     aria-invalid={Boolean(touched.details && errors.details)}
                     aria-describedby={touched.details && errors.details ? "details-error" : undefined}
                   />
@@ -408,21 +408,21 @@ export function ContactSection() {
                   </p>
                 )}
 
-                {/* Submit PopButton */}
-                <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                {/* Submit & WhatsApp CTAs */}
+                <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                   <PopButton
                     type="submit"
                     disabled={isPending}
-                    className="w-full sm:w-auto font-mono text-xs tracking-[0.25em]"
+                    className="w-full sm:w-auto"
                     data-cursor="OPEN"
                   >
-                    {isPending ? "TRANSMITTING INQUIRY..." : "SEND INQUIRY →"}
+                    {isPending ? "TRANSMITTING INQUIRY..." : "SEND INQUIRY"}
                   </PopButton>
 
                   <WhatsAppCTA
                     variant="outline"
                     label="Or Chat on WhatsApp"
-                    className="w-full sm:w-auto justify-center py-4"
+                    className="w-full sm:w-auto justify-center"
                   />
                 </div>
               </form>

@@ -48,7 +48,7 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
         aria-label={`Chat directly on WhatsApp with WEDDING FILMS (${WHATSAPP_FORMATTED})`}
         className={cn(
           "relative flex items-center gap-2.5 px-4 py-3 rounded-full",
-          "bg-[#1b7a43] text-white shadow-[0_6px_20px_rgba(0,0,0,0.25)]",
+          "bg-ink text-white dark:bg-white dark:text-ink border border-ink/20 dark:border-white/20 shadow-[0_8px_28px_rgba(0,0,0,0.25)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)]",
           "hover:bg-[#156336] hover:shadow-[0_8px_24px_rgba(27,122,67,0.4)]",
           "hover:-translate-y-0.5 active:translate-y-0",
           "transition-all duration-300 ease-out",
@@ -98,11 +98,11 @@ export function WhatsAppCTA({
       className={cn(
         "inline-flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase transition-all duration-300",
         variant === "primary" &&
-          "px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-medium shadow-[0_6px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5",
+          "px-6 py-3.5 bg-[#1b7a43] hover:bg-[#156336] text-white font-semibold shadow-sm hover:shadow hover:-translate-y-0.5",
         variant === "outline" &&
-          "px-5 py-3 border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white",
+          "px-6 py-4 border border-ink/30 dark:border-white/30 text-ink dark:text-white hover:border-ink dark:hover:border-white hover:bg-ink hover:text-white dark:hover:bg-white dark:hover:text-ink font-semibold",
         variant === "compact" &&
-          "text-[#25D366] hover:text-[#20ba59] underline underline-offset-4",
+          "text-[#1b7a43] dark:text-[#4ade80] hover:underline underline-offset-4 font-semibold",
         className
       )}
     >

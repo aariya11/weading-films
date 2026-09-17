@@ -46,15 +46,16 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
 
   const currentIndex = journal.findIndex((j) => j.id === article.id);
   const nextArticle = journal[(currentIndex + 1) % journal.length];
+  const paragraphs = article.content.trim().split("\n\n");
 
   return (
     <>
       <Navigation />
       <CustomCursor />
-      <main id="main-content" className="bg-paper text-ink pt-32 pb-36 min-h-screen">
-        <div className="container">
+      <main id="main-content" className="bg-paper text-ink pt-28 sm:pt-36 pb-36 min-h-screen">
+        <div className="container max-w-4xl">
           {/* Breadcrumb / Back */}
-          <div className="mb-12">
+          <div className="mb-8">
             <Link
               href="/journal"
               className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-semibold hover:underline inline-flex items-center gap-2"
@@ -65,62 +66,139 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
           </div>
 
           {/* Article Header */}
-          <header className="max-w-4xl mb-16 lg:mb-24">
-            <div className="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.25em] text-champagne mb-6">
-              <span>{article.category.replaceAll("_", " ")}</span>
+          <header className="mb-14">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-6">
+              <span className="px-3 py-1 rounded-full bg-paper-warm border border-ink/10">
+                {article.category.replaceAll("_", " ")}
+              </span>
               <span>·</span>
               <time dateTime={article.publishDate}>{formatDate(article.publishDate)}</time>
               <span>·</span>
               <span>{article.readTime}</span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[1.02] mb-8">
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.04] mb-8 text-balance">
               {article.title}
             </h1>
 
-            <p className="body-large font-serif italic text-2xl sm:text-3xl text-charcoal/80 leading-relaxed border-l-2 border-champagne pl-6">
+            <p className="body-large font-serif italic text-2xl sm:text-3xl text-charcoal/85 leading-relaxed border-l-3 border-champagne-deep pl-6">
               &ldquo;{article.excerpt}&rdquo;
             </p>
 
-            <div className="mt-8 pt-6 border-t border-ink/10 flex items-center gap-4 text-xs font-mono text-charcoal/60">
-              <span>WRITTEN BY {article.author.toUpperCase()}</span>
-              <span>·</span>
-              <span>WEDDING FILMS EDITORIAL</span>
+            <div className="mt-8 pt-6 border-t border-ink/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-charcoal/70">
+              <div>
+                <span>CURATED BY </span>
+                <strong className="text-ink font-semibold">{article.author.toUpperCase()}</strong>
+                <span> · WEDDING FILMS EDITORIAL</span>
+              </div>
+              <span className="text-champagne-deep">BHUBANESWAR, ODISHA</span>
             </div>
           </header>
 
-          {/* Full-width Lead Image */}
-          <div className="relative aspect-[21/10] sm:aspect-[2.2/1] overflow-hidden bg-ink/5 mb-20 lg:mb-28" data-cursor="VIEW">
+          {/* Lead Image with Fine Framing */}
+          <div className="relative aspect-[16/9] sm:aspect-[2/1] overflow-hidden bg-ink/5 mb-14 border border-ink/10" data-cursor="VIEW">
             <Image
               src={article.coverImage.src}
               alt={article.coverImage.alt}
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 1024px) 100vw, 896px"
               className="object-cover"
             />
           </div>
 
-          {/* Article Body Content (Narrow editorial column, deep whitespace) */}
-          <div className="max-w-3xl mx-auto space-y-8 text-charcoal/90 body-large leading-relaxed font-ui">
-            {article.content.trim().split("\n\n").map((paragraph, idx) => (
-              <p key={idx} className={idx === 0 ? "text-xl sm:text-2xl font-serif leading-relaxed text-ink" : ""}>
-                {paragraph.trim()}
-              </p>
-            ))}
-
-            <blockquote className="my-12 py-8 border-y border-ink/10 text-center font-display text-2xl sm:text-4xl text-ink font-light italic leading-snug">
-              &ldquo;When visual form originates from the actual physics of the subject, the outcome requires zero decorative artifice.&rdquo;
-            </blockquote>
-
-            <p>
-              This is the ethos that defines every commission in our archive. We avoid trend cycles in favor of timeless physical qualities — grain, shadow, breath, and silence.
+          {/* At A Glance Scannable Takeaway Card */}
+          <div className="mb-14 p-6 bg-paper-warm border-l-4 border-champagne-deep border-y border-r border-ink/10 rounded-r-lg">
+            <p className="font-mono text-xs font-bold text-champagne-deep tracking-[0.2em] uppercase mb-2">
+              AT A GLANCE // EDITORIAL ESSENCE
+            </p>
+            <p className="text-sm font-ui text-charcoal/90 leading-relaxed font-medium">
+              {article.excerpt}
             </p>
           </div>
 
+          {/* Impeccably Typeset Editorial Body */}
+          <article className="space-y-10 text-charcoal/85 leading-relaxed font-ui max-w-3xl mx-auto">
+            {paragraphs.map((para, idx) => {
+              if (idx === 0) {
+                return (
+                  <p
+                    key={idx}
+                    className="text-xl sm:text-2xl font-serif text-ink leading-relaxed font-light first-letter:text-5xl first-letter:font-display first-letter:font-normal first-letter:mr-3 first-letter:float-left first-letter:leading-none first-letter:text-ink"
+                  >
+                    {para.trim()}
+                  </p>
+                );
+              }
+
+              // Insert scannable section anchor / thematic milestone at mid-point
+              if (idx === 1) {
+                return (
+                  <div key={idx} className="space-y-6 pt-6 border-t border-ink/10">
+                    <h2 className="font-display text-2xl sm:text-3xl text-ink tracking-tight">
+                      LIGHT, DEVOTION & TIMELESS GRAIN
+                    </h2>
+                    <p className="text-base sm:text-lg leading-relaxed text-charcoal/85">
+                      {para.trim()}
+                    </p>
+                  </div>
+                );
+              }
+
+              return (
+                <p key={idx} className="text-base sm:text-lg leading-relaxed text-charcoal/85">
+                  {para.trim()}
+                </p>
+              );
+            })}
+
+            {/* Editorial Pullquote */}
+            <blockquote className="my-14 py-8 border-y border-ink/15 text-center font-display text-2xl sm:text-4xl text-ink font-light italic leading-snug">
+              &ldquo;When visual form originates from the actual physics of the subject, the outcome requires zero decorative artifice.&rdquo;
+            </blockquote>
+
+            <div className="space-y-6 pt-4 border-t border-ink/10">
+              <h2 className="font-display text-2xl sm:text-3xl text-ink tracking-tight">
+                AN ENDURING HEIRLOOM ETHOS
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-charcoal/85">
+                This is the ethos that defines every commission in our archive. We avoid trend cycles in favor of timeless physical qualities — grain, shadow, breath, and silence.
+              </p>
+            </div>
+          </article>
+
+          {/* Commission Callout */}
+          <div className="mt-20 p-8 bg-paper-warm border border-ink/10 text-center rounded-lg max-w-3xl mx-auto space-y-4">
+            <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne-deep font-bold">
+              COMMISSIONS & INQUIRIES
+            </p>
+            <h3 className="font-display text-2xl sm:text-3xl text-ink">
+              ENVISION YOUR WEDDING CINEMA WITH US
+            </h3>
+            <p className="text-xs sm:text-sm text-charcoal/70 max-w-md mx-auto leading-relaxed">
+              We accept a limited number of commissions each wedding season across Bhubaneswar, Odisha, and luxury destinations worldwide.
+            </p>
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="px-6 py-2.5 rounded-full bg-ink text-paper hover:bg-charcoal font-mono text-xs tracking-wider uppercase font-semibold transition-colors"
+              >
+                Inquire About Your Date
+              </Link>
+              <a
+                href="https://wa.me/919124885729"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-full border border-[#1b7a43]/30 text-[#1b7a43] hover:bg-[#1b7a43] hover:text-white font-mono text-xs tracking-wider uppercase font-semibold transition-colors"
+              >
+                WhatsApp Concierge ↗
+              </a>
+            </div>
+          </div>
+
           {/* Next Article Read */}
-          <div className="mt-32 pt-16 border-t border-ink/10 max-w-3xl mx-auto text-center">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-4">
+          <div className="mt-24 pt-14 border-t border-ink/10 max-w-3xl mx-auto text-center">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-champagne-deep font-semibold mb-3">
               NEXT ESSAY
             </p>
             <Link
@@ -132,13 +210,13 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
                 {nextArticle.title}
               </h3>
               <p className="font-mono text-xs text-charcoal/60 uppercase tracking-widest mt-4">
-                READ ARTICLE →
+                READ ESSAY →
               </p>
             </Link>
           </div>
         </div>
       </main>
       <Footer />
-    </>
+    </> 
   );
 }

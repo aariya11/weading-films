@@ -1001,8 +1001,9 @@ export const footerNavigation = {
     { label: "Sangeet Twirls", href: "/journal/sangeet-twirls-and-candlelight" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Client Help & FAQs", href: "/help" },
     { label: "Terms of Commission", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
     { label: "Cookie Preferences", href: "/cookies" },
   ],
 };

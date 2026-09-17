@@ -1003,6 +1003,7 @@ export const footerNavigation = {
   ],
   legal: [
     { label: "Client Help & FAQs", href: "/help" },
+    { label: "Client Profile", href: "/profile" },
     { label: "Track Commission Orders", href: "/orders" },
     { label: "Notification Settings", href: "/notifications" },
     { label: "Terms of Commission", href: "/terms" },

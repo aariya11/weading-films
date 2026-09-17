@@ -32,16 +32,16 @@ export function PopButton({
   );
 
   const baseStyles = cn(
-    "btn group relative inline-flex items-center justify-center font-mono text-xs tracking-[0.22em] uppercase font-bold select-none text-center",
-    "min-h-[48px] px-8 py-3.5 rounded-xs transition-all duration-300 ease-out cursor-pointer touch-manipulation",
+    "btn group relative inline-flex items-center justify-center font-mono text-xs tracking-[0.16em] uppercase font-bold select-none text-center max-w-full",
+    "min-h-[48px] px-6 sm:px-8 py-3.5 rounded-xs transition-all duration-300 ease-out cursor-pointer touch-manipulation",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
     "disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed",
     variant === "primary" &&
-      "bg-ink !text-white border border-ink shadow-[0_4px_16px_rgba(15,15,15,0.15)] hover:bg-ink hover:!text-white hover:shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:-translate-y-0.5 active:translate-y-0",
+      "!bg-[#0f0f0f] !text-[#ffffff] !border !border-[#0f0f0f] shadow-[0_4px_16px_rgba(15,15,15,0.15)] hover:!bg-[#2d2d2d] hover:!text-[#ffffff] hover:shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:-translate-y-0.5 active:translate-y-0",
     variant === "secondary" &&
-      "bg-champagne/25 !text-ink border border-champagne-deep/40 hover:bg-champagne hover:!text-ink active:translate-y-0",
+      "!bg-[#c4a87a] !text-[#0f0f0f] !border !border-[#7a5e3d] hover:!bg-[#0f0f0f] hover:!text-[#ffffff] active:translate-y-0",
     variant === "outline" &&
-      "bg-transparent !text-ink border border-ink/30 hover:border-ink hover:bg-ink hover:!text-white active:translate-y-0",
+      "!bg-transparent !text-[#0f0f0f] !border !border-[#0f0f0f]/30 hover:!border-[#0f0f0f] hover:!bg-[#0f0f0f] hover:!text-[#ffffff] active:translate-y-0",
     coverClassName,
     className
   );

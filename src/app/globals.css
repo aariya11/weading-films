@@ -222,9 +222,6 @@ video {
 button {
   font-family: inherit;
   font-size: inherit;
-  color: inherit;
-  background: none;
-  border: none;
   cursor: pointer;
   touch-action: manipulation;
 }
@@ -239,22 +236,20 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.75rem; /* 12px */
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 1;
-  border-radius: var(--radius-xs);
+  line-height: 1.2;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  white-space: nowrap;
   text-decoration: none !important;
   transition: all var(--duration-fast) var(--ease-out-cubic);
-  min-height: 44px;
-  padding: 0.75rem 1.5rem;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .btn:focus-visible {
@@ -269,25 +264,35 @@ button {
   pointer-events: none;
 }
 
-/* Primary Button: Solid Ink with Pure High-Contrast White Text */
+/* Primary Button: Solid Ink with Guaranteed Pure White Text */
 .btn-primary,
 .btn-solid-ink,
 a.btn-primary,
-button.btn-primary {
-  background-color: var(--color-ink) !important;
+button.btn-primary,
+a[class*="bg-ink"],
+button[class*="bg-ink"],
+a[class*="bg-[#0f0f0f]"],
+button[class*="bg-[#0f0f0f]"] {
+  background-color: #0f0f0f !important;
+  background: #0f0f0f !important;
   color: #ffffff !important;
-  border: 1px solid var(--color-ink) !important;
-  box-shadow: 0 2px 8px rgba(15, 15, 15, 0.15);
+  border: 1px solid #0f0f0f !important;
+  box-shadow: 0 2px 8px rgba(15, 15, 15, 0.18);
 }
 
 .btn-primary:hover,
 .btn-solid-ink:hover,
 a.btn-primary:hover,
-button.btn-primary:hover {
-  background-color: var(--color-charcoal) !important;
+button.btn-primary:hover,
+a[class*="bg-ink"]:hover,
+button[class*="bg-ink"]:hover,
+a[class*="bg-[#0f0f0f]"]:hover,
+button[class*="bg-[#0f0f0f]"]:hover {
+  background-color: #2d2d2d !important;
+  background: #2d2d2d !important;
   color: #ffffff !important;
-  border-color: var(--color-charcoal) !important;
-  box-shadow: 0 4px 14px rgba(15, 15, 15, 0.25);
+  border-color: #2d2d2d !important;
+  box-shadow: 0 4px 14px rgba(15, 15, 15, 0.28);
   transform: translateY(-1px);
 }
 
@@ -301,6 +306,7 @@ button.btn-primary:hover {
 a.btn-secondary,
 button.btn-secondary {
   background-color: var(--color-paper-warm) !important;
+  background: var(--color-paper-warm) !important;
   color: var(--color-ink) !important;
   border: 1px solid rgba(15, 15, 15, 0.18) !important;
 }
@@ -309,26 +315,29 @@ button.btn-secondary {
 a.btn-secondary:hover,
 button.btn-secondary:hover {
   background-color: #ffffff !important;
+  background: #ffffff !important;
   color: var(--color-ink) !important;
   border-color: var(--color-ink) !important;
   transform: translateY(-1px);
 }
 
-/* Outline Button: Crisp Ink Border and Text, Inverts on Hover */
+/* Outline Button: Crisp Ink Border and Text, Inverts to Solid Ink on Hover */
 .btn-outline,
 a.btn-outline,
 button.btn-outline {
   background-color: transparent !important;
-  color: var(--color-ink) !important;
-  border: 1px solid rgba(15, 15, 15, 0.25) !important;
+  background: transparent !important;
+  color: #0f0f0f !important;
+  border: 1px solid rgba(15, 15, 15, 0.3) !important;
 }
 
 .btn-outline:hover,
 a.btn-outline:hover,
 button.btn-outline:hover {
-  background-color: var(--color-ink) !important;
+  background-color: #0f0f0f !important;
+  background: #0f0f0f !important;
   color: #ffffff !important;
-  border-color: var(--color-ink) !important;
+  border-color: #0f0f0f !important;
   transform: translateY(-1px);
 }
 
@@ -336,10 +345,13 @@ button.btn-outline:hover {
 .btn-accent,
 .btn-champagne,
 a.btn-accent,
-button.btn-accent {
-  background-color: var(--color-champagne) !important;
+button.btn-accent,
+a[class*="bg-champagne"]:not(:hover),
+button[class*="bg-champagne"]:not(:hover) {
+  background-color: #c4a87a !important;
+  background: #c4a87a !important;
   color: #0f0f0f !important;
-  border: 1px solid var(--color-champagne-deep) !important;
+  border: 1px solid #7a5e3d !important;
   box-shadow: 0 2px 8px rgba(122, 94, 61, 0.2);
 }
 
@@ -347,17 +359,23 @@ button.btn-accent {
 .btn-champagne:hover,
 a.btn-accent:hover,
 button.btn-accent:hover {
-  background-color: var(--color-ink) !important;
+  background-color: #0f0f0f !important;
+  background: #0f0f0f !important;
   color: #ffffff !important;
-  border-color: var(--color-ink) !important;
+  border-color: #0f0f0f !important;
   transform: translateY(-1px);
 }
 
 /* WhatsApp Studio Button: High-Contrast White Text on Emerald */
 .btn-whatsapp,
 a.btn-whatsapp,
-button.btn-whatsapp {
+button.btn-whatsapp,
+a[class*="bg-[#1b7a43]"],
+button[class*="bg-[#1b7a43]"],
+a[class*="bg-[#25D366]"],
+button[class*="bg-[#25D366]"] {
   background-color: #1b7a43 !important;
+  background: #1b7a43 !important;
   color: #ffffff !important;
   border: 1px solid #1b7a43 !important;
   box-shadow: 0 2px 8px rgba(27, 122, 67, 0.2);
@@ -365,52 +383,24 @@ button.btn-whatsapp {
 
 .btn-whatsapp:hover,
 a.btn-whatsapp:hover,
-button.btn-whatsapp:hover {
+button.btn-whatsapp:hover,
+a[class*="bg-[#1b7a43]"]:hover,
+button[class*="bg-[#1b7a43]"]:hover,
+a[class*="bg-[#25D366]"]:hover,
+button[class*="bg-[#25D366]"]:hover {
   background-color: #156336 !important;
+  background: #156336 !important;
   color: #ffffff !important;
   border-color: #156336 !important;
   transform: translateY(-1px);
 }
 
-/* Button Sizing Variations */
-.btn-lg {
-  min-height: 48px;
-  padding: 0.875rem 2rem;
-  font-size: 0.75rem; /* 12px */
-  letter-spacing: 0.2em;
-}
-
-.btn-sm {
-  min-height: 38px;
-  padding: 0.5rem 1.125rem;
-  font-size: 0.6875rem; /* 11px */
-  letter-spacing: 0.15em;
-}
-
-/* Global Text Color Protections for Dark & Emerald Buttons */
-a[class*="bg-ink"],
-button[class*="bg-ink"],
-a[class*="bg-ink"]:hover,
-button[class*="bg-ink"]:hover,
+/* Charcoal Button Protections */
 a[class*="bg-charcoal"],
 button[class*="bg-charcoal"] {
+  background-color: #2d2d2d !important;
+  background: #2d2d2d !important;
   color: #ffffff !important;
-}
-
-a[class*="bg-[#1b7a43]"],
-button[class*="bg-[#1b7a43]"],
-a[class*="bg-[#1b7a43]"]:hover,
-button[class*="bg-[#1b7a43]"]:hover,
-a[class*="bg-[#25D366]"],
-button[class*="bg-[#25D366]"],
-a[class*="bg-[#25D366]"]:hover,
-button[class*="bg-[#25D366]"]:hover {
-  color: #ffffff !important;
-}
-
-a[class*="bg-champagne"]:not(:hover),
-button[class*="bg-champagne"]:not(:hover) {
-  color: #0f0f0f !important;
 }
 
 input, textarea, select {

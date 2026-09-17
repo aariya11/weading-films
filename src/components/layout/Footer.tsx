@@ -20,8 +20,8 @@ export function Footer() {
 
         {/* Categorized Navigation Ledger */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-10 lg:gap-16 mb-20">
-          {/* Studio Meta (col 1-4) */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-4 space-y-5">
+          {/* Studio Meta (col 1-3) */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3 space-y-5">
             <span className="font-display text-2xl tracking-[0.18em] font-light text-white block">
               {studioInfo.name}
             </span>
@@ -54,7 +54,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Work (col 5-6) */}
+          {/* Work (col 4-5) */}
           <div className="lg:col-span-2 space-y-4">
             <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne">
               WEDDING STORIES
@@ -70,7 +70,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Studio & Services (col 7-8) */}
+          {/* Studio & Services (col 6-7) */}
           <div className="lg:col-span-2 space-y-4">
             <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne">
               SERVICES
@@ -91,7 +91,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Journal (col 9-10) */}
+          {/* Journal (col 8-9) */}
           <div className="lg:col-span-2 space-y-4">
             <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne">
               JOURNAL
@@ -107,22 +107,22 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* WhatsApp Direct & Inquiries (col 11-12) */}
-          <div className="lg:col-span-2 space-y-4">
-            <p className="font-mono text-xs tracking-[0.25em] uppercase text-champagne">
+          {/* WhatsApp Direct & Inquiries (col 10-12) */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-3 space-y-4">
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-champagne">
               DIRECT INQUIRY
             </p>
-            <div className="space-y-3 pt-1">
+            <div className="space-y-3 pt-1 flex flex-col items-stretch max-w-full">
               <WhatsAppCTA
                 variant="primary"
                 label="Chat on WhatsApp"
-                className="w-full justify-center py-2.5 px-3 text-[11px]"
+                className="w-full justify-center py-3 px-3.5 text-xs tracking-wider min-h-[44px] max-w-full"
               />
               <Link
                 href="/contact"
-                className="btn inline-flex items-center justify-center w-full text-center min-h-[44px] px-4 py-2.5 bg-white/10 hover:bg-champagne hover:!text-ink !text-white text-xs font-mono tracking-widest uppercase font-bold transition-all border border-white/15 rounded-xs cursor-pointer shadow-xs"
+                className="btn inline-flex items-center justify-center w-full text-center min-h-[44px] px-3.5 py-3 !bg-white/10 hover:!bg-champagne hover:!text-[#0f0f0f] !text-white text-xs font-mono tracking-wider uppercase font-bold transition-all border border-white/20 rounded-xs cursor-pointer shadow-xs max-w-full"
               >
-                BOOK WEDDING DATE →
+                <span className="truncate">BOOK WEDDING DATE →</span>
               </Link>
             </div>
           </div>

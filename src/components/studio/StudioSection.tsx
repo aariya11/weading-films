@@ -54,7 +54,7 @@ export function StudioSection() {
             <div className="pt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 bg-ink !text-white font-mono text-xs tracking-[0.22em] uppercase font-bold rounded-xs hover:bg-charcoal hover:!text-white hover:shadow-lg transition-all"
+                className="btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-[0.18em] uppercase font-bold rounded-xs hover:!bg-[#2d2d2d] hover:!text-white hover:shadow-lg transition-all"
               >
                 <span>INQUIRE ABOUT YOUR DATE →</span>
               </Link>

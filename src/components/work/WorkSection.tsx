@@ -121,7 +121,7 @@ export function WorkSection() {
                             &ldquo;{project.description}&rdquo;
                           </p>
                           <div>
-                            <span className="btn inline-flex items-center gap-2.5 min-h-[44px] px-6 py-3 rounded-full bg-ink !text-white font-mono text-xs tracking-[0.2em] uppercase font-bold group-hover:bg-charcoal group-hover:!text-white transition-all shadow-xs">
+                            <span className="btn inline-flex items-center gap-2.5 min-h-[44px] px-6 py-3 !rounded-full !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold group-hover:!bg-[#2d2d2d] group-hover:!text-white transition-all shadow-xs">
                               <span>EXPLORE MASTER FILM</span>
                               <span>→</span>
                             </span>

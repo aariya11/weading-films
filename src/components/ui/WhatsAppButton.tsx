@@ -96,11 +96,11 @@ export function WhatsAppCTA({
       rel="noopener noreferrer"
       aria-label={`Open WhatsApp chat with WEDDING FILMS at ${WHATSAPP_FORMATTED}`}
       className={cn(
-        "btn inline-flex items-center justify-center gap-2.5 font-mono text-xs tracking-[0.2em] uppercase transition-all duration-300 touch-manipulation cursor-pointer",
+        "btn inline-flex items-center justify-center gap-2 font-mono text-xs tracking-wider uppercase transition-all duration-300 touch-manipulation cursor-pointer max-w-full",
         variant === "primary" &&
-          "min-h-[48px] px-6 py-3.5 rounded-xs bg-[#1b7a43] hover:bg-[#156336] !text-white font-bold shadow-[0_4px_14px_rgba(27,122,67,0.25)] hover:shadow-[0_6px_20px_rgba(27,122,67,0.35)] hover:-translate-y-0.5 active:translate-y-0 select-none",
+          "min-h-[48px] px-5 py-3 rounded-xs !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-bold shadow-[0_4px_14px_rgba(27,122,67,0.25)] hover:shadow-[0_6px_20px_rgba(27,122,67,0.35)] hover:-translate-y-0.5 active:translate-y-0 select-none",
         variant === "outline" &&
-          "min-h-[48px] px-6 py-3.5 rounded-xs border border-ink/30 !text-ink hover:border-ink hover:bg-ink hover:!text-white font-bold active:translate-y-0 select-none",
+          "min-h-[48px] px-5 py-3 rounded-xs border border-ink/30 !bg-transparent !text-ink hover:border-ink hover:!bg-[#0f0f0f] hover:!text-white font-bold active:translate-y-0 select-none",
         variant === "compact" &&
           "!text-[#1b7a43] hover:underline underline-offset-4 font-bold",
         className
@@ -109,7 +109,7 @@ export function WhatsAppCTA({
       <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.822 2.791.822 3.18 0 5.766-2.587 5.766-5.766.001-3.182-2.585-5.808-5.766-5.808zm3.387 8.248c-.147.412-.857.77-1.196.819-.34.049-.785.074-2.285-.544-1.802-.74-2.955-2.57-3.044-2.69-.09-.12-.727-.967-.727-1.845 0-.877.46-1.308.623-1.485.164-.176.357-.221.477-.221.12 0 .24.002.345.007.11.006.257-.042.402.308.147.352.503 1.229.547 1.319.045.09.075.195.015.315-.06.12-.09.195-.18.3-.09.105-.189.234-.27.315-.09.09-.184.188-.079.368.105.18.468.772 1.005 1.25.69.615 1.272.806 1.452.896.18.09.285.075.39-.045.105-.12.45-.525.57-.705.12-.18.24-.15.405-.09.165.06 1.05.495 1.23.585.18.09.3.135.345.21.045.075.045.435-.102.847z" />
       </svg>
-      <span>{label}</span>
+      <span className="truncate">{label}</span>
     </a>
   );
 }

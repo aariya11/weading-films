@@ -139,13 +139,13 @@ export default function SculpturePage() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-[#25D366] text-ink font-mono text-xs font-bold tracking-widest uppercase hover:opacity-95 transition-opacity rounded-xs shadow-xs"
+                className="btn min-h-[48px] px-8 py-3.5 bg-[#1b7a43] hover:bg-[#156336] !text-white font-mono text-xs font-bold tracking-widest uppercase transition-colors rounded-xs shadow-sm flex items-center justify-center cursor-pointer"
               >
                 DISCUSS COMMISSION ↗
               </a>
               <Link
                 href="/work"
-                className="px-8 py-4 bg-ink text-paper font-mono text-xs tracking-widest uppercase hover:bg-charcoal transition-colors rounded-xs shadow-xs"
+                className="btn min-h-[48px] px-8 py-3.5 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold hover:bg-charcoal hover:!text-white transition-colors rounded-xs shadow-sm flex items-center justify-center cursor-pointer"
               >
                 VIEW ALL 10 FILMS →
               </Link>

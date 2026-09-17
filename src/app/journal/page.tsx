@@ -209,10 +209,10 @@ export default function JournalPage() {
                       key={cat.value}
                       onClick={() => setSelectedCategory(cat.value)}
                       className={cn(
-                        "font-mono text-xs tracking-wider uppercase px-4 py-2 rounded-full transition-all duration-200 inline-flex items-center gap-2 border touch-manipulation min-h-[40px]",
+                        "btn font-mono text-xs tracking-wider uppercase px-4 py-2 rounded-full transition-all duration-200 inline-flex items-center gap-2 border touch-manipulation min-h-[40px] cursor-pointer",
                         isActive
-                          ? "bg-ink text-paper border-ink font-bold shadow-xs"
-                          : "bg-paper-warm text-charcoal/75 border-ink/10 hover:border-champagne-deep/50 hover:text-ink hover:bg-paper"
+                          ? "bg-ink !text-white border-ink font-bold shadow-xs"
+                          : "bg-paper-warm !text-charcoal border-ink/15 hover:border-ink hover:!text-ink hover:bg-paper font-semibold"
                       )}
                     >
                       <span>{cat.label}</span>
@@ -220,8 +220,8 @@ export default function JournalPage() {
                         className={cn(
                           "text-[10px] px-2 py-0.5 rounded-full font-bold",
                           isActive
-                            ? "bg-paper/20 text-paper"
-                            : "bg-ink/5 text-charcoal/60"
+                            ? "bg-white/20 !text-white"
+                            : "bg-ink/5 !text-charcoal"
                         )}
                       >
                         {count}
@@ -304,7 +304,7 @@ export default function JournalPage() {
 
                       <Link
                         href={"/journal/" + leadArticle.slug}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper font-mono text-xs tracking-widest uppercase hover:bg-charcoal transition-colors duration-200 rounded-xs"
+                        className="btn inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-2.5 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold hover:bg-charcoal hover:!text-white transition-colors duration-200 rounded-xs shadow-xs"
                       >
                         <span>READ ESSAY</span>
                         <span>→</span>

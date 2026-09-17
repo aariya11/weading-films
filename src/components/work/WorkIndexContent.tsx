@@ -65,7 +65,7 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
             </div>
             <Link
               href="/sculpture"
-              className="px-6 py-3.5 bg-ink text-paper font-mono text-xs tracking-widest uppercase hover:bg-charcoal transition-colors inline-flex items-center gap-2 rounded-xs self-start md:self-auto shadow-xs whitespace-nowrap"
+              className="btn min-h-[48px] px-6 py-3.5 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold hover:bg-charcoal hover:!text-white transition-colors inline-flex items-center justify-center gap-2 rounded-xs self-start md:self-auto shadow-sm whitespace-nowrap"
             >
               <span>EXPERIENCE LIVING SCULPTURE</span>
               <span>→</span>
@@ -80,10 +80,10 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
               className={cn(
-                "font-mono text-xs tracking-[0.2em] uppercase py-2.5 px-1 min-h-[44px] inline-flex items-center transition-colors duration-200 cursor-pointer touch-manipulation",
+                "font-mono text-xs tracking-[0.2em] uppercase py-2.5 px-2 min-h-[44px] inline-flex items-center transition-all duration-200 cursor-pointer touch-manipulation",
                 selectedCategory === cat.value
-                  ? "text-ink font-bold border-b border-ink"
-                  : "text-charcoal/60 hover:text-ink"
+                  ? "text-ink font-bold border-b-2 border-ink -mb-[2px]"
+                  : "text-charcoal/80 font-medium hover:text-ink hover:font-bold"
               )}
             >
               {cat.label}

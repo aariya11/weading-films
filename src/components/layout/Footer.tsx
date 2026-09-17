@@ -120,7 +120,7 @@ export function Footer() {
               />
               <Link
                 href="/contact"
-                className="inline-block w-full text-center px-4 py-2.5 bg-white/10 hover:bg-champagne hover:text-ink text-white text-[10px] font-mono tracking-widest uppercase transition-colors border border-white/10"
+                className="btn inline-flex items-center justify-center w-full text-center min-h-[44px] px-4 py-2.5 bg-white/10 hover:bg-champagne hover:!text-ink !text-white text-xs font-mono tracking-widest uppercase font-bold transition-all border border-white/15 rounded-xs cursor-pointer shadow-xs"
               >
                 BOOK WEDDING DATE →
               </Link>

@@ -131,7 +131,7 @@ export function JournalSection() {
         <div className="mt-24 lg:mt-32 pt-12 border-t border-ink/10 text-center">
           <Link
             href="/journal"
-            className="inline-flex items-center gap-4 px-10 py-5 bg-ink text-paper font-mono text-xs tracking-[0.25em] uppercase hover:bg-charcoal transition-colors duration-300 rounded-xs shadow-xs"
+            className="btn inline-flex items-center justify-center gap-4 px-8 sm:px-10 py-4 min-h-[48px] bg-ink !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-charcoal hover:!text-white transition-all duration-300 rounded-xs shadow-sm cursor-pointer"
             data-cursor="OPEN"
           >
             <span>EXPLORE FULL PUBLISHING ARCHIVE (06 DISPATCHES)</span>

@@ -223,7 +223,7 @@ export function ContactSection() {
                   <button
                     type="button"
                     onClick={() => setServerState(null)}
-                    className="px-6 py-3 bg-ink text-white font-mono text-xs tracking-[0.2em] uppercase hover:bg-charcoal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                    className="btn inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 bg-ink !text-white font-mono text-xs tracking-[0.2em] uppercase font-bold rounded-xs hover:bg-charcoal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink cursor-pointer"
                   >
                     SEND ANOTHER NOTE
                   </button>
@@ -268,12 +268,13 @@ export function ContactSection() {
                         type="button"
                         onClick={() => setFormData({ ...formData, discipline: type })}
                         className={cn(
-                          "py-3.5 px-3 border text-left font-mono text-xs tracking-wider transition-all duration-200 cursor-pointer touch-manipulation",
-                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ",
+                          "min-h-[48px] py-3.5 px-3 border text-left font-mono text-xs tracking-wider transition-all duration-200 cursor-pointer touch-manipulation rounded-xs",
+                          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
                           formData.discipline === type
-                            ? "border-ink bg-ink text-white font-bold shadow-sm"
-                            : "border-ink/20 text-charcoal hover:border-ink hover:text-ink bg-paper-warm font-medium"
+                            ? "border-ink bg-ink !text-white font-bold shadow-sm"
+                            : "border-ink/20 !text-ink hover:border-ink bg-paper-warm font-semibold"
                         )}
+                        aria-pressed={formData.discipline === type}
                       >
                         {type}
                       </button>

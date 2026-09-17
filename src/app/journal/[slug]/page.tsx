@@ -190,7 +190,7 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="px-6 py-2.5 rounded-full bg-ink text-paper hover:bg-charcoal font-mono text-xs tracking-wider uppercase font-semibold transition-colors"
+                className="btn min-h-[44px] px-6 py-2.5 rounded-full bg-ink !text-white hover:bg-charcoal hover:!text-white font-mono text-xs tracking-wider uppercase font-bold transition-all shadow-xs flex items-center justify-center cursor-pointer"
               >
                 Inquire About Your Date
               </Link>
@@ -198,7 +198,7 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
                 href="https://wa.me/919124885729"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-full border border-[#1b7a43]/30 text-[#1b7a43] hover:bg-[#1b7a43] hover:text-white font-mono text-xs tracking-wider uppercase font-semibold transition-colors"
+                className="btn min-h-[44px] px-6 py-2.5 rounded-full border border-[#1b7a43]/40 !text-[#1b7a43] hover:bg-[#1b7a43] hover:!text-white font-mono text-xs tracking-wider uppercase font-bold transition-all flex items-center justify-center cursor-pointer"
               >
                 WhatsApp Concierge ↗
               </a>

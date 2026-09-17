@@ -35,10 +35,10 @@ export function HelpSuiteNav({ className }: { className?: string }) {
               key={tab.href}
               href={tab.href}
               className={cn(
-                "px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-200 select-none whitespace-nowrap",
+                "btn min-h-[38px] px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-200 select-none whitespace-nowrap inline-flex items-center justify-center cursor-pointer",
                 isActive
-                  ? "bg-ink text-paper font-semibold shadow-xs"
-                  : "bg-paper-warm text-charcoal/80 hover:text-ink hover:bg-paper-warm/80 border border-ink/10 font-medium"
+                  ? "bg-ink !text-white font-bold shadow-xs hover:!text-white"
+                  : "bg-paper-warm !text-charcoal border border-ink/15 hover:border-ink hover:!text-ink hover:bg-paper font-semibold"
               )}
             >
               {tab.label}

@@ -30,13 +30,13 @@ export default function GlobalError({
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={() => reset()}
-            className="px-8 py-4 bg-ink text-white font-mono text-xs tracking-[0.25em] uppercase hover:bg-charcoal transition-colors border border-ink cursor-pointer"
+            className="btn min-h-[48px] px-8 py-3.5 rounded-xs bg-ink !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-charcoal hover:!text-white transition-colors border border-ink cursor-pointer flex items-center justify-center shadow-xs"
           >
             RE-INITIALIZE FRAME ↺
           </button>
           <Link
             href="/"
-            className="px-8 py-4 bg-transparent text-ink font-mono text-xs tracking-[0.25em] uppercase hover:bg-ink hover:text-white transition-colors border border-ink/30"
+            className="btn min-h-[48px] px-8 py-3.5 rounded-xs bg-transparent !text-ink font-mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-ink hover:!text-white transition-colors border border-ink/30 cursor-pointer flex items-center justify-center"
           >
             RETURN HOME →
           </Link>

@@ -322,47 +322,47 @@ export default function NotificationSettingsPage() {
           <div className="mb-10 p-4 sm:p-5 bg-paper-warm/60 border border-ink/10 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Quick Presets */}
             <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-              <span className="font-mono text-xs uppercase tracking-wider text-charcoal/60 font-semibold mr-1">
+              <span className="font-mono text-xs uppercase tracking-wider text-charcoal/80 font-bold mr-1">
                 PRESETS:
               </span>
               <button
                 onClick={() => applyPreset("RECOMMENDED")}
-                className="font-mono text-xs px-3 py-1.5 rounded bg-paper border border-ink/15 hover:border-champagne-deep text-ink transition-colors"
+                className="btn font-mono text-xs px-3.5 py-2 rounded-xs bg-paper border border-ink/25 hover:border-ink hover:bg-paper-warm !text-ink font-bold transition-all min-h-[38px] cursor-pointer touch-manipulation"
               >
                 Studio Recommended
               </button>
               <button
                 onClick={() => applyPreset("VIP_REALTIME")}
-                className="font-mono text-xs px-3 py-1.5 rounded bg-paper border border-ink/15 hover:border-champagne-deep text-ink transition-colors"
+                className="btn font-mono text-xs px-3.5 py-2 rounded-xs bg-paper border border-ink/25 hover:border-ink hover:bg-paper-warm !text-ink font-bold transition-all min-h-[38px] cursor-pointer touch-manipulation"
               >
                 VIP (All Instant)
               </button>
               <button
                 onClick={() => applyPreset("ESSENTIAL")}
-                className="font-mono text-xs px-3 py-1.5 rounded bg-paper border border-ink/15 hover:border-champagne-deep text-ink transition-colors"
+                className="btn font-mono text-xs px-3.5 py-2 rounded-xs bg-paper border border-ink/25 hover:border-ink hover:bg-paper-warm !text-ink font-bold transition-all min-h-[38px] cursor-pointer touch-manipulation"
               >
                 Essential (Deliveries Only)
               </button>
             </div>
 
             {/* Layout Mode Toggle: Cards vs Matrix */}
-            <div className="flex items-center gap-1 bg-paper p-1 rounded-md border border-ink/10 self-start md:self-auto">
+            <div className="flex items-center gap-1 bg-paper p-1 rounded-xs border border-ink/15 self-start md:self-auto">
               <button
                 onClick={() => setViewMode("CARDS")}
-                className={`font-mono text-xs px-3 py-1.5 rounded transition-all ${
+                className={`btn font-mono text-xs px-3.5 py-2 rounded-xs transition-all min-h-[36px] cursor-pointer touch-manipulation ${
                   viewMode === "CARDS"
-                    ? "bg-ink text-paper font-semibold shadow-xs"
-                    : "text-charcoal/70 hover:text-ink"
+                    ? "bg-ink !text-white font-bold shadow-xs"
+                    : "!text-charcoal hover:!text-ink font-semibold"
                 }`}
               >
                 Card Layout
               </button>
               <button
                 onClick={() => setViewMode("MATRIX")}
-                className={`font-mono text-xs px-3 py-1.5 rounded transition-all ${
+                className={`btn font-mono text-xs px-3.5 py-2 rounded-xs transition-all min-h-[36px] cursor-pointer touch-manipulation ${
                   viewMode === "MATRIX"
-                    ? "bg-ink text-paper font-semibold shadow-xs"
-                    : "text-charcoal/70 hover:text-ink"
+                    ? "bg-ink !text-white font-bold shadow-xs"
+                    : "!text-charcoal hover:!text-ink font-semibold"
                 }`}
               >
                 Matrix Ledger
@@ -376,10 +376,10 @@ export default function NotificationSettingsPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full transition-all uppercase tracking-wider ${
+                className={`btn px-4 py-2 rounded-full transition-all uppercase tracking-wider min-h-[38px] cursor-pointer touch-manipulation ${
                   selectedCategory === cat
-                    ? "bg-ink text-paper font-bold shadow-xs"
-                    : "bg-paper-warm text-charcoal/70 border border-ink/10 hover:border-ink/30 hover:text-ink"
+                    ? "bg-ink !text-white font-bold shadow-xs"
+                    : "bg-paper-warm !text-charcoal border border-ink/20 hover:border-ink hover:!text-ink font-semibold"
                 }`}
               >
                 {cat === "ALL" ? "All Notification Types" : cat}
@@ -459,33 +459,29 @@ export default function NotificationSettingsPage() {
                               key={opt.value}
                               type="button"
                               onClick={() => handleFrequencyChange(item.id, opt.value)}
-                              className={`p-3.5 rounded-md text-left transition-all border flex flex-col justify-between gap-2 ${
+                              className={`btn p-3.5 rounded-xs text-left transition-all border flex flex-col justify-between gap-2 cursor-pointer touch-manipulation ${
                                 isSelected
-                                  ? "bg-ink text-paper border-ink ring-2 ring-champagne-deep/40 shadow-sm"
-                                  : "bg-paper border-ink/10 text-charcoal hover:border-champagne-deep/40 hover:bg-paper-warm"
+                                  ? "bg-ink !text-white border-ink ring-2 ring-champagne-deep/40 shadow-sm"
+                                  : "bg-paper border-ink/15 !text-charcoal hover:border-ink hover:bg-paper-warm"
                               }`}
                             >
                               <div className="flex items-center justify-between w-full">
-                                <span className="font-mono text-xs font-bold tracking-wider">
+                                <span className={`font-mono text-xs font-bold tracking-wider ${isSelected ? "!text-white" : "!text-ink"}`}>
                                   {isSelected ? "✓ " : ""}{opt.label}
                                 </span>
                                 <span
-                                  className={`font-mono text-[9px] px-1.5 py-0.5 rounded uppercase font-semibold ${
+                                  className={`font-mono text-[9px] px-1.5 py-0.5 rounded-xs uppercase font-bold ${
                                     isSelected
-                                      ? "bg-paper/20 text-paper"
-                                      : "bg-ink/5 text-charcoal/60"
+                                      ? "bg-white/20 !text-white"
+                                      : "bg-ink/5 !text-charcoal"
                                   }`}
                                 >
                                   {opt.badge}
                                 </span>
                               </div>
-                              <span
-                                className={`text-[11px] font-ui line-clamp-1 ${
-                                  isSelected ? "text-paper/80" : "text-charcoal/60"
-                                }`}
-                              >
+                              <p className={`text-[11px] font-ui leading-relaxed ${isSelected ? "!text-white/85" : "text-charcoal/70"}`}>
                                 {opt.hint}
-                              </span>
+                              </p>
                             </button>
                           );
                         })}
@@ -568,10 +564,10 @@ export default function NotificationSettingsPage() {
                               className="py-4 px-3 text-center cursor-pointer select-none"
                             >
                               <div
-                                className={`inline-flex items-center justify-center px-3 py-1.5 rounded-full font-mono text-xs transition-all ${
+                                className={`inline-flex items-center justify-center px-3.5 py-1.5 rounded-full font-mono text-xs transition-all ${
                                   isSelected
-                                    ? "bg-ink text-paper font-bold shadow-xs ring-2 ring-champagne-deep/40"
-                                    : "bg-paper-warm/60 border border-ink/10 text-charcoal/60 hover:border-champagne-deep hover:text-ink"
+                                    ? "bg-ink !text-white font-bold shadow-xs ring-2 ring-champagne-deep/40"
+                                    : "bg-paper-warm/80 border border-ink/15 !text-charcoal hover:border-ink hover:!text-ink font-semibold"
                                 }`}
                               >
                                 {isSelected ? "● ACTIVE" : "○ SELECT"}

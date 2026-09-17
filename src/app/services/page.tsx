@@ -129,7 +129,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-5 bg-champagne text-ink text-xs font-mono tracking-[0.25em] uppercase font-bold hover:bg-white transition-colors"
+              className="btn inline-flex items-center justify-center min-h-[48px] px-8 sm:px-10 py-4 bg-champagne !text-ink text-xs font-mono tracking-[0.25em] uppercase font-bold hover:bg-white hover:!text-ink rounded-xs transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0"
             >
               REQUEST A PRODUCTION CONSULTATION →
             </Link>

@@ -250,14 +250,14 @@ export default function CheckoutPage() {
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="w-full sm:w-auto px-5 py-3.5 bg-paper border border-ink/20 text-ink font-mono text-xs tracking-widest uppercase rounded-xs hover:border-ink hover:bg-paper-warm transition-colors flex items-center justify-center gap-2"
+                  className="btn w-full sm:w-auto px-5 py-3.5 bg-paper border border-ink/30 !text-ink font-mono text-xs tracking-widest uppercase font-bold rounded-xs hover:border-ink hover:bg-paper-warm transition-colors flex items-center justify-center gap-2 min-h-[48px] cursor-pointer touch-manipulation"
                 >
                   <Printer className="w-3.5 h-3.5 text-charcoal/80" />
                   <span>PRINT OFFICIAL RECEIPT</span>
                 </button>
                 <Link
                   href="/orders"
-                  className="w-full sm:w-auto px-6 py-3.5 bg-ink text-paper font-mono text-xs tracking-widest uppercase rounded-xs hover:bg-charcoal transition-colors flex items-center justify-center gap-2"
+                  className="btn w-full sm:w-auto px-6 py-3.5 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold rounded-xs hover:bg-charcoal hover:!text-white transition-colors flex items-center justify-center gap-2 min-h-[48px] shadow-sm cursor-pointer touch-manipulation"
                 >
                   <span>TRACK PRODUCTION STATUS</span>
                   <ArrowRight className="w-3.5 h-3.5 text-champagne" />
@@ -484,42 +484,42 @@ export default function CheckoutPage() {
                             type="button"
                             onClick={() => setGiftOptions({ ...giftOptions, deliveryMethod: "HOME_DELIVERY" })}
                             className={cn(
-                              "p-2.5 rounded border text-left transition-colors",
+                              "p-2.5 rounded-xs border text-left transition-colors cursor-pointer touch-manipulation min-h-[44px]",
                               giftOptions.deliveryMethod === "HOME_DELIVERY"
-                                ? "border-champagne-deep bg-champagne-deep/10 text-ink font-semibold"
-                                : "border-ink/10 hover:border-ink/20 text-charcoal/70 bg-paper-warm"
+                                ? "border-champagne-deep bg-champagne-deep/15 !text-ink font-bold shadow-xs"
+                                : "border-ink/15 hover:border-ink/30 !text-charcoal bg-paper-warm"
                             )}
                           >
-                            <p className="font-bold">HOME COURIER</p>
-                            <p className="text-[10px] text-charcoal/60 font-ui font-normal mt-0.5">Pre-wedding gift box</p>
+                            <p className="font-bold text-ink">HOME COURIER</p>
+                            <p className="text-[10px] text-charcoal/80 font-ui font-normal mt-0.5">Pre-wedding gift box</p>
                           </button>
 
                           <button
                             type="button"
                             onClick={() => setGiftOptions({ ...giftOptions, deliveryMethod: "EVENT_PRESENTATION" })}
                             className={cn(
-                              "p-2.5 rounded border text-left transition-colors",
+                              "p-2.5 rounded-xs border text-left transition-colors cursor-pointer touch-manipulation min-h-[44px]",
                               giftOptions.deliveryMethod === "EVENT_PRESENTATION"
-                                ? "border-champagne-deep bg-champagne-deep/10 text-ink font-semibold"
-                                : "border-ink/10 hover:border-ink/20 text-charcoal/70 bg-paper-warm"
+                                ? "border-champagne-deep bg-champagne-deep/15 !text-ink font-bold shadow-xs"
+                                : "border-ink/15 hover:border-ink/30 !text-charcoal bg-paper-warm"
                             )}
                           >
-                            <p className="font-bold">STAGE CEREMONY</p>
-                            <p className="text-[10px] text-charcoal/60 font-ui font-normal mt-0.5">Handed at reception</p>
+                            <p className="font-bold text-ink">STAGE CEREMONY</p>
+                            <p className="text-[10px] text-charcoal/80 font-ui font-normal mt-0.5">Handed at reception</p>
                           </button>
 
                           <button
                             type="button"
                             onClick={() => setGiftOptions({ ...giftOptions, deliveryMethod: "DIGITAL_VIP" })}
                             className={cn(
-                              "p-2.5 rounded border text-left transition-colors",
+                              "p-2.5 rounded-xs border text-left transition-colors cursor-pointer touch-manipulation min-h-[44px]",
                               giftOptions.deliveryMethod === "DIGITAL_VIP"
-                                ? "border-champagne-deep bg-champagne-deep/10 text-ink font-semibold"
-                                : "border-ink/10 hover:border-ink/20 text-charcoal/70 bg-paper-warm"
+                                ? "border-champagne-deep bg-champagne-deep/15 !text-ink font-bold shadow-xs"
+                                : "border-ink/15 hover:border-ink/30 !text-charcoal bg-paper-warm"
                             )}
                           >
-                            <p className="font-bold">DIGITAL SUITE</p>
-                            <p className="text-[10px] text-charcoal/60 font-ui font-normal mt-0.5">Private portal invite</p>
+                            <p className="font-bold text-ink">DIGITAL SUITE</p>
+                            <p className="text-[10px] text-charcoal/80 font-ui font-normal mt-0.5">Private portal invite</p>
                           </button>
                         </div>
                       </div>
@@ -567,15 +567,15 @@ export default function CheckoutPage() {
                   </div>
 
                   {/* Payment Rails Selector */}
-                  <div className="grid grid-cols-3 gap-2 p-1 bg-paper-warm rounded-md border border-ink/10">
+                  <div className="grid grid-cols-3 gap-2 p-1.5 bg-paper-warm rounded-xs border border-ink/15">
                     <button
                       type="button"
                       onClick={() => setPaymentMethod("UPI")}
                       className={cn(
-                        "py-2.5 px-2 rounded font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px]",
+                        "btn py-3 px-2 rounded-xs font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px] cursor-pointer",
                         paymentMethod === "UPI"
-                          ? "bg-ink text-paper font-bold shadow-xs"
-                          : "text-charcoal/70 hover:text-ink hover:bg-paper"
+                          ? "bg-ink !text-white font-bold shadow-xs"
+                          : "!text-charcoal hover:!text-ink hover:bg-paper font-semibold"
                       )}
                     >
                       <QrCode className="w-4 h-4" />
@@ -586,10 +586,10 @@ export default function CheckoutPage() {
                       type="button"
                       onClick={() => setPaymentMethod("CARD")}
                       className={cn(
-                        "py-2.5 px-2 rounded font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px]",
+                        "btn py-3 px-2 rounded-xs font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px] cursor-pointer",
                         paymentMethod === "CARD"
-                          ? "bg-ink text-paper font-bold shadow-xs"
-                          : "text-charcoal/70 hover:text-ink hover:bg-paper"
+                          ? "bg-ink !text-white font-bold shadow-xs"
+                          : "!text-charcoal hover:!text-ink hover:bg-paper font-semibold"
                       )}
                     >
                       <CreditCard className="w-4 h-4" />
@@ -600,10 +600,10 @@ export default function CheckoutPage() {
                       type="button"
                       onClick={() => setPaymentMethod("NETBANKING")}
                       className={cn(
-                        "py-2.5 px-2 rounded font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px]",
+                        "btn py-3 px-2 rounded-xs font-mono text-xs uppercase tracking-wider flex flex-col sm:flex-row items-center justify-center gap-1.5 transition-all touch-manipulation min-h-[44px] cursor-pointer",
                         paymentMethod === "NETBANKING"
-                          ? "bg-ink text-paper font-bold shadow-xs"
-                          : "text-charcoal/70 hover:text-ink hover:bg-paper"
+                          ? "bg-ink !text-white font-bold shadow-xs"
+                          : "!text-charcoal hover:!text-ink hover:bg-paper font-semibold"
                       )}
                     >
                       <Building2 className="w-4 h-4" />
@@ -794,10 +794,10 @@ export default function CheckoutPage() {
                                 setOtherBank("");
                               }}
                               className={cn(
-                                "py-3 px-3 rounded text-left font-mono text-xs transition-colors border min-h-[44px] flex items-center justify-between",
+                                "btn py-3 px-3 rounded-xs text-left font-mono text-xs transition-colors border min-h-[44px] flex items-center justify-between cursor-pointer touch-manipulation",
                                 selectedBank === bank && !otherBank
-                                  ? "bg-ink text-paper border-ink font-bold shadow-xs"
-                                  : "bg-paper-warm text-charcoal/80 border-ink/10 hover:border-ink/30"
+                                  ? "bg-ink !text-white border-ink font-bold shadow-xs"
+                                  : "bg-paper-warm !text-charcoal border-ink/15 hover:border-ink/40 hover:!text-ink font-semibold"
                               )}
                             >
                               <span>{bank}</span>
@@ -818,7 +818,7 @@ export default function CheckoutPage() {
                               setOtherBank(e.target.value);
                               if (e.target.value) setSelectedBank(e.target.value);
                             }}
-                            className="w-full px-3 py-2.5 bg-paper-warm border border-ink/15 rounded text-xs font-mono text-charcoal focus:border-champagne-deep focus:outline-none min-h-[42px]"
+                            className="w-full px-3 py-2.5 bg-paper-warm border border-ink/15 rounded-xs text-xs font-mono text-charcoal focus:border-champagne-deep focus:outline-none min-h-[42px]"
                           >
                             <option value="">-- Select another bank (40+ supported) --</option>
                             <option value="Bank of Baroda">Bank of Baroda</option>
@@ -841,14 +841,14 @@ export default function CheckoutPage() {
                         type="submit"
                         disabled={isProcessing}
                         className={cn(
-                          "w-full py-4 px-6 bg-ink text-paper font-mono text-xs tracking-widest uppercase rounded-sm shadow-lg hover:bg-charcoal transition-all flex items-center justify-center gap-2.5 min-h-[52px] touch-manipulation group",
+                          "btn w-full py-4 px-6 bg-ink !text-white font-mono text-xs tracking-widest uppercase rounded-xs shadow-lg hover:bg-charcoal hover:!text-white transition-all flex items-center justify-center gap-2.5 min-h-[52px] touch-manipulation cursor-pointer group select-none",
                           isProcessing && "opacity-75 cursor-not-allowed"
                         )}
                       >
                         {isProcessing ? (
                           <>
                             <span className="w-4 h-4 border-2 border-champagne border-t-transparent rounded-full animate-spin" />
-                            <span>PROCESSING SECURE RETAINER...</span>
+                            <span className="font-bold">PROCESSING SECURE RETAINER...</span>
                           </>
                         ) : (
                           <>

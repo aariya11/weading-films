@@ -135,11 +135,9 @@ export function ServicesSection() {
             Custom wedding commissioning packages across Bhubaneswar, Odisha, and luxury destination celebrations worldwide.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/contact">
-              <PopButton variant="primary">
-                INQUIRE ABOUT YOUR DATE
-              </PopButton>
-            </Link>
+            <PopButton href="/contact" variant="primary">
+              INQUIRE ABOUT YOUR DATE
+            </PopButton>
             <WhatsAppCTA
               variant="outline"
               label="WhatsApp Concierge"

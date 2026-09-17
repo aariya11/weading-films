@@ -656,8 +656,8 @@ export function LivingSculpture() {
                   onClick={handleActivateLivingMode}
                   disabled={isTransforming}
                   className={cn(
-                    "w-full group relative overflow-hidden py-5 px-8 rounded-sm bg-ink text-paper font-mono text-xs tracking-[0.25em] uppercase transition-all duration-300 shadow-lg",
-                    "hover:bg-charcoal hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99]",
+                    "btn w-full group relative overflow-hidden py-5 px-8 rounded-xs bg-ink !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold transition-all duration-300 shadow-lg min-h-[54px] cursor-pointer touch-manipulation select-none",
+                    "hover:bg-charcoal hover:!text-white hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99]",
                     "border border-champagne-deep/50"
                   )}
                   data-cursor="OVERDRIVE"
@@ -690,7 +690,7 @@ export function LivingSculpture() {
       {isLivingMode && (
         <section
           aria-label="Interactive Living Material 3D Sculpture"
-          className="relative bg-ink text-paper rounded-sm overflow-hidden border border-champagne-deep/40 shadow-2xl transition-all duration-700"
+          className="relative bg-ink text-paper rounded-xs overflow-hidden border border-champagne-deep/40 shadow-2xl transition-all duration-700"
         >
           {/* Top Atelier Bar */}
           <div className="relative z-20 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-6 bg-ink-soft/90 backdrop-blur-md border-b border-white/10">
@@ -703,7 +703,7 @@ export function LivingSculpture() {
               <span className="font-mono text-xs text-champagne font-semibold tracking-wider">
                 {SHAPES.find((s) => s.id === currentShape)?.name.toUpperCase()}
               </span>
-              <span className="text-white/40 text-xs hidden sm:inline">
+              <span className="text-white/60 text-xs hidden sm:inline">
                 ({MATERIALS.find((m) => m.id === currentMaterial)?.name})
               </span>
             </div>
@@ -713,10 +713,10 @@ export function LivingSculpture() {
               <button
                 onClick={() => setAutoRotate(!autoRotate)}
                 className={cn(
-                  "font-mono text-xs px-3 py-1.5 rounded-sm border transition-colors flex items-center gap-1.5",
+                  "btn font-mono text-xs px-3.5 py-2 rounded-xs border transition-colors flex items-center gap-1.5 min-h-[38px] cursor-pointer touch-manipulation",
                   autoRotate
-                    ? "bg-champagne/20 text-champagne border-champagne/40"
-                    : "bg-white/5 text-white/70 border-white/10 hover:text-white"
+                    ? "bg-champagne !text-ink border-champagne font-bold"
+                    : "bg-white/10 !text-white border-white/20 hover:bg-white/20 hover:!text-white font-medium"
                 )}
                 title="Toggle Auto Orbit"
               >
@@ -726,7 +726,7 @@ export function LivingSculpture() {
 
               <button
                 onClick={handleReturnToFlatStudy}
-                className="font-mono text-xs px-4 py-1.5 rounded-sm bg-white/10 hover:bg-white/20 text-white border border-white/15 transition-colors flex items-center gap-2"
+                className="btn font-mono text-xs px-4 py-2 rounded-xs bg-white/15 hover:bg-white/25 !text-white font-bold border border-white/25 transition-colors flex items-center gap-2 min-h-[38px] cursor-pointer touch-manipulation"
               >
                 <span>FOLD TO FLAT STUDY</span>
                 <span>←</span>
@@ -796,17 +796,17 @@ export function LivingSculpture() {
                       key={shape.id}
                       onClick={() => handleSelectShape(shape.id)}
                       className={cn(
-                        "p-3.5 rounded-sm border text-left transition-all flex flex-col justify-between gap-1",
+                        "btn p-3.5 rounded-xs border text-left transition-all flex flex-col justify-between gap-1 cursor-pointer touch-manipulation",
                         isActive
-                          ? "bg-champagne text-ink border-champagne font-bold shadow-md scale-[1.02]"
-                          : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/20"
+                          ? "bg-champagne !text-ink border-champagne font-bold shadow-md scale-[1.02]"
+                          : "bg-white/10 border-white/20 !text-white hover:bg-white/20 hover:border-white/40"
                       )}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-xs">{shape.name}</span>
                         <span className="text-base">{shape.icon}</span>
                       </div>
-                      <span className={cn("text-[10px] font-ui line-clamp-1", isActive ? "text-ink/80" : "text-white/50")}>
+                      <span className={cn("text-[10px] font-ui line-clamp-1", isActive ? "!text-ink/80 font-medium" : "text-white/70")}>
                         {shape.subtitle}
                       </span>
                     </button>
@@ -835,16 +835,16 @@ export function LivingSculpture() {
                       key={mat.id}
                       onClick={() => setCurrentMaterial(mat.id)}
                       className={cn(
-                        "p-3.5 rounded-sm border text-left transition-all flex items-center gap-3",
+                        "btn p-3.5 rounded-xs border text-left transition-all flex items-center gap-3 cursor-pointer touch-manipulation",
                         isActive
-                          ? "bg-white/15 border-champagne text-white font-bold ring-1 ring-champagne shadow-sm"
-                          : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                          ? "bg-white/25 border-champagne !text-white font-bold ring-1 ring-champagne shadow-sm"
+                          : "bg-white/10 border-white/20 !text-white/90 hover:bg-white/20 hover:!text-white"
                       )}
                     >
                       <span className={cn("w-4 h-4 rounded-full border border-white/20 shadow-xs", mat.swatch)} />
                       <div>
                         <p className="font-mono text-xs">{mat.name}</p>
-                        <p className="text-[10px] text-white/50 font-ui line-clamp-1">{mat.tone}</p>
+                        <p className="text-[10px] text-white/60 font-ui line-clamp-1">{mat.tone}</p>
                       </div>
                     </button>
                   );
@@ -894,16 +894,16 @@ export function LivingSculpture() {
                   <span className="text-white/70">SURFACE RENDERING</span>
                   <span className="text-champagne font-bold">{renderStyle}</span>
                 </div>
-                <div className="grid grid-cols-3 gap-1 bg-white/5 p-1 rounded-sm border border-white/10">
+                <div className="grid grid-cols-3 gap-1 bg-white/5 p-1 rounded-xs border border-white/10">
                   {(["SOLID", "WIREFRAME", "CONSTELLATION"] as RenderStyle[]).map((style) => (
                     <button
                       key={style}
                       onClick={() => setRenderStyle(style)}
                       className={cn(
-                        "py-1 text-center font-mono text-[10px] uppercase rounded-xs transition-colors",
+                        "btn py-1.5 text-center font-mono text-[10px] uppercase rounded-xs transition-colors cursor-pointer touch-manipulation",
                         renderStyle === style
-                          ? "bg-champagne text-ink font-bold"
-                          : "text-white/60 hover:text-white"
+                          ? "bg-champagne !text-ink font-bold"
+                          : "!text-white/80 hover:!text-white font-medium"
                       )}
                     >
                       {style}

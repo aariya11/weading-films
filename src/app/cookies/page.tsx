@@ -169,7 +169,7 @@ export default function CookiesPage() {
                 </div>
                 <a
                   href="mailto:contact@weddingfilms.in?subject=Storage%20Inquiry"
-                  className="px-6 py-3 rounded-full bg-ink text-paper hover:bg-charcoal font-mono text-xs tracking-wider uppercase font-semibold text-center transition-colors whitespace-nowrap"
+                  className="btn min-h-[44px] px-6 py-2.5 rounded-full bg-ink !text-white hover:bg-charcoal hover:!text-white font-mono text-xs tracking-wider uppercase font-bold text-center transition-all whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
                 >
                   Email Data Protection Desk →
                 </a>

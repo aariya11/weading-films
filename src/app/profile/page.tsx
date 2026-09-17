@@ -373,7 +373,7 @@ export default function ProfilePage() {
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      className="px-4 py-2 bg-amber-800 text-white font-mono text-xs font-bold uppercase rounded-sm hover:bg-amber-900 flex items-center gap-1.5 touch-manipulation min-h-[40px]"
+                      className="btn px-4 py-2.5 bg-amber-800 !text-white font-mono text-xs font-bold uppercase rounded-xs hover:bg-amber-900 flex items-center gap-1.5 touch-manipulation min-h-[44px] cursor-pointer"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
                       <span>RETRY SAVE</span>
@@ -728,10 +728,10 @@ export default function ProfilePage() {
                         type="button"
                         onClick={() => toggleCeremony(c)}
                         className={cn(
-                          "px-3.5 py-2 rounded-full font-mono text-xs tracking-wider uppercase transition-all touch-manipulation min-h-[38px]",
+                          "px-3.5 py-2 rounded-full font-mono text-xs tracking-wider uppercase transition-all touch-manipulation min-h-[38px] cursor-pointer",
                           isSelected
-                            ? "bg-ink text-paper font-bold shadow-xs ring-1 ring-champagne-deep"
-                            : "bg-paper text-charcoal/70 border border-ink/10 hover:border-champagne-deep hover:text-ink"
+                            ? "bg-ink !text-white font-bold shadow-xs ring-1 ring-champagne-deep"
+                            : "bg-paper !text-charcoal border border-ink/20 hover:border-ink hover:!text-ink font-semibold"
                         )}
                       >
                         <span>{isSelected ? "✓ " : "+ "}</span>
@@ -907,11 +907,10 @@ export default function ProfilePage() {
               </div>
             </fieldset>
 
-            {/* Simulation & Diagnostic Tool (Demonstrates Save Error Recovery) */}
-            <div className="p-4 bg-paper-warm/40 border border-ink/10 rounded-md flex items-center justify-between gap-4 text-xs font-mono">
-              <label htmlFor="simulate-error" className="flex items-center gap-2 cursor-pointer select-none text-charcoal/80">
+            {/* Simulated Server Error Toggle (For verifying user-facing error state) */}
+            <div className="p-4 bg-paper-warm/80 border border-ink/10 rounded-md flex items-center justify-between text-xs font-mono">
+              <label className="flex items-center gap-2 text-charcoal cursor-pointer">
                 <input
-                  id="simulate-error"
                   type="checkbox"
                   checked={simulateServerError}
                   onChange={(e) => setSimulateServerError(e.target.checked)}
@@ -932,7 +931,7 @@ export default function ProfilePage() {
                 type="submit"
                 disabled={isSaving}
                 className={cn(
-                  "w-full sm:w-auto px-8 py-4 bg-ink text-paper font-mono text-xs tracking-widest uppercase rounded-sm shadow-md hover:bg-charcoal transition-all flex items-center justify-center gap-2 min-h-[48px] touch-manipulation",
+                  "btn w-full sm:w-auto px-8 py-4 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold rounded-xs shadow-md hover:bg-charcoal hover:!text-white transition-all flex items-center justify-center gap-2 min-h-[48px] touch-manipulation cursor-pointer",
                   isSaving && "opacity-75 cursor-not-allowed"
                 )}
               >

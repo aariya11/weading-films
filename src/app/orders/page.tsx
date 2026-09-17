@@ -291,7 +291,7 @@ export default function OrdersPage() {
 
           <button
             onClick={() => scrollToOrder(leadActiveOrder.id)}
-            className="shrink-0 px-3.5 py-2 bg-champagne text-ink font-mono text-[11px] font-bold tracking-wider uppercase rounded-sm shadow-xs touch-manipulation min-h-[40px] flex items-center gap-1"
+            className="btn shrink-0 px-3.5 py-2 bg-champagne !text-ink font-mono text-[11px] font-bold tracking-wider uppercase rounded-xs shadow-xs touch-manipulation min-h-[40px] flex items-center justify-center gap-1 cursor-pointer"
           >
             <span>TRACK ↓</span>
           </button>
@@ -354,7 +354,7 @@ export default function OrdersPage() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-charcoal/50 hover:text-ink px-2 py-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-charcoal/70 hover:text-ink px-2 py-1 cursor-pointer"
                 >
                   CLEAR
                 </button>
@@ -368,10 +368,10 @@ export default function OrdersPage() {
                 <button
                   key={o.id}
                   onClick={() => scrollToOrder(o.id)}
-                  className="px-2.5 py-1 rounded-full bg-paper border border-ink/10 hover:border-champagne-deep font-mono text-[11px] text-charcoal/80 flex items-center gap-1.5 touch-manipulation min-h-[32px]"
+                  className="px-2.5 py-1 rounded-full bg-paper border border-ink/15 hover:border-ink font-mono text-[11px] text-charcoal hover:text-ink flex items-center gap-1.5 touch-manipulation min-h-[32px] cursor-pointer"
                 >
                   <span className="font-bold text-ink">{o.id}</span>
-                  <span className="text-[10px] text-charcoal/50 hidden xs:inline">({o.clientNames.split("&")[0].trim()})</span>
+                  <span className="text-[10px] text-charcoal/60 hidden xs:inline">({o.clientNames.split("&")[0].trim()})</span>
                 </button>
               ))}
             </div>
@@ -390,10 +390,10 @@ export default function OrdersPage() {
                 key={tab.id}
                 onClick={() => setSelectedFilter(tab.id as typeof selectedFilter)}
                 className={cn(
-                  "px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase whitespace-nowrap transition-all touch-manipulation min-h-[40px] flex items-center justify-center",
+                  "btn px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase whitespace-nowrap transition-all touch-manipulation min-h-[40px] flex items-center justify-center cursor-pointer",
                   selectedFilter === tab.id
-                    ? "bg-ink text-paper font-bold shadow-xs"
-                    : "bg-paper-warm text-charcoal/70 border border-ink/10 hover:text-ink"
+                    ? "bg-ink !text-white font-bold shadow-xs"
+                    : "bg-paper-warm !text-charcoal border border-ink/15 hover:border-ink/40 hover:!text-ink font-semibold"
                 )}
               >
                 {tab.label}
@@ -643,26 +643,26 @@ export default function OrdersPage() {
                         href={`${WHATSAPP_LINK}&text=Hello%20WEDDING%20FILMS%20team,%20I%20would%20like%20a%20tracking%20update%20on%20Commission%20${order.id}%20(${encodeURIComponent(order.clientNames)})`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3.5 px-4 bg-[#25D366] text-ink font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-xs"
+                        className="btn w-full py-3.5 px-4 bg-[#1b7a43] hover:bg-[#156336] !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-sm cursor-pointer"
                       >
-                        <PhoneCall className="w-4 h-4" />
+                        <PhoneCall className="w-4 h-4 text-white" />
                         <span>TRACK VIA WHATSAPP (INSTANT) ↗</span>
                       </a>
 
                       {order.screeningUrl ? (
                         <Link
                           href={order.screeningUrl}
-                          className="w-full py-3.5 px-4 bg-ink text-paper font-mono text-xs tracking-wider uppercase rounded-xs hover:bg-charcoal transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-xs"
+                          className="btn w-full py-3.5 px-4 bg-ink !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:bg-charcoal hover:!text-white transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-sm cursor-pointer"
                         >
-                          <Video className="w-4 h-4" />
+                          <Video className="w-4 h-4 text-champagne" />
                           <span>VIEW SCREENING CUT →</span>
                         </Link>
                       ) : (
                         <button
                           onClick={() => handleCopy(order.id, "Commission ID")}
-                          className="w-full py-3.5 px-4 bg-paper-warm text-charcoal border border-ink/15 font-mono text-xs font-semibold tracking-wider uppercase rounded-xs hover:text-ink hover:border-ink/40 transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation"
+                          className="btn w-full py-3.5 px-4 bg-paper-warm !text-ink border border-ink/25 font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:border-ink hover:bg-paper transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation cursor-pointer"
                         >
-                          <Copy className="w-4 h-4" />
+                          <Copy className="w-4 h-4 text-charcoal/80" />
                           <span>COPY COMMISSION ID</span>
                         </button>
                       )}

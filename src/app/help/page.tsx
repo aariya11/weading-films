@@ -261,13 +261,13 @@ export default function HelpPage() {
                     href="https://wa.me/919124885729"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-full bg-[#1b7a43] hover:bg-[#156336] text-white font-mono text-xs tracking-wider uppercase font-semibold text-center transition-colors whitespace-nowrap"
+                    className="btn min-h-[44px] px-6 py-2.5 rounded-full bg-[#1b7a43] hover:bg-[#156336] !text-white font-mono text-xs tracking-wider uppercase font-bold text-center transition-all whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
                   >
                     WhatsApp Concierge ↗
                   </a>
                   <Link
                     href="/contact"
-                    className="px-5 py-2.5 rounded-full bg-ink text-paper hover:bg-charcoal font-mono text-xs tracking-wider uppercase font-semibold text-center transition-colors whitespace-nowrap"
+                    className="btn min-h-[44px] px-6 py-2.5 rounded-full bg-ink !text-white hover:bg-charcoal hover:!text-white font-mono text-xs tracking-wider uppercase font-bold text-center transition-all whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
                   >
                     Inquire About Your Date
                   </Link>

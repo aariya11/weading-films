@@ -376,20 +376,21 @@ export function GalleryShowcase() {
  </div>
  </div>
 
- {/* Category Filters */}
- <div className="flex items-center gap-3 sm:gap-4 flex-wrap border-b border-ink/10  pb-6 mb-16">
- {filterCategories.map((filter) => (
- <button
- key={filter.id}
- onClick={() => setActiveFilter(filter.id)}
- className={cn("font-mono text-xs tracking-[0.2em] uppercase px-4 py-2 transition-all duration-200 border",
- activeFilter === filter.id
- ?"bg-ink text-white   border-ink  font-semibold shadow-sm":"bg-transparent text-charcoal/70  border-ink/15  hover:border-ink  hover:text-ink ")}
- >
- {filter.label}
- </button>
- ))}
- </div>
+  {/* Category Filters */}
+  <div className="flex items-center gap-2 sm:gap-3 flex-wrap border-b border-ink/10 pb-6 mb-16">
+  {filterCategories.map((filter) => (
+  <button
+  key={filter.id}
+  onClick={() => setActiveFilter(filter.id)}
+  className={cn("btn font-mono text-xs tracking-[0.2em] uppercase px-4 py-2.5 min-h-[42px] rounded-xs transition-all duration-200 border cursor-pointer touch-manipulation inline-flex items-center justify-center",
+  activeFilter === filter.id
+  ?"bg-ink !text-white border-ink font-bold shadow-sm"
+  :"bg-transparent !text-ink border-ink/25 hover:border-ink hover:bg-ink/5 font-bold")}
+  >
+  {filter.label}
+  </button>
+  ))}
+  </div>
 
  {/* Gallery Grid */}
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
@@ -499,7 +500,7 @@ export function GalleryShowcase() {
  </span>
  <button
  type="button"onClick={closeLightbox}
- className="font-mono text-xs tracking-widest border border-white/30 text-white hover:bg-white hover:text-black px-3.5 py-2 transition-colors uppercase cursor-pointer min-h-[44px] flex items-center justify-center"aria-label="Close lightbox">
+ className="btn font-mono text-xs tracking-widest border border-white/40 !text-white hover:bg-white hover:!text-black px-4 py-2 rounded-xs transition-colors uppercase cursor-pointer min-h-[44px] flex items-center justify-center font-bold"aria-label="Close lightbox">
  CLOSE [×]
  </button>
  </div>
@@ -510,7 +511,7 @@ export function GalleryShowcase() {
  {/* Left Nav Button */}
  <button
  type="button"onClick={prevImage}
- className="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 text-white/70 hover:text-white bg-black/40 hover:bg-black/80 rounded-full transition-all backdrop-blur-sm border border-white/10 cursor-pointer"aria-label="Previous photograph">
+ className="btn absolute left-2 sm:left-6 z-20 w-12 h-12 flex items-center justify-center !text-white bg-black/60 hover:bg-black rounded-full transition-all backdrop-blur-sm border border-white/30 cursor-pointer shadow-lg"aria-label="Previous photograph">
  <span className="font-mono text-lg sm:text-2xl font-bold">←</span>
  </button>
 
@@ -527,7 +528,7 @@ export function GalleryShowcase() {
  {/* Right Nav Button */}
  <button
  type="button"onClick={nextImage}
- className="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 text-white/70 hover:text-white bg-black/40 hover:bg-black/80 rounded-full transition-all backdrop-blur-sm border border-white/10 cursor-pointer"aria-label="Next photograph">
+ className="btn absolute right-2 sm:right-6 z-20 w-12 h-12 flex items-center justify-center !text-white bg-black/60 hover:bg-black rounded-full transition-all backdrop-blur-sm border border-white/30 cursor-pointer shadow-lg"aria-label="Next photograph">
  <span className="font-mono text-lg sm:text-2xl font-bold">→</span>
  </button>
  </div>

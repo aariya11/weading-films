@@ -26,18 +26,18 @@ export function KineticTextLoader({
       <div className="flex items-center gap-3">
         {/* Subtle breathing amber/emerald dot */}
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-champagne-deep dark:bg-champagne opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-champagne-deep dark:bg-champagne" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-champagne-deep opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-champagne-deep " />
         </span>
 
         {/* Crisp editorial uppercase label */}
-        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-ink dark:text-white uppercase font-medium">
+        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-ink uppercase font-medium">
           {cleanText}
         </span>
       </div>
 
       {subtext && (
-        <span className="font-mono text-[9px] tracking-[0.25em] text-charcoal/60 dark:text-white/50 uppercase mt-2">
+        <span className="font-mono text-[9px] tracking-[0.25em] text-charcoal/60 uppercase mt-2">
           {subtext}
         </span>
       )}

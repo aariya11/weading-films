@@ -5,7 +5,7 @@ import { studioInfo, team } from "@/data";
 
 export function StudioPageContent() {
   return (
-    <div className="bg-paper text-ink dark:bg-ink dark:text-white min-h-screen pt-32 pb-36">
+    <div className="bg-paper text-ink min-h-screen pt-32 pb-36">
       {/* Studio Header */}
       <section className="container mb-28 lg:mb-40">
         <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono">

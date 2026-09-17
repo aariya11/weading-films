@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-display: var(--font-display, "Playfair Display", "Georgia", serif);
@@ -64,22 +63,6 @@
   --champagne: #c4a87a;
   --champagne-deep: #7a5e3d;
   --border-color: rgba(15, 15, 15, 0.12);
-}
-
-.dark {
-  --background: #0a0a0a;
-  --foreground: #f7f6f3;
-  --paper: #0a0a0a;
-  --paper-warm: #141414;
-  --ink: #f7f6f3;
-  --ink-soft: #1f1f1f;
-  --charcoal: #dedede;
-  --charcoal-light: #b5b5b5;
-  --stone: #a3a3a3;
-  --stone-light: #737373;
-  --champagne: #d4c4a8;
-  --champagne-deep: #e2cca8;
-  --border-color: rgba(255, 255, 255, 0.14);
 }
 
 * {
@@ -191,8 +174,7 @@ p {
 }
 
 .bg-ink .label-accent,
-.text-white .label-accent,
-[data-theme="dark"] .label-accent {
+.text-white .label-accent {
   color: var(--color-accent);
 }
 

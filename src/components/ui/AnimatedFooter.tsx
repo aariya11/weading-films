@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 /**
@@ -205,12 +204,9 @@ export function AnimatedFooter({
   const animateInRef = useRef<() => void>(() => {});
   const animateOutRef = useRef<() => void>(() => {});
 
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
-
-  const cc = charColor ?? (isDark ? "#803500" : "#d4c4a8");
+  const cc = charColor ?? "#d4c4a8";
   const hc = hoverColor ?? "#f5efe6";
-  const hcc = hoverCharColor ?? (isDark ? "#0f0f0f" : "#0f0f0f");
+  const hcc = hoverCharColor ?? "#0f0f0f";
 
   const liveRef = useRef({ charColor: cc, hoverColor: hc, hoverCharColor: hcc, parallaxStrength, hoverRadius });
   useEffect(() => {

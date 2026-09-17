@@ -14,20 +14,20 @@ export function ServicesSection() {
   const activeService = services.find((s) => s.id === activeServiceId) || services[0];
 
   return (
-    <section id="services" className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white border-t border-ink/10 dark:border-white/10" aria-labelledby="services-heading">
+    <section id="services" className="relative py-28 lg:py-44 bg-paper text-ink border-t border-ink/10" aria-labelledby="services-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
+        <header className="mb-20 lg:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
               04 // DISCIPLINES & COVERAGE
             </p>
-            <h2 id="services-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink dark:text-white">
+            <h2 id="services-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink ">
               SERVICES.
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
               Complete wedding visual production from initial pre-wedding concept through 4K cinema teasers, master feature films, and handcrafted heirloom albums.
             </p>
           </div>
@@ -130,8 +130,8 @@ export function ServicesSection() {
         </div>
 
         {/* Explore All Services CTA */}
-        <div className="mt-28 lg:mt-36 pt-12 border-t border-ink/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm font-ui text-charcoal/80 dark:text-white/70">
+        <div className="mt-28 lg:mt-36 pt-12 border-t border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-sm font-ui text-charcoal/80 ">
             Custom wedding commissioning packages across Bhubaneswar, Odisha, and luxury destination celebrations worldwide.
           </p>
           <div className="flex flex-wrap items-center gap-4">

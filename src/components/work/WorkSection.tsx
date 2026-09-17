@@ -10,26 +10,26 @@ export function WorkSection() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 5);
 
   return (
-    <section id="work" className="relative py-28 lg:py-44 bg-paper text-ink dark:bg-ink dark:text-white" aria-labelledby="work-heading">
+    <section id="work" className="relative py-28 lg:py-44 bg-paper text-ink" aria-labelledby="work-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-24 lg:mb-36 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 dark:border-white/10 pb-8">
+        <header className="mb-24 lg:mb-36 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
               02 // FEATURED WEDDINGS
             </p>
-            <h2 id="work-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink dark:text-white">
+            <h2 id="work-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink ">
               WEDDING <br />
-              <span className="italic font-serif font-light text-ink/80 dark:text-white/80">STORIES.</span>
+              <span className="italic font-serif font-light text-ink/80 ">STORIES.</span>
             </h2>
           </div>
           <div className="max-w-sm space-y-4">
-            <p className="body-small text-charcoal/80 dark:text-white/80 leading-relaxed font-ui">
+            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
               Authentic wedding cinema and fine art photography crafted across Bhubaneswar, Puri, and luxury destination venues throughout India.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <AnimatedTooltip content="Shot on large format 4K cinema cameras with Leica prime optics." variant="cora" shapeColor="#0f0f0f" textColor="#ffffff">
-                <span className="text-[10px] font-mono tracking-widest border border-ink/20 dark:border-white/20 text-ink dark:text-white px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
+                <span className="text-[10px] font-mono tracking-widest border border-ink/20 text-ink px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
                   4K CINEMA CRAFT ↗
                 </span>
               </AnimatedTooltip>
@@ -240,14 +240,14 @@ export function WorkSection() {
         </div>
 
         {/* View All Projects CTA */}
-        <div className="mt-32 lg:mt-48 pt-12 border-t border-ink/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm font-ui text-charcoal/80 dark:text-white/70">
+        <div className="mt-32 lg:mt-48 pt-12 border-t border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-sm font-ui text-charcoal/80 ">
             Documenting authentic love stories and wedding cinema across Bhubaneswar, Odisha, and worldwide.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.22em] uppercase text-ink dark:text-white hover:text-champagne-deep dark:hover:text-champagne transition-colors underline underline-offset-8 font-semibold"
+              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.22em] uppercase text-ink hover:text-champagne-deep transition-colors underline underline-offset-8 font-semibold"
             >
               <span>VIEW THE ARCHIVE (10 PROJECTS · 19 FRAMES)</span>
               <span>→</span>

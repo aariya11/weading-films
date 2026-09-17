@@ -31,22 +31,22 @@ const studioTrailImages = [
 
 export function StudioSection() {
   return (
-    <section id="studio" className="relative py-28 lg:py-44 bg-paper-warm text-ink dark:bg-ink-soft dark:text-white border-t border-ink/10 dark:border-white/10" aria-labelledby="studio-heading">
+    <section id="studio" className="relative py-28 lg:py-44 bg-paper-warm text-ink border-t border-ink/10" aria-labelledby="studio-heading">
       <div className="container">
         {/* Section Header Label */}
-        <p className="label label-accent mb-12 tracking-[0.3em] text-xs font-mono text-champagne-deep dark:text-champagne font-semibold">
+        <p className="label label-accent mb-12 tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
           05 // DISCOURSE & PROCESS
         </p>
 
         {/* Large Statement Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-28 lg:mb-40">
           <div className="lg:col-span-8">
-            <h2 id="studio-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.98] mb-10 text-ink dark:text-white">
+            <h2 id="studio-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.98] mb-10 text-ink ">
               <span className="block">BETWEEN</span>
-              <span className="block italic font-serif font-light text-ink/70 dark:text-white/70">LIGHT, DEVOTION</span>
+              <span className="block italic font-serif font-light text-ink/70 ">LIGHT, DEVOTION</span>
               <span className="block">AND ETERNITY.</span>
             </h2>
-            <div className="space-y-6 max-w-2xl text-charcoal/80 dark:text-white/80 body-large leading-relaxed">
+            <div className="space-y-6 max-w-2xl text-charcoal/80 body-large leading-relaxed">
               <p>{studioInfo.philosophy}</p>
               <p>{studioInfo.approach}</p>
             </div>
@@ -54,7 +54,7 @@ export function StudioSection() {
             <div className="pt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-ink text-white dark:bg-white dark:text-ink font-mono text-xs tracking-[0.22em] uppercase font-bold hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 bg-ink text-white font-mono text-xs tracking-[0.22em] uppercase font-bold hover:shadow-lg transition-all"
               >
                 <span>INQUIRE ABOUT YOUR DATE →</span>
               </Link>
@@ -146,15 +146,15 @@ export function StudioSection() {
         </div>
 
         {/* Live Studio Processing Reel */}
-        <div className="mt-20 p-8 sm:p-12 border border-ink/10 dark:border-white/10 bg-paper dark:bg-ink flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-20 p-8 sm:p-12 border border-ink/10 bg-paper flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center md:text-left">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-champagne-deep dark:text-champagne block font-semibold">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-champagne-deep block font-semibold">
               BHUBANESWAR SUITE // LIVE EDITORIAL STATUS
             </span>
-            <h4 className="font-display text-2xl text-ink dark:text-white font-light">
+            <h4 className="font-display text-2xl text-ink font-light">
               4K Theatrical Wedding Master & Color Suite
             </h4>
-            <p className="text-xs font-ui text-charcoal/80 dark:text-white/70 max-w-md">
+            <p className="text-xs font-ui text-charcoal/80 max-w-md">
               Active archival mastering of authentic wedding ceremonies, sacred Vedic vows, and bridal monographs across Odisha.
             </p>
           </div>

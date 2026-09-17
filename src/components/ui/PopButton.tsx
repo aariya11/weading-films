@@ -20,14 +20,14 @@ export function PopButton({
       className={cn(
         "group relative inline-flex items-center justify-center font-mono text-xs tracking-[0.22em] uppercase font-bold select-none",
         "px-8 py-4 transition-all duration-300 ease-out cursor-pointer touch-manipulation",
-        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white",
+        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ",
         "disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed",
         variant === "primary" &&
-          "bg-ink text-white border border-ink shadow-[0_4px_16px_rgba(15,15,15,0.15)] hover:shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:-translate-y-0.5 active:translate-y-0 dark:bg-white dark:text-ink dark:border-white",
+          "bg-ink text-white border border-ink shadow-[0_4px_16px_rgba(15,15,15,0.15)] hover:shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:-translate-y-0.5 active:translate-y-0",
         variant === "secondary" &&
-          "bg-champagne/20 text-ink border border-champagne-deep/40 hover:bg-champagne hover:text-ink dark:bg-champagne/15 dark:text-white dark:border-champagne/30",
+          "bg-champagne/20 text-ink border border-champagne-deep/40 hover:bg-champagne hover:text-ink",
         variant === "outline" &&
-          "bg-transparent text-ink border border-ink/30 hover:border-ink hover:bg-ink hover:text-white dark:text-white dark:border-white/30 dark:hover:border-white dark:hover:bg-white dark:hover:text-ink",
+          "bg-transparent text-ink border border-ink/30 hover:border-ink hover:bg-ink hover:text-white",
         coverClassName,
         className
       )}

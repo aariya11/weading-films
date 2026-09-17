@@ -9,7 +9,7 @@ export const WHATSAPP_DEFAULT_MSG =
   "Hello WEDDING FILMS, I would like to inquire about wedding photography and cinematic film coverage for our wedding in Bhubaneswar, Odisha.";
 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_DEFAULT_MSG
+ WHATSAPP_DEFAULT_MSG
 )}`;
 
 export function WhatsAppIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -100,9 +100,9 @@ export function WhatsAppCTA({
         variant === "primary" &&
           "px-6 py-3.5 bg-[#1b7a43] hover:bg-[#156336] text-white font-semibold shadow-sm hover:shadow hover:-translate-y-0.5",
         variant === "outline" &&
-          "px-6 py-4 border border-ink/30 dark:border-white/30 text-ink dark:text-white hover:border-ink dark:hover:border-white hover:bg-ink hover:text-white dark:hover:bg-white dark:hover:text-ink font-semibold",
+          "px-6 py-4 border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-white font-semibold",
         variant === "compact" &&
-          "text-[#1b7a43] dark:text-[#4ade80] hover:underline underline-offset-4 font-semibold",
+          "text-[#1b7a43] hover:underline underline-offset-4 font-semibold",
         className
       )}
     >

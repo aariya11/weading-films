@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-ui",
@@ -97,10 +96,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
-  ],
+  themeColor: "#faf9f7",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -159,7 +155,6 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -171,13 +166,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col relative bg-paper text-ink dark:bg-black dark:text-white transition-colors duration-300">
+      <body className="min-h-full flex flex-col relative bg-paper text-ink selection:bg-champagne/30">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {children}
         <FloatingWhatsApp />
       </body>
     </html>

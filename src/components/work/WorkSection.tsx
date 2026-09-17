@@ -13,33 +13,33 @@ export function WorkSection() {
     <section id="work" className="relative py-28 lg:py-44 bg-paper text-ink" aria-labelledby="work-heading">
       <div className="container">
         {/* Section Header */}
-        <header className="mb-24 lg:mb-36 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/10 pb-8">
+        <header className="mb-20 lg:mb-32 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-ink/15 pb-10">
           <div>
-            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
-              02 // FEATURED WEDDINGS
+            <p className="label label-accent mb-4 tracking-[0.3em] text-xs font-mono text-champagne-deep font-bold">
+              02 // SELECTED COMMISSIONS
             </p>
-            <h2 id="work-heading" className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tight leading-[0.95] text-ink ">
-              WEDDING <br />
-              <span className="italic font-serif font-light text-ink/80 ">STORIES.</span>
+            <h2 id="work-heading" className="font-display text-5xl sm:text-7xl lg:text-9xl font-semibold tracking-tight leading-[0.9] text-ink">
+              SELECTED <br />
+              <span className="italic font-serif font-light text-ink/80">STORIES.</span>
             </h2>
           </div>
-          <div className="max-w-sm space-y-4">
-            <p className="body-small text-charcoal/80 leading-relaxed font-ui">
-              Authentic wedding cinema and fine art photography crafted across Bhubaneswar, Puri, and luxury destination venues throughout India.
+          <div className="max-w-md space-y-4">
+            <p className="body-small text-charcoal/90 leading-relaxed font-ui font-medium">
+              A curated archive of authentic wedding cinema and fine art photography crafted across Bhubaneswar, Puri, and luxury destination venues worldwide.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <AnimatedTooltip content="Shot on large format 4K cinema cameras with Leica prime optics." variant="cora" shapeColor="#0f0f0f" textColor="#ffffff">
-                <span className="text-[10px] font-mono tracking-widest border border-ink/20 text-ink px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
+                <span className="text-[10px] font-mono tracking-widest border border-ink/30 text-ink px-3 py-1.5 uppercase hover:border-champagne transition-colors inline-block font-semibold">
                   4K CINEMA CRAFT ↗
                 </span>
               </AnimatedTooltip>
               <AnimatedTooltip content="Preserving authentic Vedic mantras and emotional vows in 32-bit float." variant="indis" shapeColor="#0f0f0f" textColor="#ffffff">
-                <span className="text-[10px] font-mono tracking-widest border border-ink/20 px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
+                <span className="text-[10px] font-mono tracking-widest border border-ink/30 text-ink px-3 py-1.5 uppercase hover:border-champagne transition-colors inline-block font-semibold">
                   SACRED AUDIO ↗
                 </span>
               </AnimatedTooltip>
               <AnimatedTooltip content="Color graded with custom 35mm film emulation curves." variant="smaug" shapeColor="#0f0f0f" textColor="#ffffff">
-                <span className="text-[10px] font-mono tracking-widest border border-ink/20 px-2.5 py-1 uppercase hover:border-champagne transition-colors inline-block">
+                <span className="text-[10px] font-mono tracking-widest border border-ink/30 text-ink px-3 py-1.5 uppercase hover:border-champagne transition-colors inline-block font-semibold">
                   35MM TONE ↗
                 </span>
               </AnimatedTooltip>
@@ -48,7 +48,7 @@ export function WorkSection() {
         </header>
 
         {/* Editorial Project Sequence */}
-        <div className="space-y-36 lg:space-y-52">
+        <div className="space-y-36 lg:space-y-48">
           {featuredProjects.map((project, index) => {
             const num = String(index + 1).padStart(2, "0");
 
@@ -63,33 +63,70 @@ export function WorkSection() {
                   className="block focus-visible:focus-visible"
                   aria-label={"View " + project.title + " — " + project.category}
                 >
-                  {/* Layout Variation based on index */}
+                  {/* Layout Variation: Lead Project 01 STANDS OUT as Flagship Monograph */}
                   {index === 0 && (
-                    // 01 GIRIJA & SUMITRA: Full-width cinematic landscape with typography
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
-                      <div className="lg:col-span-4 lg:mb-12">
-                        <span className="font-mono text-xs tracking-[0.3em] text-champagne-deep font-medium block mb-4">
-                          {num} // {project.category}
-                        </span>
-                        <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight group-hover:translate-x-3 transition-transform duration-500 ease-out">
-                          {project.title}
-                        </h3>
-                        <p className="metadata mt-4 text-charcoal/70 uppercase tracking-[0.15em] text-xs">
-                          {project.services.join(" · ")}
-                        </p>
-                        <p className="body-small text-charcoal/80 mt-6 line-clamp-3 max-w-sm">
-                          {project.description}
-                        </p>
+                    <div className="space-y-8">
+                      {/* Flagship Meta Header Ribbon */}
+                      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-ink/15">
+                        <div className="flex items-center gap-3">
+                          <span className="px-3.5 py-1 bg-ink text-paper font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase font-bold rounded-full">
+                            FLAGSHIP COMMISSION
+                          </span>
+                          <span className="font-mono text-xs tracking-[0.25em] text-champagne-deep font-bold uppercase">
+                            {num} // {project.category}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-4 text-xs font-mono text-charcoal/70 uppercase tracking-wider">
+                          <span>{project.location.toUpperCase()}</span>
+                          <span>·</span>
+                          <span>{project.year} THEATRICAL MASTER</span>
+                        </div>
                       </div>
-                      <div className="lg:col-span-8 overflow-hidden relative aspect-[16/10] bg-ink/5">
+
+                      {/* Massive Theatrical Anamorphic Media Frame */}
+                      <div className="relative aspect-[16/10] sm:aspect-[21/9] lg:aspect-[2.35/1] overflow-hidden bg-ink/5 border border-ink/20 shadow-md group-hover:shadow-2xl transition-all duration-700">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
                           fill
-                          sizes="(max-width: 1024px) 100vw, 66vw"
-                          className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
+                          priority
+                          sizes="100vw"
+                          className="object-cover object-center sm:object-top transition-transform duration-1000 ease-out-expo group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        {/* Film vignette & corner metadata badges */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                        
+                        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10 px-3.5 py-1.5 bg-ink/85 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] sm:text-xs tracking-widest uppercase flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse" />
+                          <span>4K CINEMA MASTER · {project.location.toUpperCase()}</span>
+                        </div>
+
+                        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-10 px-3.5 py-1.5 bg-paper/90 backdrop-blur-md border border-ink/20 text-ink font-mono text-[10px] sm:text-xs tracking-widest uppercase hidden sm:block font-semibold">
+                          <span>FEATURED MONOGRAPH</span>
+                        </div>
+                      </div>
+
+                      {/* Elevated Typographic Headline & Narrative */}
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
+                        <div className="lg:col-span-7">
+                          <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight text-ink group-hover:translate-x-3 transition-transform duration-500 ease-out">
+                            {project.title}
+                          </h3>
+                          <p className="metadata mt-3 text-champagne-deep font-mono font-semibold uppercase tracking-[0.2em] text-xs">
+                            {project.services.join(" · ")}
+                          </p>
+                        </div>
+                        <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                          <p className="body-large font-serif italic text-xl sm:text-2xl text-charcoal/90 leading-relaxed border-l-2 border-champagne-deep pl-5">
+                            &ldquo;{project.description}&rdquo;
+                          </p>
+                          <div>
+                            <span className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-ink text-paper font-mono text-xs tracking-[0.2em] uppercase font-bold group-hover:bg-charcoal transition-all shadow-xs">
+                              <span>EXPLORE MASTER FILM</span>
+                              <span>→</span>
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -97,7 +134,7 @@ export function WorkSection() {
                   {index === 1 && (
                     // 02 THE BRIDE: Editorial vertical offset with whitespace
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                      <div className="lg:col-span-6 lg:col-start-2 overflow-hidden relative aspect-[4/5] bg-ink/5 order-2 lg:order-1">
+                      <div className="lg:col-span-6 lg:col-start-2 overflow-hidden relative aspect-[4/5] bg-ink/5 order-2 lg:order-1 border border-ink/10">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
@@ -131,7 +168,7 @@ export function WorkSection() {
                   {index === 2 && (
                     // 03 SACRED VOWS: Widescreen cinematic Mandap with balanced framing
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                      <div className="lg:col-span-12 overflow-hidden relative aspect-[16/10] sm:aspect-[16/9] bg-ink/5">
+                      <div className="lg:col-span-12 overflow-hidden relative aspect-[16/10] sm:aspect-[16/9] bg-ink/5 border border-ink/10">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
@@ -183,11 +220,11 @@ export function WorkSection() {
                           {project.description}
                         </p>
                         <div className="mt-8 pt-6 border-t border-ink/10 flex items-center justify-between text-xs font-mono text-charcoal/60">
-                          <span>{project.location}</span>
-                          <span>{project.year}</span>
+                          <span>LOCATION: {project.location}</span>
+                          <span>YEAR: {project.year}</span>
                         </div>
                       </div>
-                      <div className="lg:col-span-5 lg:col-start-7 overflow-hidden relative aspect-[4/5] bg-ink/5">
+                      <div className="lg:col-span-5 lg:col-start-7 overflow-hidden relative aspect-[4/5] bg-ink/5 border border-ink/10">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
@@ -203,7 +240,7 @@ export function WorkSection() {
                   {index >= 4 && (
                     // 05 GOLDEN HOUR ATELIER: Full-bleed wide layout
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                      <div className="lg:col-span-7 overflow-hidden relative aspect-[16/10] bg-ink/5">
+                      <div className="lg:col-span-7 overflow-hidden relative aspect-[16/10] bg-ink/5 border border-ink/10">
                         <Image
                           src={project.heroMedia.src}
                           alt={project.heroMedia.alt}
@@ -227,8 +264,8 @@ export function WorkSection() {
                           {project.description}
                         </p>
                         <div className="mt-8 pt-6 border-t border-ink/10 flex items-center justify-between text-xs font-mono text-charcoal/60">
-                          <span>{project.location}</span>
-                          <span>{project.year}</span>
+                          <span>LOCATION: {project.location}</span>
+                          <span>YEAR: {project.year}</span>
                         </div>
                       </div>
                     </div>
@@ -241,7 +278,7 @@ export function WorkSection() {
 
         {/* View All Projects CTA */}
         <div className="mt-32 lg:mt-48 pt-12 border-t border-ink/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-sm font-ui text-charcoal/80 ">
+          <p className="text-sm font-ui text-charcoal/80">
             Documenting authentic love stories and wedding cinema across Bhubaneswar, Odisha, and worldwide.
           </p>
           <div className="flex flex-wrap items-center gap-4">

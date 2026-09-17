@@ -67,14 +67,23 @@ export default async function JournalArticlePage({ params }: JournalSlugProps) {
 
           {/* Article Header */}
           <header className="mb-14">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono uppercase tracking-[0.25em] text-champagne-deep font-semibold mb-6">
-              <span className="px-3 py-1 rounded-full bg-paper-warm border border-ink/10">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300/80 font-mono text-[10px] font-semibold tracking-wider uppercase">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                </span>
+                PUBLISHED · LIVE DISPATCH
+              </span>
+              <span className="px-3 py-1 rounded-full bg-champagne/15 text-champagne-deep border border-champagne-deep/30 font-mono text-[10px] font-bold tracking-wider uppercase">
                 {article.category.replaceAll("_", " ")}
               </span>
-              <span>·</span>
-              <time dateTime={article.publishDate}>{formatDate(article.publishDate)}</time>
-              <span>·</span>
-              <span>{article.readTime}</span>
+              <span className="text-ink/20">·</span>
+              <time dateTime={article.publishDate} className="text-charcoal/70 tracking-wider">
+                {formatDate(article.publishDate)}
+              </time>
+              <span className="text-ink/20">·</span>
+              <span className="text-charcoal/70 tracking-wider">{article.readTime}</span>
             </div>
 
             <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.04] mb-8 text-balance">

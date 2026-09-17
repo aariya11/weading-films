@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 const TABS = [
   { label: "Client Advisory & FAQs", href: "/help" },
+  { label: "Order Tracking", href: "/orders" },
   { label: "Notification Settings", href: "/notifications" },
   { label: "Terms of Commission", href: "/terms" },
   { label: "Privacy Policy (DPDP)", href: "/privacy" },
@@ -24,7 +25,8 @@ export function HelpSuiteNav({ className }: { className?: string }) {
         {TABS.map((tab) => {
           const isActive =
             pathname === tab.href ||
-            (tab.href === "/notifications" && pathname === "/settings/notifications");
+            (tab.href === "/notifications" && pathname === "/settings/notifications") ||
+            (tab.href === "/orders" && pathname === "/tracking");
 
           return (
             <Link

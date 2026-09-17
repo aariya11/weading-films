@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Work", href: "/work" },
+  { label: "Sculpture", href: "/sculpture" },
   { label: "Studio", href: "/studio" },
   { label: "Services", href: "/services" },
   { label: "Journal", href: "/journal" },

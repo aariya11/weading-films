@@ -46,6 +46,33 @@ export function WorkIndexContent({ projects }: WorkIndexContentProps) {
           </p>
         </header>
 
+        {/* Living Sculpture Study Feature Callout */}
+        <div className="mb-16 p-6 sm:p-8 bg-paper-warm border border-ink/10 rounded-sm hover:border-champagne-deep/40 transition-colors">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-champagne-deep animate-ping" />
+                <p className="font-mono text-xs uppercase tracking-widest text-champagne-deep font-bold">
+                  OVERDRIVE FEATURE // KINETIC MATERIAL STUDY
+                </p>
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl text-ink">
+                From Flat Study to Living 3D Sculpture
+              </h2>
+              <p className="text-xs sm:text-sm text-charcoal/75 font-ui leading-relaxed">
+                Step beyond two-dimensional photographs. Rotate our architectural temple studies 360 degrees and reshape living materials (liquid champagne gold, Kalinga stone, raw ivory silk) in real-time.
+              </p>
+            </div>
+            <Link
+              href="/sculpture"
+              className="px-6 py-3.5 bg-ink text-paper font-mono text-xs tracking-widest uppercase hover:bg-charcoal transition-colors inline-flex items-center gap-2 rounded-xs self-start md:self-auto shadow-xs whitespace-nowrap"
+            >
+              <span>EXPERIENCE LIVING SCULPTURE</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+
         {/* Filter Navigation */}
         <div className="flex items-center gap-4 sm:gap-6 flex-wrap border-b border-ink/10 pb-6 mb-20">
           {categories.map((cat) => (

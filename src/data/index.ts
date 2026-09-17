@@ -986,6 +986,7 @@ export const footerNavigation = {
     { label: "The Royal Groom", href: "/work/the-royal-groom" },
     { label: "Sangeet Euphoria", href: "/work/sangeet-euphoria" },
     { label: "All 10 Wedding Films", href: "/work" },
+    { label: "Living Sculpture Study", href: "/sculpture" },
   ],
   studio: [
     { label: "Our Story & Ethos", href: "/studio" },

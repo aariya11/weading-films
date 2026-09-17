@@ -129,7 +129,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="btn inline-flex items-center justify-center min-h-[48px] px-8 sm:px-10 py-4 bg-champagne !text-ink text-xs font-mono tracking-[0.25em] uppercase font-bold hover:bg-white hover:!text-ink rounded-xs transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 active:translate-y-0"
+              className="btn inline-flex items-center justify-center min-h-[48px] px-8 sm:px-10 py-4 !bg-[#c4a87a] !text-[#0f0f0f] text-xs font-mono tracking-wider uppercase font-bold hover:!bg-[#0f0f0f] hover:!text-white rounded-xs shadow-md border border-[#7a5e3d]"
             >
               REQUEST A PRODUCTION CONSULTATION →
             </Link>

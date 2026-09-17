@@ -656,22 +656,19 @@ export function LivingSculpture() {
                   onClick={handleActivateLivingMode}
                   disabled={isTransforming}
                   className={cn(
-                    "btn w-full group relative overflow-hidden py-5 px-8 rounded-xs bg-ink !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold transition-all duration-300 shadow-lg min-h-[54px] cursor-pointer touch-manipulation select-none",
-                    "hover:bg-charcoal hover:!text-white hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99]",
+                    "btn w-full relative overflow-hidden py-4 px-6 rounded-xs !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold shadow-md min-h-[52px] cursor-pointer touch-manipulation select-none",
+                    "hover:!bg-[#2d2d2d] hover:!text-white",
                     "border border-champagne-deep/50"
                   )}
                   data-cursor="OVERDRIVE"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-3">
-                    <Zap className="w-4 h-4 text-champagne animate-pulse" />
+                    <Zap className="w-4 h-4 text-champagne" />
                     <span className="font-bold">
                       {isTransforming ? "EXTRUDING 3D MATERIAL..." : "EXTRUDE INTO LIVING MATERIAL (OVERDRIVE 3D)"}
                     </span>
-                    <ArrowRight className="w-4 h-4 text-champagne group-hover:translate-x-1.5 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-champagne" />
                   </div>
-
-                  {/* Ambient Shimmer Sweep */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                 </button>
 
                 <div className="mt-3 flex items-center justify-between font-mono text-[10px] text-charcoal/60">
@@ -798,7 +795,7 @@ export function LivingSculpture() {
                       className={cn(
                         "btn p-3.5 rounded-xs border text-left transition-all flex flex-col justify-between gap-1 cursor-pointer touch-manipulation",
                         isActive
-                          ? "bg-champagne !text-ink border-champagne font-bold shadow-md scale-[1.02]"
+                          ? "bg-champagne !text-ink border-champagne font-bold shadow-md"
                           : "bg-white/10 border-white/20 !text-white hover:bg-white/20 hover:border-white/40"
                       )}
                     >

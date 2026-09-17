@@ -215,15 +215,16 @@ export function ContactSection() {
                   {serverState.message ||
                     "Thank you for reaching out. The WEDDING FILMS production team in Bhubaneswar will review your wedding dates and respond within 12 hours."}
                 </p>
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
                   <WhatsAppCTA
                     variant="primary"
                     label="Continue on WhatsApp →"
+                    className="w-full sm:w-auto justify-center min-h-[48px]"
                   />
                   <button
                     type="button"
                     onClick={() => setServerState(null)}
-                    className="btn inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 bg-ink !text-white font-mono text-xs tracking-[0.2em] uppercase font-bold rounded-xs hover:bg-charcoal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink cursor-pointer"
+                    className="btn inline-flex items-center justify-center min-h-[48px] px-6 py-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold rounded-xs hover:!bg-[#2d2d2d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink cursor-pointer w-full sm:w-auto"
                   >
                     SEND ANOTHER NOTE
                   </button>
@@ -268,10 +269,10 @@ export function ContactSection() {
                         type="button"
                         onClick={() => setFormData({ ...formData, discipline: type })}
                         className={cn(
-                          "min-h-[48px] py-3.5 px-3 border text-left font-mono text-xs tracking-wider transition-all duration-200 cursor-pointer touch-manipulation rounded-xs",
+                          "min-h-[48px] py-3.5 px-3 border text-left font-mono text-xs tracking-wider cursor-pointer touch-manipulation rounded-xs",
                           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
                           formData.discipline === type
-                            ? "border-ink bg-ink !text-white font-bold shadow-sm"
+                            ? "border-ink bg-ink !text-white font-bold shadow-xs"
                             : "border-ink/20 !text-ink hover:border-ink bg-paper-warm font-semibold"
                         )}
                         aria-pressed={formData.discipline === type}
@@ -527,7 +528,7 @@ export function ContactSection() {
                   <PopButton
                     type="submit"
                     disabled={isPending}
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto justify-center min-h-[48px]"
                     data-cursor="OPEN"
                   >
                     {isPending ? "TRANSMITTING INQUIRY..." : "INQUIRE ABOUT YOUR DATE"}
@@ -536,7 +537,7 @@ export function ContactSection() {
                   <WhatsAppCTA
                     variant="outline"
                     label="Or Chat on WhatsApp"
-                    className="w-full sm:w-auto justify-center"
+                    className="w-full sm:w-auto justify-center min-h-[48px]"
                   />
                 </div>
               </form>

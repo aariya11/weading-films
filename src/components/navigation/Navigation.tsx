@@ -125,7 +125,7 @@ export function Navigation() {
               href="https://wa.me/919124885729"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn hidden sm:inline-flex items-center gap-1.5 px-4 py-2 !rounded-full border border-[#1b7a43]/50 !text-[#1b7a43] hover:!bg-[#1b7a43] hover:!text-white font-mono text-xs tracking-wider uppercase font-bold transition-all duration-200 whitespace-nowrap min-h-[40px] h-10 shadow-xs"
+              className="btn hidden sm:inline-flex items-center gap-1.5 px-4 py-2 !rounded-full border border-[#1b7a43]/50 !text-[#1b7a43] hover:!bg-[#1b7a43] hover:!text-white font-mono text-xs tracking-wider uppercase font-bold whitespace-nowrap min-h-[40px] h-10 shadow-xs"
               aria-label="Direct WhatsApp Concierge"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export function Navigation() {
             {/* Primary Action Button */}
             <Link
               href="/contact"
-              className="btn px-5 py-2 !rounded-full !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold hover:!bg-[#2d2d2d] hover:!text-white transition-all duration-200 shadow-xs hover:shadow-sm whitespace-nowrap min-h-[40px] h-10 flex items-center justify-center border border-[#0f0f0f]"
+              className="btn px-5 py-2 !rounded-full !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold hover:!bg-[#2d2d2d] hover:!text-white shadow-xs whitespace-nowrap min-h-[40px] h-10 flex items-center justify-center border border-[#0f0f0f]"
             >
               INQUIRE
             </Link>
@@ -238,7 +238,7 @@ export function Navigation() {
                 <div className="flex flex-col gap-3">
                   <Link
                     href="/contact"
-                    className="btn flex items-center justify-center p-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold hover:!bg-[#2d2d2d] hover:!text-white transition-colors touch-manipulation min-h-[48px] !rounded-full shadow-xs"
+                    className="btn flex items-center justify-center p-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold hover:!bg-[#2d2d2d] hover:!text-white touch-manipulation min-h-[48px] !rounded-full shadow-xs"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     INQUIRE ABOUT YOUR DATE
@@ -248,7 +248,7 @@ export function Navigation() {
                     href="https://wa.me/919124885729"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn flex items-center justify-center gap-2 p-3.5 !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-mono text-xs tracking-wider uppercase font-bold transition-all touch-manipulation min-h-[48px] !rounded-full shadow-xs"
+                    className="btn flex items-center justify-center gap-2 p-3.5 !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-mono text-xs tracking-wider uppercase font-bold touch-manipulation min-h-[48px] !rounded-full shadow-xs"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">

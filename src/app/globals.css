@@ -242,12 +242,14 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
   text-decoration: none !important;
-  transition: all var(--duration-fast) var(--ease-out-cubic);
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -278,6 +280,8 @@ button[class*="bg-[#0f0f0f]"] {
   color: #ffffff !important;
   border: 1px solid #0f0f0f !important;
   box-shadow: 0 2px 8px rgba(15, 15, 15, 0.18);
+  transform: none !important;
+  transition: none !important;
 }
 
 .btn-primary:hover,
@@ -292,13 +296,8 @@ button[class*="bg-[#0f0f0f]"]:hover {
   background: #2d2d2d !important;
   color: #ffffff !important;
   border-color: #2d2d2d !important;
-  box-shadow: 0 4px 14px rgba(15, 15, 15, 0.28);
-  transform: translateY(-1px);
-}
-
-.btn-primary:active,
-.btn-solid-ink:active {
-  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(15, 15, 15, 0.22);
+  transform: none !important;
 }
 
 /* Secondary Button: Paper Warm with Crisp Carbon Ink Text */
@@ -309,6 +308,8 @@ button.btn-secondary {
   background: var(--color-paper-warm) !important;
   color: var(--color-ink) !important;
   border: 1px solid rgba(15, 15, 15, 0.18) !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .btn-secondary:hover,
@@ -318,7 +319,7 @@ button.btn-secondary:hover {
   background: #ffffff !important;
   color: var(--color-ink) !important;
   border-color: var(--color-ink) !important;
-  transform: translateY(-1px);
+  transform: none !important;
 }
 
 /* Outline Button: Crisp Ink Border and Text, Inverts to Solid Ink on Hover */
@@ -329,6 +330,8 @@ button.btn-outline {
   background: transparent !important;
   color: #0f0f0f !important;
   border: 1px solid rgba(15, 15, 15, 0.3) !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .btn-outline:hover,
@@ -338,7 +341,7 @@ button.btn-outline:hover {
   background: #0f0f0f !important;
   color: #ffffff !important;
   border-color: #0f0f0f !important;
-  transform: translateY(-1px);
+  transform: none !important;
 }
 
 /* Accent Champagne Button: Warm Gold with High-Contrast Dark Text */
@@ -353,6 +356,8 @@ button[class*="bg-champagne"]:not(:hover) {
   color: #0f0f0f !important;
   border: 1px solid #7a5e3d !important;
   box-shadow: 0 2px 8px rgba(122, 94, 61, 0.2);
+  transform: none !important;
+  transition: none !important;
 }
 
 .btn-accent:hover,
@@ -363,7 +368,7 @@ button.btn-accent:hover {
   background: #0f0f0f !important;
   color: #ffffff !important;
   border-color: #0f0f0f !important;
-  transform: translateY(-1px);
+  transform: none !important;
 }
 
 /* WhatsApp Studio Button: High-Contrast White Text on Emerald */
@@ -379,6 +384,8 @@ button[class*="bg-[#25D366]"] {
   color: #ffffff !important;
   border: 1px solid #1b7a43 !important;
   box-shadow: 0 2px 8px rgba(27, 122, 67, 0.2);
+  transform: none !important;
+  transition: none !important;
 }
 
 .btn-whatsapp:hover,
@@ -392,7 +399,7 @@ button[class*="bg-[#25D366]"]:hover {
   background: #156336 !important;
   color: #ffffff !important;
   border-color: #156336 !important;
-  transform: translateY(-1px);
+  transform: none !important;
 }
 
 /* Charcoal Button Protections */
@@ -401,6 +408,38 @@ button[class*="bg-charcoal"] {
   background-color: #2d2d2d !important;
   background: #2d2d2d !important;
   color: #ffffff !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Strict Elimination of Button Movement and Animation */
+button,
+.btn,
+a.btn,
+button.btn,
+a[role="button"],
+button[type="button"],
+button[type="submit"],
+button[type="reset"] {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+button:hover,
+.btn:hover,
+a.btn:hover,
+button.btn:hover,
+button:active,
+.btn:active,
+a.btn:active,
+button.btn:active,
+button:focus,
+.btn:focus,
+a.btn:focus,
+button.btn:focus {
+  transform: none !important;
+  animation: none !important;
 }
 
 input, textarea, select {

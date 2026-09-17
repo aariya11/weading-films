@@ -643,27 +643,27 @@ export default function OrdersPage() {
                         href={`${WHATSAPP_LINK}&text=Hello%20WEDDING%20FILMS%20team,%20I%20would%20like%20a%20tracking%20update%20on%20Commission%20${order.id}%20(${encodeURIComponent(order.clientNames)})`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn w-full py-3.5 px-4 bg-[#1b7a43] hover:bg-[#156336] !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-sm cursor-pointer"
+                        className="btn w-full py-3.5 px-4 !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-xs cursor-pointer"
                       >
-                        <PhoneCall className="w-4 h-4 text-white" />
-                        <span>TRACK VIA WHATSAPP (INSTANT) ↗</span>
+                        <PhoneCall className="w-4 h-4 text-white shrink-0" />
+                        <span className="truncate">TRACK VIA WHATSAPP (INSTANT) ↗</span>
                       </a>
 
                       {order.screeningUrl ? (
                         <Link
                           href={order.screeningUrl}
-                          className="btn w-full py-3.5 px-4 bg-ink !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:bg-charcoal hover:!text-white transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-sm cursor-pointer"
+                          className="btn w-full py-3.5 px-4 !bg-[#0f0f0f] !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:!bg-[#2d2d2d] hover:!text-white flex items-center justify-center gap-2 min-h-[48px] touch-manipulation shadow-xs cursor-pointer"
                         >
-                          <Video className="w-4 h-4 text-champagne" />
-                          <span>VIEW SCREENING CUT →</span>
+                          <Video className="w-4 h-4 text-champagne shrink-0" />
+                          <span className="truncate">VIEW SCREENING CUT →</span>
                         </Link>
                       ) : (
                         <button
                           onClick={() => handleCopy(order.id, "Commission ID")}
-                          className="btn w-full py-3.5 px-4 bg-paper-warm !text-ink border border-ink/25 font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:border-ink hover:bg-paper transition-colors flex items-center justify-center gap-2 min-h-[48px] touch-manipulation cursor-pointer"
+                          className="btn w-full py-3.5 px-4 !bg-paper-warm !text-ink border border-ink/25 font-mono text-xs font-bold tracking-wider uppercase rounded-xs hover:border-ink hover:!bg-paper flex items-center justify-center gap-2 min-h-[48px] touch-manipulation cursor-pointer"
                         >
-                          <Copy className="w-4 h-4 text-charcoal/80" />
-                          <span>COPY COMMISSION ID</span>
+                          <Copy className="w-4 h-4 text-charcoal/80 shrink-0" />
+                          <span className="truncate">COPY COMMISSION ID</span>
                         </button>
                       )}
                     </div>

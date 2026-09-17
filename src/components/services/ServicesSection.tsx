@@ -134,13 +134,14 @@ export function ServicesSection() {
           <p className="text-sm font-ui text-charcoal/80 ">
             Custom wedding commissioning packages across Bhubaneswar, Odisha, and luxury destination celebrations worldwide.
           </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <PopButton href="/contact" variant="primary">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <PopButton href="/contact" variant="primary" className="w-full sm:w-auto justify-center min-h-[48px]">
               INQUIRE ABOUT YOUR DATE
             </PopButton>
             <WhatsAppCTA
               variant="outline"
               label="WhatsApp Concierge"
+              className="w-full sm:w-auto justify-center min-h-[48px]"
             />
           </div>
         </div>

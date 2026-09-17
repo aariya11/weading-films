@@ -51,16 +51,17 @@ export function StudioSection() {
               <p>{studioInfo.approach}</p>
             </div>
             
-            <div className="pt-8 flex flex-wrap items-center gap-4">
+            <div className="pt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
-                className="btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-[0.18em] uppercase font-bold rounded-xs hover:!bg-[#2d2d2d] hover:!text-white hover:shadow-lg transition-all"
+                className="btn inline-flex items-center justify-center min-h-[48px] px-8 py-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold rounded-xs hover:!bg-[#2d2d2d] hover:!text-white border border-[#0f0f0f] shadow-xs"
               >
                 <span>INQUIRE ABOUT YOUR DATE →</span>
               </Link>
               <WhatsAppCTA
                 variant="outline"
                 label="WhatsApp Concierge"
+                className="w-full sm:w-auto justify-center min-h-[48px]"
               />
             </div>
           </div>

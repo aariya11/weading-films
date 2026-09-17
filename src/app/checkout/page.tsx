@@ -250,14 +250,14 @@ export default function CheckoutPage() {
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="btn w-full sm:w-auto px-5 py-3.5 bg-paper border border-ink/30 !text-ink font-mono text-xs tracking-widest uppercase font-bold rounded-xs hover:border-ink hover:bg-paper-warm transition-colors flex items-center justify-center gap-2 min-h-[48px] cursor-pointer touch-manipulation"
+                  className="btn w-full sm:w-auto px-5 py-3.5 !bg-paper border border-ink/30 !text-ink font-mono text-xs tracking-wider uppercase font-bold rounded-xs hover:border-ink hover:!bg-paper-warm flex items-center justify-center gap-2 min-h-[48px] cursor-pointer touch-manipulation"
                 >
                   <Printer className="w-3.5 h-3.5 text-charcoal/80" />
                   <span>PRINT OFFICIAL RECEIPT</span>
                 </button>
                 <Link
                   href="/orders"
-                  className="btn w-full sm:w-auto px-6 py-3.5 bg-ink !text-white font-mono text-xs tracking-widest uppercase font-bold rounded-xs hover:bg-charcoal hover:!text-white transition-colors flex items-center justify-center gap-2 min-h-[48px] shadow-sm cursor-pointer touch-manipulation"
+                  className="btn w-full sm:w-auto px-6 py-3.5 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase font-bold rounded-xs hover:!bg-[#2d2d2d] hover:!text-white flex items-center justify-center gap-2 min-h-[48px] shadow-sm cursor-pointer touch-manipulation"
                 >
                   <span>TRACK PRODUCTION STATUS</span>
                   <ArrowRight className="w-3.5 h-3.5 text-champagne" />
@@ -266,7 +266,7 @@ export default function CheckoutPage() {
                   href={`${WHATSAPP_LINK}&text=Hello%20WEDDING%20FILMS%20team,%20I%20have%20settled%20the%20retainer%20for%20${encodeURIComponent(order.clientNames)}%20(TXN:%20${transactionId})`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-5 py-3.5 bg-[#25D366] text-ink font-mono text-xs font-bold tracking-widest uppercase rounded-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-2"
+                  className="btn w-full sm:w-auto px-5 py-3.5 !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-mono text-xs font-bold tracking-wider uppercase rounded-xs flex items-center justify-center gap-2 min-h-[48px] cursor-pointer"
                 >
                   <PhoneCall className="w-3.5 h-3.5" />
                   <span>WHATSAPP CONCIERGE ↗</span>
@@ -841,7 +841,7 @@ export default function CheckoutPage() {
                         type="submit"
                         disabled={isProcessing}
                         className={cn(
-                          "btn w-full py-4 px-6 bg-ink !text-white font-mono text-xs tracking-widest uppercase rounded-xs shadow-lg hover:bg-charcoal hover:!text-white transition-all flex items-center justify-center gap-2.5 min-h-[52px] touch-manipulation cursor-pointer group select-none",
+                          "btn w-full py-4 px-6 !bg-[#0f0f0f] !text-white font-mono text-xs tracking-wider uppercase rounded-xs shadow-md hover:!bg-[#2d2d2d] hover:!text-white flex items-center justify-center gap-2.5 min-h-[52px] touch-manipulation cursor-pointer group select-none",
                           isProcessing && "opacity-75 cursor-not-allowed"
                         )}
                       >
@@ -854,7 +854,7 @@ export default function CheckoutPage() {
                           <>
                             <Lock className="w-4 h-4 text-champagne" />
                             <span className="font-bold">PAY ₹{order.retainerDueNow.toLocaleString("en-IN")} RETAINER &amp; LOCK DATES</span>
-                            <ArrowRight className="w-4 h-4 text-champagne group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4 text-champagne shrink-0" />
                           </>
                         )}
                       </button>

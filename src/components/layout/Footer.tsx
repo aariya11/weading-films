@@ -116,11 +116,11 @@ export function Footer() {
               <WhatsAppCTA
                 variant="primary"
                 label="Chat on WhatsApp"
-                className="w-full justify-center py-3 px-3.5 text-xs tracking-wider min-h-[44px] max-w-full"
+                className="w-full justify-center py-3.5 px-4 text-xs tracking-wider min-h-[48px] max-w-full"
               />
               <Link
                 href="/contact"
-                className="btn inline-flex items-center justify-center w-full text-center min-h-[44px] px-3.5 py-3 !bg-white/10 hover:!bg-champagne hover:!text-[#0f0f0f] !text-white text-xs font-mono tracking-wider uppercase font-bold transition-all border border-white/20 rounded-xs cursor-pointer shadow-xs max-w-full"
+                className="btn inline-flex items-center justify-center w-full text-center min-h-[48px] px-4 py-3.5 !bg-white/10 hover:!bg-champagne hover:!text-[#0f0f0f] !text-white text-xs font-mono tracking-wider uppercase font-bold border border-white/20 rounded-xs cursor-pointer shadow-xs max-w-full"
               >
                 <span className="truncate">BOOK WEDDING DATE →</span>
               </Link>

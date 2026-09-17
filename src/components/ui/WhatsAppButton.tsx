@@ -49,9 +49,7 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
         className={cn(
           "relative flex items-center gap-2.5 px-4 py-3 rounded-full",
           "bg-[#1b7a43] hover:bg-[#156336] text-white",
-          "shadow-[0_8px_28px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_36px_rgba(27,122,67,0.5)]",
-          "hover:-translate-y-0.5 active:translate-y-0",
-          "transition-all duration-300 ease-out",
+          "shadow-md",
           "border border-white/25 select-none",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1b7a43]"
         )}
@@ -96,11 +94,11 @@ export function WhatsAppCTA({
       rel="noopener noreferrer"
       aria-label={`Open WhatsApp chat with WEDDING FILMS at ${WHATSAPP_FORMATTED}`}
       className={cn(
-        "btn inline-flex items-center justify-center gap-2 font-mono text-xs tracking-wider uppercase transition-all duration-300 touch-manipulation cursor-pointer max-w-full",
+        "btn inline-flex items-center justify-center gap-2 font-mono text-xs tracking-wider uppercase touch-manipulation cursor-pointer max-w-full",
         variant === "primary" &&
-          "min-h-[48px] px-5 py-3 rounded-xs !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-bold shadow-[0_4px_14px_rgba(27,122,67,0.25)] hover:shadow-[0_6px_20px_rgba(27,122,67,0.35)] hover:-translate-y-0.5 active:translate-y-0 select-none",
+          "min-h-[48px] px-5 py-3 rounded-xs !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-bold shadow-xs select-none",
         variant === "outline" &&
-          "min-h-[48px] px-5 py-3 rounded-xs border border-ink/30 !bg-transparent !text-ink hover:border-ink hover:!bg-[#0f0f0f] hover:!text-white font-bold active:translate-y-0 select-none",
+          "min-h-[48px] px-5 py-3 rounded-xs border border-ink/30 !bg-transparent !text-ink hover:border-ink hover:!bg-[#0f0f0f] hover:!text-white font-bold select-none",
         variant === "compact" &&
           "!text-[#1b7a43] hover:underline underline-offset-4 font-bold",
         className

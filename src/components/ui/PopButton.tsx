@@ -24,7 +24,7 @@ export function PopButton({
     <span className="relative z-10 flex items-center justify-center gap-3 w-full">
       <span className="truncate">{children}</span>
       {showArrow && (
-        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 shrink-0 font-sans" aria-hidden="true">
+        <span className="inline-block shrink-0 font-sans" aria-hidden="true">
           →
         </span>
       )}
@@ -33,15 +33,15 @@ export function PopButton({
 
   const baseStyles = cn(
     "btn group relative inline-flex items-center justify-center font-mono text-xs tracking-[0.16em] uppercase font-bold select-none text-center max-w-full",
-    "min-h-[48px] px-6 sm:px-8 py-3.5 rounded-xs transition-all duration-300 ease-out cursor-pointer touch-manipulation",
+    "min-h-[48px] px-6 sm:px-8 py-3.5 rounded-xs cursor-pointer touch-manipulation",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
     "disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed",
     variant === "primary" &&
-      "!bg-[#0f0f0f] !text-[#ffffff] !border !border-[#0f0f0f] shadow-[0_4px_16px_rgba(15,15,15,0.15)] hover:!bg-[#2d2d2d] hover:!text-[#ffffff] hover:shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:-translate-y-0.5 active:translate-y-0",
+      "!bg-[#0f0f0f] !text-[#ffffff] !border !border-[#0f0f0f] shadow-xs hover:!bg-[#2d2d2d] hover:!text-[#ffffff]",
     variant === "secondary" &&
-      "!bg-[#c4a87a] !text-[#0f0f0f] !border !border-[#7a5e3d] hover:!bg-[#0f0f0f] hover:!text-[#ffffff] active:translate-y-0",
+      "!bg-[#c4a87a] !text-[#0f0f0f] !border !border-[#7a5e3d] hover:!bg-[#0f0f0f] hover:!text-[#ffffff]",
     variant === "outline" &&
-      "!bg-transparent !text-[#0f0f0f] !border !border-[#0f0f0f]/30 hover:!border-[#0f0f0f] hover:!bg-[#0f0f0f] hover:!text-[#ffffff] active:translate-y-0",
+      "!bg-transparent !text-[#0f0f0f] !border !border-[#0f0f0f]/30 hover:!border-[#0f0f0f] hover:!bg-[#0f0f0f] hover:!text-[#ffffff]",
     coverClassName,
     className
   );

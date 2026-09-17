@@ -29,13 +29,13 @@ export default function NotFound() {
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/"
-              className="btn min-h-[48px] px-8 py-3.5 rounded-xs bg-ink !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-charcoal hover:!text-white transition-colors border border-ink flex items-center justify-center shadow-xs"
+              className="btn btn-primary min-h-[48px] px-8 py-3.5 rounded-xs !bg-[#0f0f0f] !text-white font-mono text-xs tracking-[0.25em] uppercase font-bold hover:!bg-[#2d2d2d] hover:!text-white border border-[#0f0f0f] flex items-center justify-center shadow-xs cursor-pointer"
             >
               RETURN TO ATELIER
             </Link>
             <Link
               href="/work"
-              className="btn min-h-[48px] px-8 py-3.5 rounded-xs bg-transparent !text-ink font-mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-ink hover:!text-white transition-colors border border-ink/30 flex items-center justify-center"
+              className="btn min-h-[48px] px-8 py-3.5 rounded-xs bg-transparent !text-[#0f0f0f] font-mono text-xs tracking-[0.25em] uppercase font-bold hover:!bg-[#0f0f0f] hover:!text-white border border-[#0f0f0f]/30 flex items-center justify-center cursor-pointer"
             >
               VIEW WEDDING ARCHIVE →
             </Link>

@@ -125,7 +125,7 @@ export function Navigation() {
               href="https://wa.me/919124885729"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn hidden sm:inline-flex items-center gap-1.5 px-4 py-2 !rounded-full border border-[#1b7a43]/50 !text-[#1b7a43] hover:!bg-[#1b7a43] hover:!text-white font-mono text-xs tracking-wider uppercase font-bold whitespace-nowrap min-h-[40px] h-10 shadow-xs"
+              className="btn hidden sm:inline-flex items-center gap-1.5 px-4 py-2 !rounded-full border border-[#1b7a43] bg-transparent !text-[#1b7a43] hover:!bg-[#1b7a43] hover:!text-white font-mono text-xs tracking-wider uppercase font-bold whitespace-nowrap min-h-[40px] h-10 shadow-xs cursor-pointer"
               aria-label="Direct WhatsApp Concierge"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">

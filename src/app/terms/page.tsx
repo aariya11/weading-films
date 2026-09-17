@@ -275,13 +275,13 @@ export default function TermsPage() {
                     href="https://wa.me/919124885729"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn min-h-[44px] px-5 py-2.5 rounded-full bg-[#1b7a43] hover:bg-[#156336] !text-white font-mono text-xs tracking-wider uppercase font-bold text-center transition-all whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
+                    className="btn btn-whatsapp min-h-[44px] px-5 py-2.5 rounded-full !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-mono text-xs tracking-wider uppercase font-bold text-center whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
                   >
                     WhatsApp Legal Desk ↗
                   </a>
                   <a
                     href="mailto:contact@weddingfilms.in"
-                    className="btn min-h-[44px] px-5 py-2.5 rounded-full border border-ink/30 hover:border-ink hover:bg-ink hover:!text-white !text-ink font-mono text-xs tracking-wider uppercase font-bold text-center transition-all whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
+                    className="btn min-h-[44px] px-5 py-2.5 rounded-full border border-[#0f0f0f]/30 hover:border-[#0f0f0f] hover:!bg-[#0f0f0f] hover:!text-white !text-[#0f0f0f] bg-transparent font-mono text-xs tracking-wider uppercase font-bold text-center whitespace-nowrap flex items-center justify-center cursor-pointer shadow-xs"
                   >
                     Email Legal Desk
                   </a>

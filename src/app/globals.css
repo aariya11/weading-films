@@ -270,11 +270,7 @@ button {
 .btn-primary,
 .btn-solid-ink,
 a.btn-primary,
-button.btn-primary,
-a[class*="bg-ink"],
-button[class*="bg-ink"],
-a[class*="bg-[#0f0f0f]"],
-button[class*="bg-[#0f0f0f]"] {
+button.btn-primary {
   background-color: #0f0f0f !important;
   background: #0f0f0f !important;
   color: #ffffff !important;
@@ -287,11 +283,7 @@ button[class*="bg-[#0f0f0f]"] {
 .btn-primary:hover,
 .btn-solid-ink:hover,
 a.btn-primary:hover,
-button.btn-primary:hover,
-a[class*="bg-ink"]:hover,
-button[class*="bg-ink"]:hover,
-a[class*="bg-[#0f0f0f]"]:hover,
-button[class*="bg-[#0f0f0f]"]:hover {
+button.btn-primary:hover {
   background-color: #2d2d2d !important;
   background: #2d2d2d !important;
   color: #ffffff !important;
@@ -348,9 +340,7 @@ button.btn-outline:hover {
 .btn-accent,
 .btn-champagne,
 a.btn-accent,
-button.btn-accent,
-a[class*="bg-champagne"]:not(:hover),
-button[class*="bg-champagne"]:not(:hover) {
+button.btn-accent {
   background-color: #c4a87a !important;
   background: #c4a87a !important;
   color: #0f0f0f !important;
@@ -374,11 +364,7 @@ button.btn-accent:hover {
 /* WhatsApp Studio Button: High-Contrast White Text on Emerald */
 .btn-whatsapp,
 a.btn-whatsapp,
-button.btn-whatsapp,
-a[class*="bg-[#1b7a43]"],
-button[class*="bg-[#1b7a43]"],
-a[class*="bg-[#25D366]"],
-button[class*="bg-[#25D366]"] {
+button.btn-whatsapp {
   background-color: #1b7a43 !important;
   background: #1b7a43 !important;
   color: #ffffff !important;
@@ -390,11 +376,7 @@ button[class*="bg-[#25D366]"] {
 
 .btn-whatsapp:hover,
 a.btn-whatsapp:hover,
-button.btn-whatsapp:hover,
-a[class*="bg-[#1b7a43]"]:hover,
-button[class*="bg-[#1b7a43]"]:hover,
-a[class*="bg-[#25D366]"]:hover,
-button[class*="bg-[#25D366]"]:hover {
+button.btn-whatsapp:hover {
   background-color: #156336 !important;
   background: #156336 !important;
   color: #ffffff !important;
@@ -402,14 +384,26 @@ button[class*="bg-[#25D366]"]:hover {
   transform: none !important;
 }
 
-/* Charcoal Button Protections */
-a[class*="bg-charcoal"],
-button[class*="bg-charcoal"] {
+/* Charcoal Button */
+.btn-charcoal,
+a.btn-charcoal,
+button.btn-charcoal {
   background-color: #2d2d2d !important;
   background: #2d2d2d !important;
   color: #ffffff !important;
+  border: 1px solid #2d2d2d !important;
   transform: none !important;
   transition: none !important;
+}
+
+.btn-charcoal:hover,
+a.btn-charcoal:hover,
+button.btn-charcoal:hover {
+  background-color: #0f0f0f !important;
+  background: #0f0f0f !important;
+  color: #ffffff !important;
+  border-color: #0f0f0f !important;
+  transform: none !important;
 }
 
 /* Strict Elimination of Button Movement and Animation */

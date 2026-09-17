@@ -882,9 +882,9 @@ export default function CheckoutPage() {
                     href={`${WHATSAPP_LINK}&text=Hello%20WEDDING%20FILMS%20team,%20I%20have%20a%20question%20about%20paying%20the%20retainer%20for%20${encodeURIComponent(order.clientNames)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-2 bg-[#25D366] text-ink font-bold uppercase rounded text-[10px] tracking-wider shrink-0 flex items-center gap-1.5 hover:opacity-95 transition-opacity"
+                    className="btn btn-whatsapp px-3.5 py-2 !bg-[#1b7a43] hover:!bg-[#156336] !text-white font-bold uppercase rounded-xs text-[10px] tracking-wider shrink-0 flex items-center gap-1.5 shadow-xs cursor-pointer min-h-[36px]"
                   >
-                    <PhoneCall className="w-3.5 h-3.5" />
+                    <PhoneCall className="w-3.5 h-3.5 text-white" />
                     <span>WHATSAPP HELP ↗</span>
                   </a>
                 </div>

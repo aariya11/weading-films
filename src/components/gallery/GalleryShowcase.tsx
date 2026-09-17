@@ -382,10 +382,12 @@ export function GalleryShowcase() {
   <button
   key={filter.id}
   onClick={() => setActiveFilter(filter.id)}
-  className={cn("btn font-mono text-xs tracking-[0.2em] uppercase px-4 py-2.5 min-h-[42px] rounded-xs transition-all duration-200 border cursor-pointer touch-manipulation inline-flex items-center justify-center",
-  activeFilter === filter.id
-  ?"bg-ink !text-white border-ink font-bold shadow-sm"
-  :"bg-transparent !text-ink border-ink/25 hover:border-ink hover:bg-ink/5 font-bold")}
+  className={cn(
+    "btn font-mono text-xs tracking-[0.2em] uppercase px-4 py-2.5 min-h-[42px] rounded-xs border cursor-pointer touch-manipulation inline-flex items-center justify-center",
+    activeFilter === filter.id
+      ? "bg-[#0f0f0f] !text-white border-[#0f0f0f] font-bold shadow-xs"
+      : "bg-transparent !text-[#0f0f0f] border-[#0f0f0f]/30 hover:border-[#0f0f0f] hover:bg-[#0f0f0f]/5 font-bold"
+  )}
   >
   {filter.label}
   </button>

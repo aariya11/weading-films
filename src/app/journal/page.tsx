@@ -7,7 +7,7 @@ import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/cursor/CustomCursor";
 import { journal } from "@/data";
-import { formatDate } from "@/lib/utils";
+import { formatDate, cn } from "@/lib/utils";
 import { JournalCategory } from "@/types";
 
 const categories: { label: string; value: "ALL" | JournalCategory }[] = [
@@ -32,6 +32,14 @@ export default function JournalPage() {
     return journal.filter((item) => item.category === value).length;
   };
 
+  // Compute total immersion reading time across all dispatches
+  const totalReadMinutes = journal.reduce((acc, item) => {
+    const mins = parseInt(item.readTime, 10);
+    return acc + (isNaN(mins) ? 0 : mins);
+  }, 0);
+
+  const totalPillarsCount = categories.filter((c) => c.value !== "ALL").length;
+
   const leadArticle = selectedCategory === "ALL" ? filteredArticles[0] : null;
   const gridArticles = selectedCategory === "ALL" ? filteredArticles.slice(1) : filteredArticles;
 
@@ -42,7 +50,7 @@ export default function JournalPage() {
       <main id="main-content" className="flex-1 bg-paper text-ink pt-32 pb-36 min-h-screen">
         <div className="container">
           {/* Header */}
-          <header className="mb-14 lg:mb-20">
+          <header className="mb-12 lg:mb-16">
             <div className="flex items-center gap-3 mb-4">
               <span className="label label-accent tracking-[0.3em] text-xs font-mono text-champagne-deep font-semibold">
                 EDITORIAL DISPATCHES // TECHNICAL MEMOIRS
@@ -64,51 +72,135 @@ export default function JournalPage() {
             </p>
           </header>
 
-          {/* Publishing Console Dashboard Strip */}
-          <div className="mb-14 p-6 sm:p-7 bg-paper-warm border border-ink/10 rounded-sm shadow-xs">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          {/* ─────────────────────────────────────────────────────────────
+              REFINED PUBLISHING DASHBOARD: AUTHORITATIVE METRIC HIERARCHY
+              Spacious 4-cell metric ledger with prominent numbers
+              ───────────────────────────────────────────────────────────── */}
+          <section
+            aria-labelledby="publishing-dashboard-heading"
+            className="mb-14 lg:mb-16 p-6 sm:p-8 lg:p-10 bg-paper-warm border border-ink/15 rounded-lg shadow-xs space-y-8"
+          >
+            {/* Top Desk Ribbon */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-ink/10">
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
+                </span>
+                <h2
+                  id="publishing-dashboard-heading"
+                  className="font-mono text-xs uppercase tracking-widest text-ink font-bold"
+                >
+                  PUBLISHING CONSOLE // ATELIER ARCHIVE
+                </h2>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300/80 font-mono text-[10px] font-bold uppercase tracking-wider">
+                  OPEN ACCESS
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 sm:gap-5 font-mono text-xs text-charcoal/70 flex-wrap">
+                <span>EDITORIAL DESK: <strong className="text-ink font-semibold">BHUBANESWAR</strong></span>
+                <span className="text-ink/20 hidden sm:inline">|</span>
+                <span>VOLUME: <strong className="text-champagne-deep font-semibold">VOL. IV / 2024</strong></span>
+              </div>
+            </div>
+
+            {/* Key Numbers Grid — High Visual Authority & Generous Spacing */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 items-start">
+              {/* Stat 1: Total Published Dispatches */}
               <div className="space-y-2">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300/80 font-mono text-xs font-semibold">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
-                    </span>
-                    <span>ALL {journal.length} DISPATCHES PUBLISHED & SYNDICATED</span>
-                  </div>
-                  <span className="hidden sm:inline text-ink/20 font-mono text-xs">|</span>
-                  <span className="font-mono text-xs text-charcoal/70 tracking-wider">
-                    ARCHIVE: OPEN ACCESS
+                <span className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 block font-semibold">
+                  PUBLISHED DISPATCHES
+                </span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-none">
+                    {String(journal.length).padStart(2, "0")}
+                  </span>
+                  <span className="font-mono text-[10px] text-emerald-800 font-bold uppercase tracking-wider bg-emerald-100/80 border border-emerald-300/80 px-1.5 py-0.5 rounded">
+                    LIVE
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-charcoal/75 font-ui max-w-2xl leading-relaxed">
-                  Every essay is peer-reviewed by the WEDDING FILMS cinematography atelier, documented on location across Bhubaneswar, Puri, and heritage venues.
+                <p className="text-xs font-ui text-charcoal/70">
+                  All {journal.length} dispatches syndicated
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 sm:gap-6 pt-4 lg:pt-0 border-t lg:border-t-0 border-ink/10 flex-wrap sm:flex-nowrap">
-                <div className="text-left">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/60">EDITORIAL DESK</p>
-                  <p className="font-mono text-xs font-bold text-ink">BHUBANESWAR</p>
+              {/* Stat 2: Editorial Pillars */}
+              <div className="space-y-2 sm:border-l sm:border-ink/10 sm:pl-6 lg:pl-8">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 block font-semibold">
+                  EDITORIAL PILLARS
+                </span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-champagne-deep leading-none">
+                    {String(totalPillarsCount).padStart(2, "0")}
+                  </span>
+                  <span className="font-mono text-[10px] text-champagne-deep font-bold uppercase tracking-wider bg-champagne-deep/10 border border-champagne-deep/30 px-1.5 py-0.5 rounded">
+                    THEMATIC
+                  </span>
                 </div>
-                <div className="h-8 w-px bg-ink/10 hidden sm:block" />
-                <div className="text-left">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/60">VOLUME</p>
-                  <p className="font-mono text-xs font-bold text-champagne-deep">VOL. IV / 2024</p>
+                <p className="text-xs font-ui text-charcoal/70">
+                  Stories, Locations, Craft &amp; BTS
+                </p>
+              </div>
+
+              {/* Stat 3: Total Immersion Reading Time */}
+              <div className="space-y-2 lg:border-l lg:border-ink/10 lg:pl-8">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 block font-semibold">
+                  TOTAL READING TIME
+                </span>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-none">
+                    {totalReadMinutes}
+                  </span>
+                  <span className="font-mono text-xs sm:text-sm font-bold text-charcoal/60 tracking-wider">
+                    MIN
+                  </span>
                 </div>
-                <div className="h-8 w-px bg-ink/10 hidden sm:block" />
-                <div className="text-left">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/60">CURATION</p>
-                  <p className="font-mono text-xs font-bold text-emerald-800">100% COMPLETE</p>
+                <p className="text-xs font-ui text-charcoal/70">
+                  Across full monograph series
+                </p>
+              </div>
+
+              {/* Stat 4: Atelier Curation Status */}
+              <div className="space-y-2 sm:border-l sm:border-ink/10 sm:pl-6 lg:pl-8">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 block font-semibold">
+                  PEER REVIEW STATUS
+                </span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-emerald-800 leading-none">
+                    100%
+                  </span>
+                  <span className="font-mono text-[10px] text-emerald-800 font-bold uppercase tracking-wider bg-emerald-100/80 border border-emerald-300/80 px-1.5 py-0.5 rounded">
+                    VERIFIED
+                  </span>
                 </div>
+                <p className="text-xs font-ui text-charcoal/70">
+                  Atelier mastered &amp; archived
+                </p>
               </div>
             </div>
-          </div>
 
-          {/* Interactive Category Filter Pills */}
-          <div className="mb-14">
+            {/* Bottom Atelier Mandate Ribbon */}
+            <div className="pt-6 border-t border-ink/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-ui text-charcoal/75">
+              <p className="max-w-2xl leading-relaxed">
+                Every essay is peer-reviewed by the WEDDING FILMS cinematography atelier, documented on location across Bhubaneswar, Puri, and heritage venues across Odisha.
+              </p>
+              <div className="shrink-0 inline-flex items-center gap-2 font-mono text-[11px] text-charcoal/70">
+                <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                <span>ALL {journal.length} ESSAYS SYNDICATED</span>
+              </div>
+            </div>
+          </section>
+
+          {/* ─────────────────────────────────────────────────────────────
+              INTERACTIVE CATEGORY FILTER PILLS
+              ───────────────────────────────────────────────────────────── */}
+          <div className="mb-14 sm:mb-16">
             <div className="flex items-center justify-between gap-4 flex-wrap pb-4 border-b border-ink/10">
-              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+              <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-charcoal/50 mr-1 hidden sm:inline">
+                  CATEGORY:
+                </span>
                 {categories.map((cat) => {
                   const count = getCategoryCount(cat.value);
                   const isActive = selectedCategory === cat.value;
@@ -116,19 +208,21 @@ export default function JournalPage() {
                     <button
                       key={cat.value}
                       onClick={() => setSelectedCategory(cat.value)}
-                      className={`font-mono text-xs tracking-wider uppercase px-4 py-2 rounded-full transition-all duration-200 inline-flex items-center gap-2 border ${
+                      className={cn(
+                        "font-mono text-xs tracking-wider uppercase px-4 py-2 rounded-full transition-all duration-200 inline-flex items-center gap-2 border touch-manipulation min-h-[40px]",
                         isActive
-                          ? "bg-ink text-paper border-ink font-semibold shadow-xs"
-                          : "bg-paper-warm text-charcoal/70 border-ink/10 hover:border-champagne-deep/50 hover:text-ink hover:bg-paper"
-                      }`}
+                          ? "bg-ink text-paper border-ink font-bold shadow-xs"
+                          : "bg-paper-warm text-charcoal/75 border-ink/10 hover:border-champagne-deep/50 hover:text-ink hover:bg-paper"
+                      )}
                     >
                       <span>{cat.label}</span>
                       <span
-                        className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                        className={cn(
+                          "text-[10px] px-2 py-0.5 rounded-full font-bold",
                           isActive
                             ? "bg-paper/20 text-paper"
                             : "bg-ink/5 text-charcoal/60"
-                        }`}
+                        )}
                       >
                         {count}
                       </span>
@@ -138,7 +232,7 @@ export default function JournalPage() {
               </div>
 
               <div className="font-mono text-xs text-charcoal/60 tracking-wider hidden md:block">
-                SHOWING: <span className="text-ink font-semibold">{filteredArticles.length} OF {journal.length} DISPATCHES</span>
+                SHOWING: <span className="text-ink font-bold">{filteredArticles.length} OF {journal.length} DISPATCHES</span>
               </div>
             </div>
           </div>
@@ -227,10 +321,10 @@ export default function JournalPage() {
             {leadArticle && (
               <div className="flex items-center justify-between pb-6 mb-10 border-b border-ink/10">
                 <p className="font-mono text-xs uppercase tracking-widest text-charcoal/60 font-semibold">
-                  ARCHIVAL DISPATCHES & ESSAYS ({gridArticles.length})
+                  ARCHIVAL DISPATCHES &amp; ESSAYS ({gridArticles.length})
                 </p>
                 <span className="font-mono text-xs text-champagne-deep font-semibold">
-                  ALL ENTRIES VERIFIED & LIVE
+                  ALL ENTRIES VERIFIED &amp; LIVE
                 </span>
               </div>
             )}
